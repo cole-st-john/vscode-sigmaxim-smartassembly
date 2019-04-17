@@ -1975,7 +1975,7 @@ function activate(context) {
             saFunctions.forEach(function (item) {
                 let completionItem = new vscode.CompletionItem(item[0]);
                 completionItem.label = item[0];
-                completionItem.insertText = item[0] + " ";
+                completionItem.insertText = item[0];
                 completionItem.detail = item[1];
                 completionItem.kind = vscode.CompletionItemKind.Method;
                 completionItems.push(completionItem);
@@ -1983,7 +1983,7 @@ function activate(context) {
             saKeywords.forEach(function (item) {
                 let completionItem = new vscode.CompletionItem(item);
                 completionItem.label = item;
-                completionItem.insertText = item + " ";
+                completionItem.insertText = item;
                 completionItem.kind = vscode.CompletionItemKind.Keyword;
                 completionItems.push(completionItem);
             });
