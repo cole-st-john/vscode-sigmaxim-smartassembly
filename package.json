@@ -16,7 +16,8 @@
         "configurationDefaults": {
             "[smartassembly]": {
                 "editor.insertSpaces": false,
-                "files.encoding": "windows1252"
+                "files.encoding": "windows1252",
+                "editor.renderWhitespace": "all"
             }
         },
         "languages": [
