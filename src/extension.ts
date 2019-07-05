@@ -1950,7 +1950,17 @@ export function activate(context: vscode.ExtensionContext) {
                 'Z_MAX',
                 'Z_MIN',
                 'Z_POS_CENTER',
-                'Z_SIZE'
+                'Z_SIZE',
+                'asm',
+                'asm_copy',
+                'mfg',
+                'mfg_copy',
+                'mfg_asm',
+                'mfg_asm_copy',
+                'part',
+                'part_copy',
+                'drawing'
+
             ];
 
             let saStrFunctions = [

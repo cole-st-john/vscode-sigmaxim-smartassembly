@@ -9,15 +9,16 @@
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [
-        ["(", ")"],
-        ["\"", "\""],
+        { "open": "(", "close": ")" },
+        { "open": "\"", "close": "\"" }
     ],
-    // symbols that that can be used to surround a selection
+    // symbols that can be used to surround a selection
     "surroundingPairs": [
-        ["{", "}"],
-        ["[", "]"],
         ["(", ")"],
-        ["\"", "\""],
-        ["'", "'"]
-    ]
+        ["\"", "\""]
+    ],
+    "indentationRules": {
+        "increaseIndentPattern": "^.*(ADD_CONSTRAINTS|ASSEMBLE|BEGIN|CALL_EX|CREATE_DRW_SYMBOL|CREATE_DRW_VIEW_SYMBOL|CREATE_FEATURE_RELATION|CREATE_GENERAL_MERGE|CREATE_RELATION|CREATE_SYMBOL|CREATE_UDF|FOR|IF|REMOVE_FEATURE_RELATION|REMOVE_RELATION|WHILE).*$",
+		"decreaseIndentPattern": "^.*(END|ELSE).*$"
+	}
 }
