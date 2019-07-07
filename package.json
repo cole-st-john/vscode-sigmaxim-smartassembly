@@ -19,7 +19,6 @@
                 "editor.insertSpaces": false,
                 "files.encoding": "windows1252",
                 "editor.renderWhitespace": "all",
-                "editor.suggest.snippetsPreventQuickSuggestions": false
             }
         },
         "languages": [
