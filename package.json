@@ -10,14 +10,16 @@
     },
     "icon": "smartassembly.png",
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
     "contributes": {
         "configurationDefaults": {
             "[smartassembly]": {
                 "editor.insertSpaces": false,
                 "files.encoding": "windows1252",
-                "editor.renderWhitespace": "all"
+                "editor.renderWhitespace": "all",
+                "editor.suggest.snippetsPreventQuickSuggestions": false
             }
         },
         "languages": [
@@ -38,6 +40,12 @@
                 "language": "smartassembly",
                 "scopeName": "source.smartassembly",
                 "path": "./syntaxes/smartassembly.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+              "language": "smartassembly",
+              "path": "./snippets.json"
             }
         ]
     },

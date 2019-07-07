@@ -1,0 +1,69 @@
+{
+	"BEGIN_ASM_DESCR": {
+		"prefix": "BEGIN_ASM_DESCR",
+		"body": [
+			"!==================================================",
+			"! ASSEMBLY DESCRIPTION BLOCK",
+			"!==================================================",
+			"BEGIN_ASM_DESCR",
+			"\t$0",
+			"END_ASM_DESCR"
+		],
+		"description": "Assembly description block."
+	},
+	"BEGIN_GUI_DESCR": {
+		"prefix": "BEGIN_GUI_DESCR",
+		"body": [
+			"!==================================================",
+			"! GRAPHICAL USER INTERFACE BLOCK",
+			"!==================================================",
+			"BEGIN_GUI_DESCR",
+			"\t$0",
+			"END_GUI_DESCR"
+		],
+		"description": "Graphical user interface block."
+	},
+	"BEGIN_TAB_DESCR": {
+		"prefix": "BEGIN_TAB_DESCR",
+		"body": [
+			"!==================================================",
+			"! TABLE DESCRIPTION BLOCK",
+			"!==================================================",
+			"BEGIN_TAB_DESCR",
+			"\t$0",
+			"END_TAB_DESCR"
+		],
+		"description": "Table description block."
+	},
+	"BEGIN_COMP_DESCR": {
+		"prefix": "BEGIN_COMP_DESCR",
+		"body": [
+			"!==================================================",
+			"! COMPONENT DESCRIPTION BLOCK",
+			"!==================================================",
+			"BEGIN_COMP_DESCR",
+			"\t$0",
+			"END_COMP_DESCR"
+		],
+		"description": "Component description block."
+	},
+	"BEGIN_DEP_DESCR": {
+		"prefix": "BEGIN_DEP_DESCR",
+		"body": [
+			"!==================================================",
+			"! DEPENDENCY DESCRIPTION BLOCK",
+			"!==================================================",
+			"BEGIN_DEP_DESCR",
+			"\t$0",
+			"END_DEP_DESCR"
+		],
+		"description": "Dependency description block."
+	},
+	"SEARCH_MDL_REFS": {
+		"prefix": "SEARCH_MDL_REFS",
+		"body": [
+			"SEARCH_MDL_REFS ${1:model} ${2:type} ${3:search_string} ${4:array}"
+		],
+		"description": "Searches for all named reference in a Creo Elements/Pro model."
+	}
+}
