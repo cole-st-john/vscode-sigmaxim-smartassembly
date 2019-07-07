@@ -62,8 +62,233 @@
 	"SEARCH_MDL_REFS": {
 		"prefix": "SEARCH_MDL_REFS",
 		"body": [
-			"SEARCH_MDL_REFS ${1:model} ${2:type} ${3:search_string} ${4:array}"
+			"SEARCH_MDL_REFS ${1:model} ${2:type} \"${3:search_string}\" ${4:array}",
+			"$0"
 		],
 		"description": "Searches for all named reference in a Creo Elements/Pro model."
+    },
+	"SEARCH_MDL_REF": {
+		"prefix": "SEARCH_MDL_REF",
+		"body": [
+			"SEARCH_MDL_REF ${1:model} ${2:type} \"${3:search_string}\" ${4:reference}",
+			"$0"
+		],
+		"description": "Searches for a named reference in a Creo Elements/Pro model."
+	},
+	"IF": {
+		"prefix": "IF",
+		"body": [
+			"IF ${1:condition}",
+			"\t$0",
+			"END_IF"
+		],
+		"description": "Determines if a block of code is computed or not through evaluating a condition term."
+    },
+	"FOR": {
+		"prefix": "FOR",
+		"body": [
+			"FOR ${1:reference} REF ${2:option}",
+			"\t$0",
+			"END_FOR"
+		],
+		"description": "Processes a loop over a code sequence for several references which are detected because of the specified option."
+    },
+    "WHILE": {
+		"prefix": "WHILE",
+		"body": [
+			"WHILE ${1:condition}",
+			"\t$0",
+			"END_WHILE"
+		],
+		"description": "Processes a loop over a code sequence as long as a condition is true."
+    },
+    "ASSEMBLE": {
+		"prefix": "ASSEMBLE",
+		"body": [
+			"ASSEMBLE ${1:model} ${2:target}",
+			"\t$0",
+			"END_ASSEMBLE"
+		],
+		"description": "Assembles a library component by specifying the constraints."
+    },
+    "CREATE_UDF": {
+		"prefix": "CREATE_UDF",
+		"body": [
+			"CREATE_UDF \"${1:udfname}\" ${2:model}",
+			"\t$0",
+			"END_CREATE_UDF"
+		],
+		"description": "Creates a user-defined feature with specified references and variable dimensions."
+	},
+	"CREATE_RELATION": {
+		"prefix": "CREATE_RELATION",
+		"body": [
+			"CREATE_RELATION ${1:model}",
+			"\t$0",
+			"END_CREATE_RELATION"
+		],
+		"description": "Creates a Creo Elements/Pro model relation."
+	},
+	"CREATE_FEATURE_RELATION": {
+		"prefix": "CREATE_FEATURE_RELATION",
+		"body": [
+			"CREATE_FEATURE_RELATION ${1:reference}",
+			"\t$0",
+			"END_CREATE_RELATION"
+		],
+		"description": "Creates a Creo Elements/Pro feature relation."
+	},
+	"REMOVE_RELATION": {
+		"prefix": "REMOVE_RELATION",
+		"body": [
+			"REMOVE_RELATION ${1:model}",
+			"\t$0",
+			"END_REMOVE_RELATION"
+		],
+		"description": "Removes Creo Elements/Pro feature relations."
+	},
+	"REMOVE_FEATURE_RELATION": {
+		"prefix": "REMOVE_FEATURE_RELATION",
+		"body": [
+			"REMOVE_FEATURE_RELATION ${1:reference}",
+			"\t$0",
+			"END_REMOVE_RELATION"
+		],
+		"description": "Removes Creo Elements/Pro feature relations."
+	},
+	"BEGIN_CATCH_ERROR": {
+		"prefix": "BEGIN_CATCH_ERROR",
+		"body": [
+			"BEGIN_CATCH_ERROR",
+			"\t$0",
+			"END_CATCH_ERROR"
+		],
+		"description": "Runtime errors like invalid references are causing the program to stop with an error message. This command disables the runtime error checking and continues to proceed with the next valid statements. For syntax errors the program will stop in any case."
+	},
+	"BEGIN_TABLE": {
+		"prefix": "BEGIN_TABLE",
+		"body": [
+			"BEGIN_TABLE",
+			"$0",
+			"END_TABLE"
+		],
+		"description": "Start the table definition."
+	},
+	"CALL_EX": {
+		"prefix": "CALL_EX",
+		"body": [
+			"CALL_EX \"${1:filename}\"",
+			"\t$0",
+			"END_CALL_EX"
+		],
+		"description": "Executes another script file by specifying the file name. The script file execution starts in the assembly description block."
+    },
+	"ADD_CONSTRAINTS": {
+		"prefix": "ADD_CONSTRAINTS",
+		"body": [
+			"ADD_CONSTRAINTS ${1:model}",
+			"\t$0",
+			"END_ADD_CONSTRAINTS"
+		],
+		"description": "Adds further constraints to a placed component."
+    },
+    "BEGIN_CONSTRAINT_SET": {
+		"prefix": "BEGIN_CONSTRAINT_SET",
+		"body": [
+			"BEGIN_CONSTRAINT_SET",
+			"\t$0",
+			"END_CONSTRAINT_SET"
+		],
+		"description": "Constraint sets are defined in the following manner:"
+	},
+    "BEGIN_DEBUG": {
+		"prefix": "BEGIN_DEBUG",
+		"body": [
+			"BEGIN_DEBUG",
+			"\t$0",
+			"END_DEBUG"
+		],
+		"description": "Starts debug mode when processing a tab file. After every line the user has to confirm to go on in a Creo Elements/Pro string menu via Done select or Quit select."
+	},
+	"BEGIN_SUBCOMP": {
+		"prefix": "BEGIN_SUBCOMP",
+		"body": [
+			"BEGIN_SUBCOMP",
+			"$0",
+			"END_SUBCOMP"
+		],
+		"description": "Starts debug mode when processing a tab file. After every line the user has to confirm to go on in a Creo Elements/Pro string menu via Done select or Quit select."
+	},
+	"BEGIN_SUBCOMP_INFO": {
+		"prefix": "BEGIN_SUBCOMP_INFO",
+		"body": [
+			"BEGIN_SUBCOMP_INFO",
+			"\t$0",
+			"END_SUBCOMP_INFO"
+		],
+		"description": "Distinguishes if a component description file is used as a main component or as a sub component. Elements inside BEGIN_SUBCOMP_INFO ... END_SUBCOMP_INFO are only executed in case this component description file is used because of a component description block entry."
+	},
+	"BEGIN_TOPELEM_INFO": {
+		"prefix": "BEGIN_TOPELEM_INFO",
+		"body": [
+			"BEGIN_TOPELEM_INFO",
+			"\t$0",
+			"END_TOPELEM_INFO"
+		],
+		"description": "Distinguishes if a component description file is used as a main component or as a sub component. Elements inside BEGIN_TOPELEM_INFO ... END_TOPELEM_INFO are only executed in case this component description file is used as a main component. In case it is executed because of a component description block entry, it will be ignored."
+	},
+	"CREATE_DRW_SYMBOL": {
+		"prefix": "CREATE_DRW_SYMBOL",
+		"body": [
+			"CREATE_DRW_SYMBOL ${1:refDrawing} ${2:sheet} \"${3:symbol_file}\" ${4:posX} ${5:posY}",
+			"\t$0",
+			"END_CREATE_DRW_SYMBOL"
+		],
+		"description": "Creates a drawing symbol by use of a drawing symbol file."
+	},
+	"CREATE_DRW_SYMBOL_EX": {
+		"prefix": "CREATE_DRW_SYMBOL_EX",
+		"body": [
+			"CREATE_DRW_SYMBOL_EX ${1:refDrawing} ${2:sheet} \"${3:symbol_file}\" ${4:symbol_option}",
+			"\t$0",
+			"END_CREATE_DRW_SYMBOL_EX"
+		],
+		"description": "Creates a drawing symbol by use of a drawing symbol file."
+	},
+	"CREATE_DRW_VIEW_SYMBOL": {
+		"prefix": "CREATE_DRW_VIEW_SYMBOL",
+		"body": [
+			"CREATE_DRW_VIEW_SYMBOL ${1:refView} \"${2:symbol_file}\" ${3:posX} ${4:posY}",
+			"\t$0",
+			"END_CREATE_DRW_VIEW_SYMBOL"
+		],
+		"description": "Creates a drawing symbol for a specific view by use of a drawing symbol file."
+	},
+	"CREATE_DRW_VIEW_SYMBOL_EX": {
+		"prefix": "CREATE_DRW_VIEW_SYMBOL_EX",
+		"body": [
+			"CREATE_DRW_VIEW_SYMBOL_EX ${1:refView} \"${2:symbol_file}\" ${3:symbol_option}",
+			"\t$0",
+			"END_CREATE_DRW_VIEW_SYMBOL_EX"
+		],
+		"description": "Creates a drawing symbol for a specific view by use of a drawing symbol file."
+	},
+	"CREATE_GENERAL_MERGE": {
+		"prefix": "CREATE_GENERAL_MERGE",
+		"body": [
+			"CREATE_GENERAL_MERGE ${1:source} ${2:target} ${3:general_merge_option} ${4:refGenMerge}",
+			"\t$0",
+			"END_CREATE_GENERAL_MERGE"
+		],
+		"description": "Creates merge and inheritance features."
+	},
+	"CREATE_SYMBOL": {
+		"prefix": "CREATE_SYMBOL",
+		"body": [
+			"CREATE_SYMBOL ${1:model} \"${2:symbol_file}\" ${3:symbol_option}",
+			"\t$0",
+			"END_CREATE_SYMBOL"
+		],
+		"description": "Creates a symbol in a solid model."
 	}
 }
