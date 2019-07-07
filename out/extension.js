@@ -1987,8 +1987,9 @@ function activate(context) {
             });
             saStrFunctions.forEach(function (item) {
                 let completionItem = new vscode.CompletionItem(item);
+                let snippetItem = new vscode.SnippetString(item + "($0)");
                 completionItem.label = item;
-                completionItem.insertText = item + "($0)";
+                completionItem.insertText = snippetItem;
                 completionItem.kind = vscode.CompletionItemKind.Interface;
                 completionItems.push(completionItem);
             });
