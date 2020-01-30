@@ -8,7 +8,7 @@
     "engines": {
         "vscode": "^1.32.0"
     },
-    "icon": "smartassembly.png",
+    "icon": "https://raw.githubusercontent.com/Medoune-NDOYE/vscode-language-smartassembly/master/smartassembly.png",
     "categories": [
         "Programming Languages",
         "Snippets"
