@@ -2,7 +2,7 @@
     "name": "vscode-language-smartassembly",
     "displayName": "SmartAssembly Language Support",
     "description": "Adds syntax highlighting and autocompletion for SmartAssembly (.tab) files.",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "publisher": "Medoune-NDOYE",
     "repository": "https://github.com/Medoune-NDOYE/vscode-language-smartassembly",
     "engines": {
