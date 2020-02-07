@@ -1670,7 +1670,7 @@
     },
     "FILE_SAVE_DIALOG": {
         "body": "FILE_SAVE_DIALOG",
-        "description": "Opens the Creo Parametric  file save dialog and lets the user specify a file name and location. This allows also access to connected PDMLink or Intralink sessions.",
+        "description": "Opens the Creo Parametric ï¿½file save dialog and lets the user specify a file name and location. This allows also access to connected PDMLink or Intralink sessions.",
         "prefix": "FILE_SAVE_DIALOG"
     },
     "FILE_SET_POS": {
@@ -1695,7 +1695,7 @@
     },
     "FOR": {
         "body": [
-            "FOR ${1:reference} REF ${2|ALL_INSTANCES|ALL_REFS_IN_FEAT|ARRAY|FAMINSTANCES|INTERF_MDL|INTERF_QUILT|INTERF_QUILT_SOLID|INTERF_SURF|LIST|MAP|OTHER_INSTANCES|OTHER_REFS_IN_FEAT|REVERSE_ARRAY|REVERSE_MAP} ${3:reference}",
+            "FOR ${1:reference} REF ${2|ALL_INSTANCES,ALL_REFS_IN_FEAT,ARRAY,FAMINSTANCES,INTERF_MDL,INTERF_QUILT,INTERF_QUILT_SOLID,INTERF_SURF,LIST,MAP,OTHER_INSTANCES,OTHER_REFS_IN_FEAT,REVERSE_ARRAY,REVERSE_MAP} ${3:reference}",
             "\t$0",
             "END_FOR"
         ],
@@ -4074,7 +4074,7 @@
     },
     "REMOVE_ALL_CONSTRAINTS": {
         "body": "REMOVE_ALL_CONSTRAINTS",
-        "description": "Removes all constraints of a placed component, including interface constraints. This command is available since Creo 2.0 M230 / Creo 3.0 M110 and above.",
+        "description": "Removes all constraints of a placed component, including interface constraints. This command is available since Creo 2.0 M230 / Creo 3.0 M110ï¿½and above.",
         "prefix": "REMOVE_ALL_CONSTRAINTS"
     },
     "REMOVE_COLOR_PROPS": {
@@ -5423,7 +5423,7 @@
     },
     "SUB_PICTURE": {
         "body": "SUB_PICTURE",
-        "description": "Specifies an overlaying gif image related to the  global picture in the dialog box. In case the configuration option IMAGE_GRAPHICS is set to GDIPLUS, also bmp, jpeg and tiff images can be used.",
+        "description": "Specifies an overlaying gif image related to the ï¿½global picture in the dialog box. In case the configuration option IMAGE_GRAPHICS is set to GDIPLUS, also bmp, jpeg and tiff images can be used.",
         "prefix": "SUB_PICTURE"
     },
     "SWITCH_TO_MAIN_MDL": {
