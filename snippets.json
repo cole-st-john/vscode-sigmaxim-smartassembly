@@ -5751,7 +5751,7 @@
     },
     "WEBSERVICE_CALL": {
         "body": [
-            "WEBSERVICE_CALL ${1:network_connection} ${2|GET,HEAD,POST,PUT,DELETE|} \"${3:uri}\" ${4:http_header} \"{5:data_in}\" {6:data_out}",
+            "WEBSERVICE_CALL ${1:network_connection} ${2|GET,HEAD,POST,PUT,DELETE|} \"${3:uri}\" ${4:http_header} \"${5:data_in}\" ${6:data_out}",
             "$0"
         ],
         "description": "Sends are web service request by the RESTful architecture style.",
