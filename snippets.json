@@ -1670,7 +1670,7 @@
     },
     "FILE_SAVE_DIALOG": {
         "body": "FILE_SAVE_DIALOG",
-        "description": "Opens the Creo Parametric �file save dialog and lets the user specify a file name and location. This allows also access to connected PDMLink or Intralink sessions.",
+        "description": "Opens the Creo Parametric file save dialog and lets the user specify a file name and location. This allows also access to connected PDMLink or Intralink sessions.",
         "prefix": "FILE_SAVE_DIALOG"
     },
     "FILE_SET_POS": {
@@ -3591,6 +3591,86 @@
         "description": "Executes a task of a loaded J-Link application.",
         "prefix": "JLINK_TASK_EXEC"
     },
+    "JSON_COMPOSE_PATH": {
+        "body": "JSON_COMPOSE_PATH",
+        "description": "Zooms to a reference in the current model on the screen.",
+        "prefix": "JSON_COMPOSE_PATH"
+    },
+    "JSON_DOCUMENT_TO_STRING": {
+        "body": "JSON_DOCUMENT_TO_STRING",
+        "description": "Converts an existing JSON document to a string.",
+        "prefix": "JSON_DOCUMENT_TO_STRING"
+    },
+    "JSON_GET_ARRAY_ELEMS": {
+        "body": "JSON_GET_ARRAY_ELEMS",
+        "description": "Retrieves the paths of all JSON array elements in an array.",
+        "prefix": "JSON_GET_ARRAY_ELEMS"
+    },
+    "JSON_GET_ARRAY_SIZE": {
+        "body": "JSON_GET_ARRAY_SIZE",
+        "description": "Retrieves the number of all JSON array elements.",
+        "prefix": "JSON_GET_ARRAY_SIZE"
+    },
+    "JSON_GET_NEXT_ARRAY_ELEM": {
+        "body": "JSON_GET_NEXT_ARRAY_ELEM",
+        "description": "Retrieves path to create the next JSON array element.",
+        "prefix": "JSON_GET_NEXT_ARRAY_ELEM"
+    },
+    "JSON_GET_OBJECT_MEMBERS": {
+        "body": "JSON_GET_OBJECT_MEMBERS",
+        "description": "Retrieves the paths of all JSON object members in an array.",
+        "prefix": "JSON_GET_OBJECT_MEMBERS"
+    },
+    "JSON_GET_TYPE": {
+        "body": "JSON_GET_TYPE",
+        "description": "Retrieves the type of a JSON value.",
+        "prefix": "JSON_GET_TYPE"
+    },
+    "JSON_GET_VALUE": {
+        "body": "JSON_GET_VALUE",
+        "description": "Reads a value from a JSON document by specifying its path.",
+        "prefix": "JSON_GET_VALUE"
+    },
+    "JSON_INIT_DOCUMENT": {
+        "body": "JSON_INIT_DOCUMENT",
+        "description": "Initializes a JSON document from string.",
+        "prefix": "JSON_INIT_DOCUMENT"
+    },
+    "JSON_LOAD_DOCUMENT": {
+        "body": "JSON_LOAD_DOCUMENT",
+        "description": "Loads a JSON document from file.",
+        "prefix": "JSON_LOAD_DOCUMENT"
+    },
+    "JSON_NEW_DOCUMENT": {
+        "body": "JSON_NEW_DOCUMENT",
+        "description": "Creates a new empty JSON document.",
+        "prefix": "JSON_NEW_DOCUMENT"
+    },
+    "JSON_SAVE_DOCUMENT": {
+        "body": "JSON_SAVE_DOCUMENT",
+        "description": "Saves a JSON document to disk.",
+        "prefix": "JSON_SAVE_DOCUMENT"
+    },
+    "JSON_SET_ARRAY": {
+        "body": "JSON_SET_ARRAY",
+        "description": "Creates an array in a JSON document by specifying its path.",
+        "prefix": "JSON_SET_ARRAY"
+    },
+    "JSON_SET_NULL": {
+        "body": "JSON_SET_NULL",
+        "description": "Creates a null value in a JSON document by specifying its path.",
+        "prefix": "JSON_SET_NULL"
+    },
+    "JSON_SET_OBJECT": {
+        "body": "JSON_SET_OBJECT",
+        "description": "Creates an object in a JSON document by specifying its path.",
+        "prefix": "JSON_SET_OBJECT"
+    },
+    "JSON_SET_VALUE": {
+        "body": "JSON_SET_VALUE",
+        "description": "Creates a value in a JSON document by specifying its path and value.",
+        "prefix": "JSON_SET_VALUE"
+    },
     "LINK_SKETCH": {
         "body": "LINK_SKETCH",
         "description": "Redefines the sketch of a feature according to the shape of a surface or curve by adjusting the sketch. No dependency to the source surface or curve is created.",
@@ -4074,7 +4154,7 @@
     },
     "REMOVE_ALL_CONSTRAINTS": {
         "body": "REMOVE_ALL_CONSTRAINTS",
-        "description": "Removes all constraints of a placed component, including interface constraints. This command is available since Creo 2.0 M230 / Creo 3.0 M110�and above.",
+        "description": "Removes all constraints of a placed component, including interface constraints. This command is available since Creo 2.0 M230 / Creo 3.0 M110and above.",
         "prefix": "REMOVE_ALL_CONSTRAINTS"
     },
     "REMOVE_COLOR_PROPS": {
@@ -5423,7 +5503,7 @@
     },
     "SUB_PICTURE": {
         "body": "SUB_PICTURE",
-        "description": "Specifies an overlaying gif image related to the �global picture in the dialog box. In case the configuration option IMAGE_GRAPHICS is set to GDIPLUS, also bmp, jpeg and tiff images can be used.",
+        "description": "Specifies an overlaying gif image related to the global picture in the dialog box. In case the configuration option IMAGE_GRAPHICS is set to GDIPLUS, also bmp, jpeg and tiff images can be used.",
         "prefix": "SUB_PICTURE"
     },
     "SWITCH_TO_MAIN_MDL": {
@@ -5668,6 +5748,14 @@
         "body": "WAIT_FOR_FILE",
         "description": "Waits until a file is created.",
         "prefix": "WAIT_FOR_FILE"
+    },
+    "WEBSERVICE_CALL": {
+        "body": [
+            "WEBSERVICE_CALL ${1:network_connection} ${2|GET,HEAD,POST,PUT,DELETE|} \"${3:uri}\" ${4:http_header} \"{5:data_in}\" {6:data_out}",
+            "$0"
+        ],
+        "description": "Sends are web service request by the RESTful architecture style.",
+        "prefix": "WEBSERVICE_CALL"
     },
     "WHILE": {
         "body": [
