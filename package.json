@@ -12,7 +12,29 @@
 	"engines": {
 		"vscode": "^1.75.0"
 	},
+	
+	"activationEvents": [],
+	"main": "./out/sigmaxim_commands.js",
 	"contributes": {
+
+		"configuration": {
+			"title": "Configuration Settings for Sigmaxim Extension",
+			"properties": {
+			  "vscode-sigmaxim-smartassembly.saChmPath": {
+				"type": "string",
+				"default": "C:/Users/info/OneDrive/1.ddc/3.%20SIGMAXIM/HELP_LINK/AdminGuide.chm",
+				"description":  "SA Help CHM - Full Path"
+			  }	, 
+			  "vscode-sigmaxim-smartassembly.sdsChmPath": {
+				"type": "string",
+				"default": "E:/FILES/SIGMAXIM/SmartDesignServer9000/docu/usascii/SmartDesignServer/SmartDesignServer.chm",
+				"description":  "SDS Help CHM - Full Path"
+			  }	
+			
+		}},
+
+		
+
 		"languages": [
 			{
 				"id": "tab",
@@ -189,7 +211,7 @@
 				"title": "SA: Creating local SEL_LIST and populating"
 			}
 		],
-		"main": "./out/sigmaxim_commands.js",
+		
 		"themes": [
 			{
 				"label": "TAB",
@@ -204,19 +226,21 @@
 				"editor.renderWhitespace": "all",
 				"files.autoGuessEncoding": false
 			}
-		},
-		"scripts": {
-			"vscode:prepublish": "npm run compile",
-			"compile": "tsc -p ./",
-			"watch": "tsc -watch -p ./",
-			"postinstall": "node ./node_modules/vscode/bin/install"
-		},
-		"devDependencies": {
-			"@types/node": "^10.12.18",
-			"tslint": "^5.11.1",
-			"typescript": "^3.2.4",
-			"vscode": "^1.1.27"
 		}
+
+	},
+
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/node": "^18.15.11",
+		"vscode": "^1.1.37",
+		"tslint": "^5.11.1",
+		"typescript": "^3.2.4"
 	},
 	"dependencies": {
 		"fs": "^0.0.1-security",

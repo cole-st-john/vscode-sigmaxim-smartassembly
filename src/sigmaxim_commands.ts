@@ -4,6 +4,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
 
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -12,9 +13,11 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "vscode-sigmaxim-smartassembly" is now active!');
 
-
-
-
+	// Define the configuration settings that you want to retrieve
+	const configuration = vscode.workspace.getConfiguration('vscode-sigmaxim-smartassembly');
+	// console.log(configuration);
+	const saChmPath = configuration.get<string>('saChmPath');
+	// console.log(saChmPath);
 
 
 	// THE CHM COMMAND HERE
@@ -27,14 +30,32 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
         const selection = editor.selection;
-        const text = editor.document.getText(selection);
-		console.log(text);
+        // const text = editor.document.getText(selection);
+
+		const document = editor.document;
+
+		let text: string;
+
+		if (!selection.isEmpty) {
+			// Get the selected text
+			text = document.getText(selection);
+		} else {
+			// Get the word at the cursor position
+			const position = editor.selection.active;
+			const wordRange = document.getWordRangeAtPosition(position);
+			if (!wordRange) {
+				vscode.window.showErrorMessage('No word selected or no word found at cursor.');
+				return;
+			}
+			text = document.getText(wordRange);
+		}
+		// console.log(text);
 		// console.log('sending text');
         const terminal = vscode.window.createTerminal();
         // terminal.sendText("C:/Users/info/OneDrive/1.ddc/3.%20SIGMAXIM/HELP_LINK/AdminGuide.chm::/CMD_"+text+".htm");
-        terminal.sendText("start hh.exe C:/Users/info/OneDrive/1.ddc/3.%20SIGMAXIM/HELP_LINK/AdminGuide.chm::/CMD_"+text+".htm");
+        terminal.sendText("start hh.exe "+saChmPath+"::/CMD_"+text+".htm");
         terminal.sendText('\r');
-		vscode.window.showInformationMessage('Showed Admin Guide for: '+text);
+		vscode.window.showInformationMessage('SA Admin Guide for: '+text+' opened.');
 	});
 
 
