@@ -1,0 +1,50 @@
+{
+
+  "name": "sds_cfg",
+  "scopeName": "source.sds_cfg",
+  "fileTypes": [
+    ".cfg"
+  ],
+  "patterns": [
+    {
+      "name": "comment.line.sds_cfg",
+      "match": "!.*$"
+    },
+
+    {
+      "name": "string.quoted.double.sds_cfg",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.special.sds_cfg",
+          "match": "(\\\\r|\\\\n|\\\\t|\\\\f|\\\\v|\\\\b|\\\\B|\\\\d|\\\\D)"
+        }
+
+      ]
+    },
+
+    {
+      "name": "keyword.control.sds_cfg",
+      "match": "\\b(YES|NO|SDS_ACCOUNT|SDS|COM|JP|JPL|SA|ACCOUNT_USER|ALTERNATE_USER|TEXT_FILE|TEXT_LINE|xml|txt)\\b"
+    },
+    {
+      "name": "entity.name.function.sds_cfg",
+      "match": "^\\s*(ADD_JOB_DIR|ADD_MULTI_JOB_DIR|CLEANUP_PROE_CACHE_EXPIRATION|DELETE_FAILED_JOBS|DELETE_PROCESSED_JOBS|ENABLE_IPV4|ENABLE_IPV6|ERASEALL_AFTER_JOB|ERASEALL_BEFORE_JOB|FAILURE_RETRIES|LOG_JOB_DETAILS|LOG_TRAIL|MASTER_SERVER|NETWORK_TIMEOUT|PROCESS_JOBS|PROE_CACHE_DIR|PROE_START_CMD|PROE_START_DIR|PULL_JOBS|PURGE_DELETED_JOBS|PUSH_JOBS|SDS_ACCOUNT|SERVER_CERTIFICATE_KEY|SERVER_CERTIFICATION_FILE|SERVER_PORT|SERVICE_GRAPHICS_MODE|SHUTDOWN_CYCLE|STARTUP_TEMP_MDL|STARTUP_TIMEOUT|TASK_KILL|USE_CACHE_TEMPLATE|USE_SSL|VERBOSE|VERIFY_CERTIFICATE)\\b"
+    },
+
+    {
+      "name": "constant.numeric.sds_cfg",
+      "match": "\\b\\-{0,1}\\d+\\b"
+    },
+    {
+      "name": "keyword.operator.sds_cfg",
+      "match": "[\\\\\\-\\*\\/\\^\\+;\\=\\>\\<\\@]"
+    },
+    {
+      "name": "keyword.other.sds_cfg",
+      "match": "\\b((ilcs:|ilws:|lib:|working_dir:|wtpub:|wtws:).*?)\\s"
+    }
+  ]
+
+}

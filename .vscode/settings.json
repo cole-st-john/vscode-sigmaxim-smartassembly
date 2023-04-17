@@ -1,4 +1,6 @@
 {
-	"editor.insertSpaces": false,
-	"files.encoding": "windows1252"
+    "editor.tokenColorCustomizations": {
+        "comments": "",
+        "textMateRules": []
+    }
 }

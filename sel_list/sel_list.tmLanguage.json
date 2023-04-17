@@ -1,0 +1,27 @@
+{
+  "name": "sel_list",
+  "scopeName": "source.sel_list",
+  "fileTypes": [
+    ".sel_list"
+  ],
+  "patterns": [
+    {
+      "name": "comment.line.sel_list",
+      "match": "!.*$"
+    },
+    {
+      "name": "keyword.control.sel_list",
+      "match": "\\b(DIR|UDF|LINK)\\b"
+    },
+
+    {
+      "name": "keyword.other.sel_list",
+      "match": "\\b(HIDE)\\b"
+    },
+    {
+      "name": "keyword.other.tab",
+      "match": "(?<=\\b)(([a-zA-Z]:|ilcs:|ilws:|lib:|working_dir:|wtpub:|wtws:).*?)(?=\\+|\\s|$)"
+    }
+
+  ]
+}

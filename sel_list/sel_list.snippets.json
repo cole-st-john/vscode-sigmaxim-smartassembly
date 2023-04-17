@@ -1,0 +1,7 @@
+{
+
+"PARTNAMES_SEPARATOR": {"prefix":"PARTNAMES_SEPARATOR","body": ["PARTNAMES_SEPARATOR ${1:SYMBOL}"],"description":"PARTNAMES_SEPARATOR\n<any symbol>—uses symbol as part name separator.\n\nDefaults to _ *"},
+
+}
+
+

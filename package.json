@@ -1,67 +1,221 @@
 {
-    "name": "vscode-language-smartassembly",
-    "displayName": "SmartAssembly Language Support",
-    "description": "Adds syntax highlighting and autocompletion for SmartAssembly (.tab) files.",
-    "version": "0.2.12",
-    "publisher": "Medoune-NDOYE",
-    "repository": "https://github.com/Medoune-NDOYE/vscode-language-smartassembly",
-    "engines": {
-        "vscode": "^1.32.0"
-    },
-    "icon": "smartassembly.png",
-    "categories": [
-        "Programming Languages",
-        "Snippets"
-    ],
-    "contributes": {
-        "configurationDefaults": {
-            "[smartassembly]": {
-                "editor.insertSpaces": false,
-                "files.encoding": "windows1252",
-                "editor.renderWhitespace": "all"
-            }
-        },
-        "languages": [
-            {
-                "id": "smartassembly",
-                "aliases": [
-                    "SmartAssembly",
-                    "smartassembly"
-                ],
-                "extensions": [
-                    ".tab"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "smartassembly",
-                "scopeName": "source.smartassembly",
-                "path": "./syntaxes/smartassembly.tmLanguage.json"
-            }
-        ],
-        "snippets": [
-            {
-                "language": "smartassembly",
-                "path": "./snippets.json"
-            }
-        ]
-    },
-    "activationEvents": [
-        "*"
-    ],
-    "main": "./out/extension.js",
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install"
-    },
-    "devDependencies": {
-        "@types/node": "^10.12.18",
-        "tslint": "^5.11.1",
-        "typescript": "^3.2.4",
-        "vscode": "^1.1.27"
-    }
+	"name": "vscode-sigmaxim-smartassembly",
+	"displayName": "Sigmaxim SmartAssembly Language Support",
+	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly).",
+  "version": "0.0.1",
+	"publisher": "Cole-St-John",
+	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
+	"categories": [
+		"Programming Languages",
+		"Snippets"
+	],
+	"engines": {
+    "vscode": "^1.75.0"
+  	},
+
+  
+
+  "contributes": {
+
+
+		"languages": [
+			{
+				"id": "tab",
+				"aliases": ["smart assembly", "tab","sds"],
+				"extensions": [".tab"],
+				"configuration": "./tab/tab_language_configuration.json"
+			},
+			{
+				"id": "sel_list",
+				"aliases": ["sel_list.txt"],
+				"extensions": ["sel_list.txt",".txt"],
+				"configuration": "./sel_list/sel_list_language_configuration.json"
+			},
+			{
+				"id": "sa_cfg",
+				"aliases": ["smart assembly config", "sa cfg"],
+				"extensions": [".cfg"],
+				"configuration": "./sa_cfg/sa_cfg_language_configuration.json"
+			},
+			{
+				"id": "sds_cfg",
+				"aliases": ["smartdesignserver config", "sds cfg"],
+				"extensions": [".cfg"],
+				"configuration": "./sds_cfg/sds_cfg_language_configuration.json"
+			},
+			{
+				"id": "creo_pro",
+				"aliases": ["creo config", "config.pro"],
+				"extensions": [".pro"],
+				"configuration": "./creo_pro/creo_pro_language_configuration.json"
+			},
+			{
+				"id": "creo_dtl",
+				"aliases": ["creo detail options", "dtl"],
+				"extensions": [".dtl"],
+				"configuration": "./creo_dtl/creo_dtl_language_configuration.json"
+			}
+		],
+
+
+		"grammars": [
+			{
+				"language": "tab",
+				"scopeName": "source.tab",
+				"path": "./tab/tab.tmlanguage.json"
+			},
+			{
+				"language": "sel_list",
+				"scopeName": "source.sel_list",
+				"path": "./sel_list/sel_list.tmlanguage.json"
+			},
+			{
+				"language": "sa_cfg",
+				"scopeName": "source.sa_cfg",
+				"path": "./sa_cfg/sa_cfg.tmlanguage.json"
+			},
+			{
+				"language": "sds_cfg",
+				"scopeName": "source.sds_cfg",
+				"path": "./sds_cfg/sds_cfg.tmlanguage.json"
+			},
+			{
+				"language": "creo_pro",
+				"scopeName": "source.creo_pro",
+				"path": "./creo_pro/creo_pro.tmlanguage.json"
+			},
+			{
+				"language": "creo_dtl",
+				"scopeName": "source.creo_dtl",
+				"path": "./creo_dtl/creo_dtl.tmlanguage.json"
+			}
+		],	
+	
+		"snippets": [
+			{
+				"language": "tab",
+				"path": "./tab/tab.snippets.json"
+			},
+			{
+				"language": "sel_list",
+				"path": "./sel_list/sel_list.snippets.json"
+			},
+			{
+				"language": "sa_cfg",
+				"path": "./sa_cfg/sa_cfg.snippets.json"
+			},
+			{
+				"language": "sds_cfg",
+				"path": "./sds_cfg/sds_cfg.snippets.json"
+			},
+			{
+				"language": "creo_pro",
+				"path": "./creo_pro/creo_pro.snippets.json"
+			},
+			{
+				"language": "creo_dtl",
+				"path": "./creo_dtl/creo_dtl.snippets.json"
+			}
+		],
+
+
+		"hoverProvider": [
+			{
+			  "language": "tab",
+			  "path": "./tab/tab.hoverprovider.js"
+			},
+			{
+			  "language": "sel_list",
+			  "path": "./sel_list/sel_list.hoverprovider.js"
+			},
+			{
+			  "language": "sa_cfg",
+			  "path": "./sa_cfg/sa_cfg.hoverprovider.js"
+			},
+			{
+				"language": "sds_cfg",
+				"path": "./sds_cfg/sds_cfg.hoverprovider.js"
+			},
+			{
+			"language": "creo_pro",
+			"path": "./creo_pro/creo_pro.hoverprovider.js"
+			},
+			{
+			"language": "creo_dtl",
+			"path": "./creo_dtl/creo_dtl.hoverprovider.js"
+			}
+		],
+
+
+		"icon": "images/smartassembly.png",
+		
+
+		"commands": [
+			{
+				"command": "vscode-sigmaxim-smartassembly.saHelp",
+				"title": "SA: Opening SA Help"
+			},
+			{
+				"command": "vscode-sigmaxim-smartassembly.selListReorganization",
+				"title": "SA: Reorganize Sel-List"
+			},
+			{
+				"command": "vscode-sigmaxim-smartassembly.printVariable",
+				"title": "SA: Print Variable"
+			},
+			{
+				"command": "vscode-sigmaxim-smartassembly.quickPackaging",
+				"title": "SA: Creating SEL_LIST and populating"
+			},
+			{
+				"command": "vscode-sigmaxim-smartassembly.localSelList",
+				"title": "SA: Creating local SEL_LIST and populating"
+			}
+		],
+
+
+		"main":  "./out/sigmaxim_commands.js",
+
+		"themes": [
+			{
+				"label": "TAB",
+				"uiTheme": "hc-black",
+				"path": "./tab/tab_color_theme.json"
+			}
+		],
+
+		"configurationDefaults": {
+			"[tab]": {
+				"editor.insertSpaces": false,
+				"files.encoding": "windows1252",
+				"editor.renderWhitespace": "all",
+				"files.autoGuessEncoding": false
+			}
+		},
+
+
+
+
+
+		"scripts": {
+			"vscode:prepublish": "npm run compile",
+			"compile": "tsc -p ./",
+			"watch": "tsc -watch -p ./",
+			"postinstall": "node ./node_modules/vscode/bin/install"
+		},
+		"devDependencies": {
+			"@types/node": "^10.12.18",
+			"tslint": "^5.11.1",
+			"typescript": "^3.2.4",
+			"vscode": "^1.1.27"
+		}
+			
+			
+
+
+
 }
+
+}
+
+
