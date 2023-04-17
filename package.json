@@ -2,7 +2,7 @@
 	"name": "vscode-sigmaxim-smartassembly",
 	"displayName": "Sigmaxim SmartAssembly Language Support",
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly).",
-  "version": "0.0.1",
+	"version": "0.0.1",
 	"publisher": "Cole-St-John",
 	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"categories": [
@@ -10,54 +10,78 @@
 		"Snippets"
 	],
 	"engines": {
-    "vscode": "^1.75.0"
-  	},
-
-  
-
-  "contributes": {
-
-
+		"vscode": "^1.75.0"
+	},
+	"contributes": {
 		"languages": [
 			{
 				"id": "tab",
-				"aliases": ["smart assembly", "tab","sds"],
-				"extensions": [".tab"],
+				"aliases": [
+					"smart assembly",
+					"tab",
+					"sds"
+				],
+				"extensions": [
+					".tab"
+				],
 				"configuration": "./tab/tab_language_configuration.json"
 			},
 			{
 				"id": "sel_list",
-				"aliases": ["sel_list.txt"],
-				"extensions": ["sel_list.txt",".txt"],
+				"aliases": [
+					"sel_list.txt"
+				],
+				"extensions": [
+					"sel_list.txt",
+					".txt"
+				],
 				"configuration": "./sel_list/sel_list_language_configuration.json"
 			},
 			{
 				"id": "sa_cfg",
-				"aliases": ["smart assembly config", "sa cfg"],
-				"extensions": [".cfg"],
+				"aliases": [
+					"smart assembly config",
+					"sa cfg"
+				],
+				"extensions": [
+					".cfg"
+				],
 				"configuration": "./sa_cfg/sa_cfg_language_configuration.json"
 			},
 			{
 				"id": "sds_cfg",
-				"aliases": ["smartdesignserver config", "sds cfg"],
-				"extensions": [".cfg"],
+				"aliases": [
+					"smartdesignserver config",
+					"sds cfg"
+				],
+				"extensions": [
+					".cfg"
+				],
 				"configuration": "./sds_cfg/sds_cfg_language_configuration.json"
 			},
 			{
 				"id": "creo_pro",
-				"aliases": ["creo config", "config.pro"],
-				"extensions": [".pro"],
+				"aliases": [
+					"creo config",
+					"config.pro"
+				],
+				"extensions": [
+					".pro"
+				],
 				"configuration": "./creo_pro/creo_pro_language_configuration.json"
 			},
 			{
 				"id": "creo_dtl",
-				"aliases": ["creo detail options", "dtl"],
-				"extensions": [".dtl"],
+				"aliases": [
+					"creo detail options",
+					"dtl"
+				],
+				"extensions": [
+					".dtl"
+				],
 				"configuration": "./creo_dtl/creo_dtl_language_configuration.json"
 			}
 		],
-
-
 		"grammars": [
 			{
 				"language": "tab",
@@ -89,8 +113,7 @@
 				"scopeName": "source.creo_dtl",
 				"path": "./creo_dtl/creo_dtl.tmlanguage.json"
 			}
-		],	
-	
+		],
 		"snippets": [
 			{
 				"language": "tab",
@@ -117,39 +140,33 @@
 				"path": "./creo_dtl/creo_dtl.snippets.json"
 			}
 		],
-
-
 		"hoverProvider": [
 			{
-			  "language": "tab",
-			  "path": "./tab/tab.hoverprovider.js"
+				"language": "tab",
+				"path": "./tab/tab.hoverprovider.js"
 			},
 			{
-			  "language": "sel_list",
-			  "path": "./sel_list/sel_list.hoverprovider.js"
+				"language": "sel_list",
+				"path": "./sel_list/sel_list.hoverprovider.js"
 			},
 			{
-			  "language": "sa_cfg",
-			  "path": "./sa_cfg/sa_cfg.hoverprovider.js"
+				"language": "sa_cfg",
+				"path": "./sa_cfg/sa_cfg.hoverprovider.js"
 			},
 			{
 				"language": "sds_cfg",
 				"path": "./sds_cfg/sds_cfg.hoverprovider.js"
 			},
 			{
-			"language": "creo_pro",
-			"path": "./creo_pro/creo_pro.hoverprovider.js"
+				"language": "creo_pro",
+				"path": "./creo_pro/creo_pro.hoverprovider.js"
 			},
 			{
-			"language": "creo_dtl",
-			"path": "./creo_dtl/creo_dtl.hoverprovider.js"
+				"language": "creo_dtl",
+				"path": "./creo_dtl/creo_dtl.hoverprovider.js"
 			}
 		],
-
-
 		"icon": "images/smartassembly.png",
-		
-
 		"commands": [
 			{
 				"command": "vscode-sigmaxim-smartassembly.saHelp",
@@ -172,10 +189,7 @@
 				"title": "SA: Creating local SEL_LIST and populating"
 			}
 		],
-
-
-		"main":  "./out/sigmaxim_commands.js",
-
+		"main": "./out/sigmaxim_commands.js",
 		"themes": [
 			{
 				"label": "TAB",
@@ -183,7 +197,6 @@
 				"path": "./tab/tab_color_theme.json"
 			}
 		],
-
 		"configurationDefaults": {
 			"[tab]": {
 				"editor.insertSpaces": false,
@@ -192,11 +205,6 @@
 				"files.autoGuessEncoding": false
 			}
 		},
-
-
-
-
-
 		"scripts": {
 			"vscode:prepublish": "npm run compile",
 			"compile": "tsc -p ./",
@@ -209,13 +217,9 @@
 			"typescript": "^3.2.4",
 			"vscode": "^1.1.27"
 		}
-			
-			
-
-
-
+	},
+	"dependencies": {
+		"fs": "^0.0.1-security",
+		"path": "^0.12.7"
+	}
 }
-
-}
-
-
