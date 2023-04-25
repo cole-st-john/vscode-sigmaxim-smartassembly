@@ -2,7 +2,7 @@
 
 Visual Studio Code plugin that provides various kinds of support for "Rules Perfect" automation projects.
 
-![auto complete](https://github.com/cole-st-john/vscode-sigmaxim-smartassembly/images/automation.gif)
+![Automation](images/automation.gif)
 
 ## Features
 
