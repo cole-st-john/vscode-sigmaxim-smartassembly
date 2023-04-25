@@ -139,6 +139,7 @@ function activate(context) {
     });
     // CREATING LOCAL PATH SEL_LIST.txt
     let localSelList = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.localSelList', () => {
+        vscode.window.showInformationMessage('Building an updated Sel_list.txt file...');
         // 1. Get path and file name/extension
         const activeEditor = vscode.window.activeTextEditor;
         if (!activeEditor) {
@@ -150,6 +151,7 @@ function activate(context) {
         const currentFileDirPath = path.dirname(filePath);
         // 2. Look for sel_list.txt
         const selListPath = path.join(path.dirname(filePath), 'sel_list.txt');
+        console.log(selListPath);
         // 3. Create sel_list.txt if it doesn't exist
         if (!fs.existsSync(selListPath)) {
             fs.writeFileSync(selListPath, '');
@@ -164,30 +166,41 @@ function activate(context) {
         }
         // Search for all .tab files in the directory
         const filesInDirectory = fs.readdirSync(currentFileDirPath);
+        // console.log(filesInDirectory);
         let allFiles = [];
         let allSubDir = [];
         for (const file of filesInDirectory) {
-            // const filePath = path.join(currentFileDirPath, file);
-            const isDirectory = fs.statSync(filePath).isDirectory();
-            // if (!isDirectory && file.endsWith('.tab')) {
-            if (file.endsWith('.tab')) {
-                // console.log(file);
+            const subfilepath = path.join(currentFileDirPath, file);
+            const isDirectory = fs.statSync(subfilepath).isDirectory();
+            console.log('subfilepath', subfilepath);
+            console.log('directory', isDirectory);
+            // Add all the tab file names to a list
+            if (!isDirectory && file.endsWith('.tab')) {
+                console.log('tab:', file);
                 allFiles.push(file);
             }
+            console.log('makes it here');
             if (isDirectory) {
-                // console.log(file);
-                const subdirectoryPath = path.join(filePath, file);
-                const filesInSubDirectory = fs.readdirSync(subdirectoryPath);
-                for (const file of filesInSubDirectory) {
-                    const filePath = path.join(subdirectoryPath, file);
-                    const isDirectory = fs.statSync(filePath).isDirectory();
-                    if (!isDirectory && file.endsWith('.tab')) {
+                // const subdirectoryPath = path.join(subfilepath, file);
+                console.log('subdir:', subfilepath);
+                const filesInSubDirectory = fs.readdirSync(subfilepath);
+                console.log('innerloop');
+                innerloop: for (const subFile of filesInSubDirectory) {
+                    console.log(subFile, 'here');
+                    const subsubFilePath = path.join(subfilepath, subFile);
+                    const isSubDirectory = fs.statSync(subsubFilePath).isDirectory();
+                    console.log('sub dir:', isSubDirectory);
+                    if (!isSubDirectory && subFile.endsWith('.tab')) {
+                        console.log('subfile:', subFile);
+                        console.log('file:', file);
                         allSubDir.push(file);
+                        break innerloop;
                     }
                 }
             }
         }
         console.log(allFiles);
+        console.log(allSubDir);
         for (const file of allFiles) {
             // Check if filename exists in sel_list.txt
             const [fileName, fileExt] = file.split('.');
@@ -200,16 +213,46 @@ function activate(context) {
                 fs.appendFileSync(selListPath, `${newLine}\n`);
             }
         }
+        for (const file of allSubDir) {
+            // Check if filename exists in sel_list.txt
+            const regex = new RegExp(`^\\s*${file}\\s\.*DIR.*`, 'mi');
+            const found = selListContent.match(regex);
+            console.log(file);
+            // Add dir to sel_list.txt if not found
+            if (!found) {
+                console.log('not found');
+                const newLine = `${file}      DIR`;
+                fs.appendFileSync(selListPath, `${newLine}\n`);
+            }
+        }
         // Open sel_list.txt in VS Code
         vscode.workspace.openTextDocument(selListPath).then(doc => {
             vscode.window.showTextDocument(doc);
         });
+    });
+    // PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
+    let removeEmptyLines = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.removeEmptyLines', () => {
+        // 1. Get path and file name/extension
+        const activeEditor = vscode.window.activeTextEditor;
+        if (!activeEditor) {
+            vscode.window.showErrorMessage('No active editor window.');
+            return;
+        }
+        if (activeEditor) {
+            const text = activeEditor.document.getText();
+            const updatedText = text.replace(/^\s*[\r\n]/gm, '');
+            activeEditor.edit(editBuilder => {
+                const fullRange = new vscode.Range(activeEditor.document.positionAt(0), activeEditor.document.positionAt(text.length));
+                editBuilder.replace(fullRange, updatedText);
+            });
+        }
     });
     context.subscriptions.push(saHelp);
     context.subscriptions.push(saPrintVariable);
     context.subscriptions.push(selListReorganization);
     context.subscriptions.push(quickPackaging);
     context.subscriptions.push(localSelList);
+    context.subscriptions.push(removeEmptyLines);
 }
 exports.activate = activate;
 // This method is called when your extension is deactivated

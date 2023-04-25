@@ -4,6 +4,7 @@
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly).",
 	"version": "0.0.1",
 	"publisher": "Cole-St-John",
+	"homepage": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"categories": [
 		"Programming Languages",
@@ -14,6 +15,7 @@
 	},
 	
 	"activationEvents": [],
+	"icon": "images/smartassembly.png",
 	"main": "./out/sigmaxim_commands.js",
 	"contributes": {
 
@@ -29,8 +31,17 @@
 				"type": "string",
 				"default": "E:/FILES/SIGMAXIM/SmartDesignServer9000/docu/usascii/SmartDesignServer/SmartDesignServer.chm",
 				"description":  "SDS Help CHM - Full Path"
-			  }	
-			
+			  }	 , 
+			  "vscode-sigmaxim-smartassembly.saLibraryTestingFolderPath": {
+				"type": "string",
+				"default": "C:/Users/info/OneDrive/1.ddc/3. SIGMAXIM/Library/CURRENT/Component_engine/TEST",
+				"description":  "SA Library - Path to a Folder Dedicated to Quick Testing of Applications"
+			  }	,
+			  "vscode-sigmaxim-smartassembly.saLibraryRootPath": {
+				"type": "string",
+				"default": "C:/Users/info/OneDrive/1.ddc/3. SIGMAXIM/Library/CURRENT/Component_engine/TEST",
+				"description":  "SA Library - Path to Root Library Path (containing Component_Engine folder)"
+			  }				
 		}},
 
 		
@@ -88,7 +99,7 @@
 					"config.pro"
 				],
 				"extensions": [
-					".pro"
+					".pro", ".sup"
 				],
 				"configuration": "./creo_pro/creo_pro_language_configuration.json"
 			},
@@ -209,6 +220,10 @@
 			{
 				"command": "vscode-sigmaxim-smartassembly.localSelList",
 				"title": "SA: Creating local SEL_LIST and populating"
+			},
+			{
+				"command": "vscode-sigmaxim-smartassembly.removeEmptyLines",
+				"title": "Productivity: Remove Empty Lines"
 			}
 		],
 		
@@ -226,7 +241,13 @@
 				"editor.renderWhitespace": "all",
 				"files.autoGuessEncoding": false
 			}
-		}
+		},
+		"recommendations": [
+			"ms-vsliveshare.vsliveshare",
+			"DotJoshJohnson.xml",
+			"ZainChen.json",
+			"outofsync42.select-compare-tabs"
+		  ]
 
 	},
 

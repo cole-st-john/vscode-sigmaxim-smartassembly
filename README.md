@@ -1,37 +1,37 @@
+# Sigmaxim - Support for "Rules Perfect" automation projects.
+
+Visual Studio Code plugin that provides various kinds of support for "Rules Perfect" automation projects.
+
+![auto complete](https://github.com/cole-st-john/vscode-sigmaxim-smartassembly/images/automation.gif)
+
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-For example if there is an image subfolder under your extension project workspace:
+\!\[Syntax Highlighting for .tab,sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.\]\(images/syntax_highlighting.gif\)
 
-\!\[feature X\]\(images/feature-x.png\)
+\!\[Autocompletion for .tab,sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.\]\(images/autocompletion.gif\)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+\!\[Productivity tools for .tab, sel_list.txt, openning the .chm file with a particular keyword, etc.\]\(images/productivity.gif\)
 
-## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+
+
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension contributes the following settings to allow easy support of productivity commands:
 
-For example:
+* `vscode-sigmaxim-smartassembly.saChmPath`: SA Help CHM - Full Path.
+* `vscode-sigmaxim-smartassembly.sdsChmPath`: SDS Help CHM - Full Path.
+* `vscode-sigmaxim-smartassembly.saLibraryTestingFolderPath`: SA Library - Path to a Folder Dedicated to Quick Testing of Applications.
+* `vscode-sigmaxim-smartassembly.saLibraryRootPath`: SA Library - Path to Root Library Path (containing Component_Engine folder).
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+First major release supporting comprehensive project development.
 
 ### 1.0.0
 
-Initial release of ...
+Initial release of Sigmaxim "Rules Perfect" automation project support.
 

@@ -1,7 +1,7 @@
 {
   "name": "creo_pro",
   "scopeName": "source.creo_pro",
-  "fileTypes": [ ".pro" ],
+  "fileTypes": [ ".pro", ".sup"],
   "patterns": [
     {
       "name": "comment.line.creo_pro",
