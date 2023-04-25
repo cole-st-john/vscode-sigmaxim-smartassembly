@@ -2,7 +2,7 @@
 	"name": "vscode-sigmaxim-smartassembly",
 	"displayName": "Sigmaxim SmartAssembly Language Support",
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly, and including .tab files).",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "ColeStJohn",
 	"homepage": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
