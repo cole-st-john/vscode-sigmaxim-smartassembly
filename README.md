@@ -1,6 +1,6 @@
 # Sigmaxim - Support for "Rules Perfect" automation projects.
 
-Visual Studio Code plugin that provides various kinds of support for "Rules Perfect" automation projects.
+Visual Studio Code plugin that adds comprehensive support for creating and managing PTC Creo automations with Sigmaxim Rules-Perfect products 
 
 ![Automation](images/automation.gif)
 

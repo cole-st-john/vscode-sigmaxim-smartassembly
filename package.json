@@ -222,8 +222,16 @@
 				"title": "SA: Creating local SEL_LIST and populating"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.removeEmptyLines",
-				"title": "Productivity: Remove Empty Lines"
+				"command": "vscode-sigmaxim-smartassembly.removeAllEmptyLines",
+				"title": "Productivity: Remove All Empty Lines"
+			},
+			{
+				"command": "vscode-sigmaxim-smartassembly.removeSelectedEmptyLines",
+				"title": "Productivity: Remove Empty Lines from Selection"
+			},
+			{
+				"command": "vscode-sigmaxim-smartassembly.backupCurrentFile",
+				"title": "Productivity: Backup the Current File (.bak)"
 			}
 		],
 		

@@ -22,18 +22,13 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// THE CHM COMMAND HERE
     let saHelp = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.saHelp', () => {
-		// console.log('inside!');
-        const editor = vscode.window.activeTextEditor;
-        if (!editor) {
-			// console.log('in if');
-            vscode.window.showErrorMessage('No active text editor');
-            return;
-        }
-        const selection = editor.selection;
-        // const text = editor.document.getText(selection);
-
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+		  vscode.window.showErrorMessage('No active text editor found.');
+		  return;
+		}
+		const selection = editor.selection;
 		const document = editor.document;
-
 		let text: string;
 
 		if (!selection.isEmpty) {
@@ -60,9 +55,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 
-
-
-
 	// PRINTING HERE
 	let saPrintVariable = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.printVariable', () => {
 		const editor = vscode.window.activeTextEditor;
@@ -70,16 +62,28 @@ export function activate(context: vscode.ExtensionContext) {
 		  vscode.window.showErrorMessage('No active text editor found.');
 		  return;
 		}
-		const document = editor.document;
 		const selection = editor.selection;
-		const word = document.getText(selection).trim();
-		if (!word) {
-		  vscode.window.showErrorMessage('No word selected.');
-		  return;
+		const document = editor.document;
+		let text: string;
+
+		if (!selection.isEmpty) {
+			// Get the selected text
+			text = document.getText(selection);
+		} else {
+			// Get the word at the cursor position
+			const position = editor.selection.active;
+			const wordRange = document.getWordRangeAtPosition(position);
+			if (!wordRange) {
+				vscode.window.showErrorMessage('No word selected or no word found at cursor.');
+				return;
+			}
+			text = document.getText(wordRange);
 		}
+
+
 		const line = document.lineAt(selection.start.line);
 		const indent = line.text.match(/^([\t ]+)/)?.[1] || '';
-		const printStatement = `PRINT "${word}: %" ${word}`;
+		const printStatement = `PRINT "${text}: %" ${text}`;
 		const currentLine = selection.active.line;
 		const totalLines = document.lineCount;
 
@@ -297,7 +301,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 	// PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
-	let removeEmptyLines = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.removeEmptyLines', () => {
+	let removeAllEmptyLines = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.removeAllEmptyLines', () => {
 
         // 1. Get path and file name/extension
         const activeEditor = vscode.window.activeTextEditor;
@@ -317,6 +321,60 @@ export function activate(context: vscode.ExtensionContext) {
 		  });
 		}
 	  });
+
+	// PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
+	let removeSelectedEmptyLines = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.removeSelectedEmptyLines', () => {
+
+        // 1. Get path and file name/extension
+        const activeEditor = vscode.window.activeTextEditor;
+        if (!activeEditor) {
+            vscode.window.showErrorMessage('No active editor window.');
+            return;
+        }
+	
+		const document = activeEditor.document;
+		const selection = activeEditor.selection;
+		
+
+		if (!selection) {
+            vscode.window.showErrorMessage('Function requires selection.');
+            return;
+        }
+
+		if (!selection.isEmpty) {
+			// Get the selected text
+			const selectedText = document.getText(selection);
+
+			// Remove empty lines from the selected text
+			const updatedText = selectedText.replace(/^\s*[\r\n]/gm, '');
+
+			// Replace the selected text with the updated text
+			activeEditor.edit((editBuilder) => {
+				editBuilder.replace(selection, updatedText);
+			});	
+		} 
+	  });
+
+
+	// PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
+	let backupCurrentFile = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.backupCurrentFile', () => {
+
+        // 1. Get path and file name/extension
+        const activeEditor = vscode.window.activeTextEditor;
+
+		if (activeEditor) {
+			const currentFilePath = activeEditor.document.uri.fsPath;
+			if (!currentFilePath) {
+				vscode.window.showErrorMessage('No document identified for backup.');
+				return;
+			}			
+			const backupFilePath = currentFilePath + '.bak';
+			fs.copyFileSync(currentFilePath, backupFilePath);
+		}else{
+            vscode.window.showErrorMessage('No active editor window.');
+            return;
+		}
+	  });
 	
 	
 	context.subscriptions.push(saHelp);
@@ -324,11 +382,22 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(selListReorganization);
 	context.subscriptions.push(quickPackaging);
 	context.subscriptions.push(localSelList);
-	context.subscriptions.push(removeEmptyLines);
+	context.subscriptions.push(removeAllEmptyLines);
+	context.subscriptions.push(removeSelectedEmptyLines);
+	context.subscriptions.push(backupCurrentFile);
 
 }
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
 
+
+
+		// const document = editor.document;
+		// const selection = editor.selection;
+		// const word = document.getText(selection).trim();
+		// if (!word) {
+		//   vscode.window.showErrorMessage('No word selected.');
+		//   return;
+		// }
 
