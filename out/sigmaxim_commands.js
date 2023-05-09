@@ -217,7 +217,7 @@ function activate(context) {
             // Add filename to sel_list.txt if not found
             if (!found) {
                 const newLine = `${fileName}      UDF`;
-                fs.appendFileSync(selListPath, `${newLine}\n`);
+                fs.appendFileSync(selListPath, `\n${newLine}\n`);
             }
         }
         for (const file of allSubDir) {
@@ -229,7 +229,7 @@ function activate(context) {
             if (!found) {
                 console.log('not found');
                 const newLine = `${file}      DIR`;
-                fs.appendFileSync(selListPath, `${newLine}\n`);
+                fs.appendFileSync(selListPath, `\n${newLine}\n`);
             }
         }
         // Open sel_list.txt in VS Code

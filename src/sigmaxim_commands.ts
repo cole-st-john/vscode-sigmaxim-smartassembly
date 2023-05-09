@@ -271,7 +271,7 @@ export function activate(context: vscode.ExtensionContext) {
 			// Add filename to sel_list.txt if not found
 			if (!found) {
 				const newLine = `${fileName}      UDF`;
-				fs.appendFileSync(selListPath, `${newLine}\n`);
+				fs.appendFileSync(selListPath, `\n${newLine}\n`);
 			}
 		}
 
@@ -285,7 +285,7 @@ export function activate(context: vscode.ExtensionContext) {
 			if (!found) {
 				console.log('not found');
 				const newLine = `${file}      DIR`;
-				fs.appendFileSync(selListPath, `${newLine}\n`);
+				fs.appendFileSync(selListPath, `\n${newLine}\n`);
 			}
 		}
 
