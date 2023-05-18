@@ -1,6 +1,6 @@
 {
 	"name": "sigmaxim-support",
-	"displayName": "Sigmaxim SmartAssembly Language Support",
+	"displayName": "Sigmaxim-PTC Creo Automation Support",
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly, and including .tab files).",
 	"version": "1.0.0",
 	"publisher": "Cole-St-John",
