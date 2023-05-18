@@ -1,17 +1,17 @@
 # Sigmaxim - Support for "Rules Perfect" automation projects.
 
-Visual Studio Code plugin that adds comprehensive support for creating and managing PTC Creo automations with Sigmaxim Rules-Perfect products 
+Visual Studio Code plugin that adds comprehensive support for creating and managing PTC Creo automations with Sigmaxim Rules-Perfect products.
 
 ![Automation](images/automation.gif)
 
 ## Features
 
 
-\!\[Syntax Highlighting for .tab,sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.\]\(images/syntax_highlighting.gif\)
+![Syntax Highlighting for .tab, sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.](images/syntax_highlighting.gif)
 
-\!\[Autocompletion for .tab,sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.\]\(images/autocompletion.gif\)
+![Autocompletion for .tab, sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.](images/autocompletion.gif)
 
-\!\[Productivity tools for .tab, sel_list.txt, openning the .chm file with a particular keyword, etc.\]\(images/productivity.gif\)
+![Productivity tools - including...sel_list.txt creation and organization, opening the Admin Guide, etc.](images/productivity.gif)
 
 
 
@@ -21,10 +21,10 @@ Visual Studio Code plugin that adds comprehensive support for creating and manag
 
 This extension contributes the following settings to allow easy support of productivity commands:
 
-* `vscode-sigmaxim-smartassembly.saChmPath`: SA Help CHM - Full Path.
-* `vscode-sigmaxim-smartassembly.sdsChmPath`: SDS Help CHM - Full Path.
-* `vscode-sigmaxim-smartassembly.saLibraryTestingFolderPath`: SA Library - Path to a Folder Dedicated to Quick Testing of Applications.
-* `vscode-sigmaxim-smartassembly.saLibraryRootPath`: SA Library - Path to Root Library Path (containing Component_Engine folder).
+* `sigmaxim-support.saChmPath`: SA Help CHM - Full Path.
+* `sigmaxim-support.sdsChmPath`: SDS Help CHM - Full Path.
+* `sigmaxim-support.saLibraryTestingFolderPath`: SA Library - Path to a Folder Dedicated to Quick Testing of Applications.
+* `sigmaxim-support.saLibraryRootPath`: SA Library - Path to Root Library Path (containing Component_Engine folder).
 
 
 ## Release Notes

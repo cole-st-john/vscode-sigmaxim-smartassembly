@@ -1,9 +1,9 @@
 {
-	"name": "vscode-sigmaxim-smartassembly",
+	"name": "sigmaxim-support",
 	"displayName": "Sigmaxim SmartAssembly Language Support",
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly, and including .tab files).",
-	"version": "0.0.2",
-	"publisher": "ColeStJohn",
+	"version": "1.0.0",
+	"publisher": "Cole-St-John",
 	"homepage": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"categories": [
@@ -22,24 +22,24 @@
 		"configuration": {
 			"title": "Configuration Settings for Sigmaxim Extension",
 			"properties": {
-			  "vscode-sigmaxim-smartassembly.saChmPath": {
+			  "sigmaxim-support.saChmPath": {
 				"type": "string",
-				"default": "C:/Users/info/OneDrive/1.ddc/3.%20SIGMAXIM/HELP_LINK/AdminGuide.chm",
+				"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/HELP_LINK/AdminGuide.chm",
 				"description":  "SA Help CHM - Full Path"
 			  }	, 
-			  "vscode-sigmaxim-smartassembly.sdsChmPath": {
+			  "sigmaxim-support.sdsChmPath": {
 				"type": "string",
 				"default": "E:/FILES/SIGMAXIM/SmartDesignServer9000/docu/usascii/SmartDesignServer/SmartDesignServer.chm",
 				"description":  "SDS Help CHM - Full Path"
 			  }	 , 
-			  "vscode-sigmaxim-smartassembly.saLibraryTestingFolderPath": {
+			  "sigmaxim-support.saLibraryTestingFolderPath": {
 				"type": "string",
-				"default": "C:/Users/info/OneDrive/1.ddc/3. SIGMAXIM/Library/CURRENT/Component_engine/TEST",
+				"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/Library/Component_engine/TEST",
 				"description":  "SA Library - Path to a Folder Dedicated to Quick Testing of Applications"
 			  }	,
-			  "vscode-sigmaxim-smartassembly.saLibraryRootPath": {
+			  "sigmaxim-support.saLibraryRootPath": {
 				"type": "string",
-				"default": "C:/Users/info/OneDrive/1.ddc/3. SIGMAXIM/Library/CURRENT/Component_engine/TEST",
+				"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/Library/Component_engine",
 				"description":  "SA Library - Path to Root Library Path (containing Component_Engine folder)"
 			  }				
 		}},
@@ -202,35 +202,35 @@
 		"icon": "images/smartassembly.png",
 		"commands": [
 			{
-				"command": "vscode-sigmaxim-smartassembly.saHelp",
+				"command": "sigmaxim-support.saHelp",
 				"title": "SA: Opening SA Help"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.selListReorganization",
+				"command": "sigmaxim-support.selListReorganization",
 				"title": "SA: Reorganize Sel-List"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.printVariable",
+				"command": "sigmaxim-support.printVariable",
 				"title": "SA: Print Variable"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.quickPackaging",
+				"command": "sigmaxim-support.quickPackaging",
 				"title": "SA: Creating SEL_LIST and populating"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.localSelList",
+				"command": "sigmaxim-support.localSelList",
 				"title": "SA: Creating local SEL_LIST and populating"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.removeAllEmptyLines",
+				"command": "sigmaxim-support.removeAllEmptyLines",
 				"title": "Productivity: Remove All Empty Lines"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.removeSelectedEmptyLines",
+				"command": "sigmaxim-support.removeSelectedEmptyLines",
 				"title": "Productivity: Remove Empty Lines from Selection"
 			},
 			{
-				"command": "vscode-sigmaxim-smartassembly.backupCurrentFile",
+				"command": "sigmaxim-support.backupCurrentFile",
 				"title": "Productivity: Backup the Current File (.bak)"
 			}
 		],

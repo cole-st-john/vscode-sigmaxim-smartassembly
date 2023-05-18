@@ -11,14 +11,14 @@ const fs = require("fs");
 function activate(context) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "vscode-sigmaxim-smartassembly" is now active!');
+    console.log('Congratulations, your extension "sigmaxim-support" is now active!');
     // Define the configuration settings that you want to retrieve
-    const configuration = vscode.workspace.getConfiguration('vscode-sigmaxim-smartassembly');
+    const configuration = vscode.workspace.getConfiguration('sigmaxim-support');
     // console.log(configuration);
     const saChmPath = configuration.get('saChmPath');
     // console.log(saChmPath);
     // THE CHM COMMAND HERE
-    let saHelp = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.saHelp', () => {
+    let saHelp = vscode.commands.registerCommand('sigmaxim-support.saHelp', () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
             vscode.window.showErrorMessage('No active text editor found.');
@@ -50,7 +50,7 @@ function activate(context) {
         vscode.window.showInformationMessage('SA Admin Guide for: ' + text + ' opened.');
     });
     // PRINTING HERE
-    let saPrintVariable = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.printVariable', () => {
+    let saPrintVariable = vscode.commands.registerCommand('sigmaxim-support.printVariable', () => {
         var _a;
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
@@ -95,7 +95,7 @@ function activate(context) {
         });
     });
     // ORGANIZING A SEL LIST HERE 
-    let selListReorganization = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.selListReorganization', () => {
+    let selListReorganization = vscode.commands.registerCommand('sigmaxim-support.selListReorganization', () => {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             let text = editor.document.getText();
@@ -114,7 +114,7 @@ function activate(context) {
         }
     });
     // CREATE SEL_LIST.txt
-    let quickPackaging = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.quickPackaging', () => {
+    let quickPackaging = vscode.commands.registerCommand('sigmaxim-support.quickPackaging', () => {
         // 1. Get path and file name/extension
         const activeEditor = vscode.window.activeTextEditor;
         if (!activeEditor) {
@@ -145,7 +145,7 @@ function activate(context) {
         });
     });
     // CREATING LOCAL PATH SEL_LIST.txt
-    let localSelList = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.localSelList', () => {
+    let localSelList = vscode.commands.registerCommand('sigmaxim-support.localSelList', () => {
         vscode.window.showInformationMessage('Building an updated Sel_list.txt file...');
         // 1. Get path and file name/extension
         const activeEditor = vscode.window.activeTextEditor;
@@ -164,13 +164,16 @@ function activate(context) {
             fs.writeFileSync(selListPath, '');
         }
         // READ THE SEL_LIST 
-        let selListContent = '';
+        let selListContentOrig = '';
         if (fs.existsSync(selListPath)) {
-            selListContent = fs.readFileSync(selListPath, 'utf-8');
+            selListContentOrig = fs.readFileSync(selListPath, 'utf-8');
         }
         else {
             fs.writeFileSync(selListPath, '', 'utf-8');
         }
+        // REMOVE EMPTY LINES IN SEL LIST
+        let selListContent = '';
+        selListContent = selListContentOrig.replace(/^\s*[\r\n]/gm, '');
         // Search for all .tab files in the directory
         const filesInDirectory = fs.readdirSync(currentFileDirPath);
         // console.log(filesInDirectory);
@@ -217,7 +220,7 @@ function activate(context) {
             // Add filename to sel_list.txt if not found
             if (!found) {
                 const newLine = `${fileName}      UDF`;
-                fs.appendFileSync(selListPath, `\n${newLine}\n`);
+                fs.appendFileSync(selListPath, `\n${newLine}`);
             }
         }
         for (const file of allSubDir) {
@@ -229,16 +232,18 @@ function activate(context) {
             if (!found) {
                 console.log('not found');
                 const newLine = `${file}      DIR`;
-                fs.appendFileSync(selListPath, `\n${newLine}\n`);
+                fs.appendFileSync(selListPath, `\n${newLine}`);
             }
         }
+        // need to add logic for if already open
+        // need automatically clean up here 
         // Open sel_list.txt in VS Code
         vscode.workspace.openTextDocument(selListPath).then(doc => {
             vscode.window.showTextDocument(doc);
         });
     });
     // PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
-    let removeAllEmptyLines = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.removeAllEmptyLines', () => {
+    let removeAllEmptyLines = vscode.commands.registerCommand('sigmaxim-support.removeAllEmptyLines', () => {
         // 1. Get path and file name/extension
         const activeEditor = vscode.window.activeTextEditor;
         if (!activeEditor) {
@@ -255,7 +260,7 @@ function activate(context) {
         }
     });
     // PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
-    let removeSelectedEmptyLines = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.removeSelectedEmptyLines', () => {
+    let removeSelectedEmptyLines = vscode.commands.registerCommand('sigmaxim-support.removeSelectedEmptyLines', () => {
         // 1. Get path and file name/extension
         const activeEditor = vscode.window.activeTextEditor;
         if (!activeEditor) {
@@ -280,7 +285,7 @@ function activate(context) {
         }
     });
     // PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
-    let backupCurrentFile = vscode.commands.registerCommand('vscode-sigmaxim-smartassembly.backupCurrentFile', () => {
+    let backupCurrentFile = vscode.commands.registerCommand('sigmaxim-support.backupCurrentFile', () => {
         // 1. Get path and file name/extension
         const activeEditor = vscode.window.activeTextEditor;
         if (activeEditor) {
