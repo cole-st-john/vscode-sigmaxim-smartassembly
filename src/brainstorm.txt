@@ -1,0 +1,101 @@
+
+	
+	
+	
+	
+	
+	
+	
+		// const document = editor.document;
+		// const selection = editor.selection;
+		// const word = document.getText(selection).trim();
+		// if (!word) {
+		//   vscode.window.showErrorMessage('No word selected.');
+		//   return;
+		// }
+
+
+
+
+		
+
+
+
+function getSnippetsFile(filePath: string): string {
+	const fileExtension = path.extname(filePath);
+	return filePath.replace(fileExtension, '.code-snippets');
+}
+
+function createSnippetText(name: string, description: string, code: string): string {
+	const snippet = {
+	[name]: {
+		prefix: name,
+		body: code,
+		description
+	}
+	};
+	return JSON.stringify(snippet, null, 2);
+}
+
+function appendSnippet(snippetsFile: string, snippetText: string): void {
+	fs.appendFileSync(snippetsFile, snippetText);
+} 
+
+
+
+
+
+	// CREATE NEW SNIPPET FROM HIGHLIGHTED TEXT
+ 	let createSnippet = vscode.commands.registerCommand('sigmaxim-support.createSnippet', async () => {
+
+		// Step 1: Get the currently highlighted text in the editor
+		const editor = vscode.window.activeTextEditor;
+		if (!editor) {
+		return;
+		}
+
+		const selection = editor.selection;
+		const selectedText = editor.document.getText(selection);
+
+		// Step 2: Get the current file extension and find the associated snippets file
+		const filePath = editor.document.uri.fsPath;
+		const snippetsFile = getSnippetsFile(filePath);
+
+		// Step 3: Offer text boxes to enter the name and description of the new snippet
+		const newSnippetName = await vscode.window.showInputBox({
+		prompt: 'Enter the name of the new snippet',
+		placeHolder: 'Snippet Name'
+		});
+		if (!newSnippetName) {
+		return;
+		}
+
+		const newSnippetDescription = await vscode.window.showInputBox({
+		prompt: 'Enter the description of the new snippet',
+		placeHolder: 'Snippet Description'
+		});
+		if (newSnippetDescription === undefined) {
+		return;
+		}
+
+		// Step 4: Process the name, description, and highlighted text into the form of a snippet (json)
+		const snippetText = createSnippetText(newSnippetName, newSnippetDescription, selectedText);
+
+		// Step 5: Append the new snippet to the snippet file
+		appendSnippet(snippetsFile, snippetText);
+
+		// Step 6: Open the snippet file for review
+		const snippetDocument = await vscode.workspace.openTextDocument(snippetsFile);
+		await vscode.window.showTextDocument(snippetDocument);
+    });
+
+
+		context.subscriptions.push(createSnippet);
+
+
+
+
+			{
+				"command": "sigmaxim-support.createSnippet",
+				"title": "Productivity: Creating a new snippet for the snippet file"
+			},

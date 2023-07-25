@@ -5,6 +5,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -17,7 +18,10 @@ export function activate(context: vscode.ExtensionContext) {
 	const configuration = vscode.workspace.getConfiguration('sigmaxim-support');
 	// console.log(configuration);
 	const saChmPath = configuration.get<string>('saChmPath');
-	// console.log(saChmPath);
+
+
+
+
 
 
 	// THE CHM COMMAND HERE
@@ -329,6 +333,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	  });
 
+
 	// PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
 	let removeSelectedEmptyLines = vscode.commands.registerCommand('sigmaxim-support.removeSelectedEmptyLines', () => {
 
@@ -360,7 +365,7 @@ export function activate(context: vscode.ExtensionContext) {
 				editBuilder.replace(selection, updatedText);
 			});	
 		} 
-	  });
+	});
 
 
 	// PRODUCTIVITY TOOLS - REMOVING EMPTY LINES 
@@ -381,9 +386,40 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.window.showErrorMessage('No active editor window.');
             return;
 		}
-	  });
-	
-	
+	});
+
+
+	// Move to other side
+	let moveEditorToOtherSide = vscode.commands.registerCommand('sigmaxim-support.moveEditorToOtherSide', () => {
+
+
+		const activeEditor = vscode.window.activeTextEditor;
+		if (!activeEditor) {
+			vscode.window.showInformationMessage('No active editor found.');
+			return;
+		}
+
+		const activeGroup = activeEditor.viewColumn;
+		const otherGroup = activeGroup === vscode.ViewColumn.One ? vscode.ViewColumn.Two : vscode.ViewColumn.One;
+
+		const otherEditors = vscode.window.visibleTextEditors.filter(
+			editor => editor.viewColumn === otherGroup
+		);
+
+		const otherEditorDocuments = otherEditors.map(editor => editor.document);
+		vscode.workspace.openTextDocument(activeEditor.document.uri).then(document => {
+			vscode.window.showTextDocument(document, otherGroup).then(newEditor => {
+				vscode.window.showTextDocument(activeEditor.document, activeGroup).then(() => {
+					otherEditorDocuments.forEach(doc => vscode.window.showTextDocument(doc, otherGroup));
+					// newEditor.hide();
+					// activeEditor.hide();
+				});
+			});
+		});
+	});
+		
+
+
 	context.subscriptions.push(saHelp);
 	context.subscriptions.push(saPrintVariable);
 	context.subscriptions.push(selListReorganization);
@@ -392,19 +428,14 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(removeAllEmptyLines);
 	context.subscriptions.push(removeSelectedEmptyLines);
 	context.subscriptions.push(backupCurrentFile);
+	context.subscriptions.push(moveEditorToOtherSide);
 
 }
+
+
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
 
 
-
-		// const document = editor.document;
-		// const selection = editor.selection;
-		// const word = document.getText(selection).trim();
-		// if (!word) {
-		//   vscode.window.showErrorMessage('No word selected.');
-		//   return;
-		// }
 

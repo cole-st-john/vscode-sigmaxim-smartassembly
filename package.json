@@ -1,8 +1,8 @@
 {
 	"name": "sigmaxim-support",
-	"displayName": "Sigmaxim-PTC Creo Automation Support",
+	"displayName": "Sigmaxim Automation Support for PTC Creo Parametric",
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly, and including .tab files).",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"publisher": "Cole-St-John",
 	"homepage": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
@@ -11,7 +11,7 @@
 		"Snippets"
 	],
 	"engines": {
-		"vscode": "^1.75.0"
+		"vscode": "^1.52.0"
 	},
 	
 	"activationEvents": [],
@@ -232,9 +232,51 @@
 			{
 				"command": "sigmaxim-support.backupCurrentFile",
 				"title": "Productivity: Backup the Current File (.bak)"
+			},
+
+			{
+				"command": "sigmaxim-support.moveEditorToOtherSide",
+				"title": "Productivity: Moving editor to other side (other group) - Toggle right or left"
 			}
 		],
-		
+		"keybindings": [
+			{
+				"command": "sigmaxim-support.saHelp",
+				"key": "ctrl+f1"
+			},
+			{
+				"command": "sigmaxim-support.selListReorganization",
+				"key": "shift+alt+S"
+			},	
+			{
+				"command": "sigmaxim-support.printVariable",
+				"key": "shift+alt+P"
+			},
+			{
+				"command": "sigmaxim-support.quickPackaging",
+				"key": "ctrl+shift+alt+S"
+			},	
+			{
+				"command": "sigmaxim-support.localSelList",
+				"key": "shift+alt+T"
+			},	
+			{
+				"command": "sigmaxim-support.removeAllEmptyLines",
+				"key": "ctrl+alt+E"
+			},	
+			{
+				"command": "sigmaxim-support.removeSelectedEmptyLines",
+				"key": "shift+alt+E"
+			},		
+			{
+				"command": "sigmaxim-support.backupCurrentFile",
+				"key": "Shift+Alt+B"
+			},		
+			{
+				"command": "sigmaxim-support.createSnippet",
+				"key": ""
+			}		
+		],
 		"themes": [
 			{
 				"label": "TAB",

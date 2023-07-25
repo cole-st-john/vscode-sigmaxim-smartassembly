@@ -2,19 +2,20 @@
 
 Visual Studio Code plugin that adds comprehensive support for creating and managing PTC Creo automations with Sigmaxim Rules-Perfect products.
 
+### Automation
 ![Automation](images/automation.gif)
 
 ## Features
 
-
+### Syntax Highlighting 
 ![Syntax Highlighting for .tab, sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.](images/syntax_highlighting.gif)
+
+### Autocompletion 
 
 ![Autocompletion for .tab, sel_list.txt, config.pro, config.sup, .dtl, .cfg files, etc.](images/autocompletion.gif)
 
+### Productivity Tools
 ![Productivity tools - including...sel_list.txt creation and organization, opening the Admin Guide, etc.](images/productivity.gif)
-
-
-
 
 
 ## Extension Settings
@@ -29,9 +30,9 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-First major release supporting comprehensive project development.
+Current: Minor release adding support for latest SA release - DATECODE 2023-07-17-01, as well as adding improvements to productivity commands.
 
-### 1.0.0
+### 1.0.2
 
-Initial release of Sigmaxim "Rules Perfect" automation project support.
+Sigmaxim "Rules Perfect" automation project support.
 

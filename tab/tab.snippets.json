@@ -1955,7 +1955,7 @@
   "GET_ACTIVE_COMB_VIEW": {
       "prefix": "GET_ACTIVE_COMB_VIEW",
       "body": [
-          "GET_ACTIVE_COMB_VIEW $1"
+          "GET_ACTIVE_COMB_VIEW ${1|THIS,input_mdl_reference|} ${2:output_name_of_active_comb_view}"
       ],
       "description": "Retrieves the name of the active combined view. This command requires Creo Parametric 1.0 or above."
   },
@@ -2221,14 +2221,14 @@
   "GET_COMB_VIEW_PROPS": {
       "prefix": "GET_COMB_VIEW_PROPS",
       "body": [
-          "GET_COMB_VIEW_PROPS $1"
+          "GET_COMB_VIEW_PROPS ${1|THIS,input_mdl_reference|} ${2:input_comb_view_name} ${3:output_comb_view_props} "
       ],
       "description": "Retrieves the properties of a combined view. This command requires Creo Parametric 1.0 or above."
   },
   "GET_COMB_VIEWS": {
       "prefix": "GET_COMB_VIEWS",
       "body": [
-          "GET_COMB_VIEWS $1"
+          "GET_COMB_VIEWS ${1|THIS,${2:input_mdl_reference|}|} ${3:output_array_of_comb_views} "
       ],
       "description": "Retrieves all combined views of a model. This command requires Creo Parametric 1.0 or above."
   },
@@ -5473,6 +5473,20 @@
       ],
       "description": "READ_COMP_INTERFACE"
   },
+  "READ_DATUM_TAG": {
+    "prefix": "READ_DATUM_TAG",
+    "body": [
+        "READ_DATUM_TAG ${1:INPUT_DATUM_TAG_REF} ${2:OUTPUT_DATUM_TAG_STRUCT}"
+    ],
+    "description": "Reads the properties of an existing datum tag."
+},
+"READ_DATUM_TARGET": {
+    "prefix": "READ_DATUM_TARGET",
+    "body": [
+        "READ_DATUM_TARGET ${1:INPUT_DATUM_TARGET_REF} ${2:OUTPUT_DATUM_TARGET_STRUCT}"
+    ],
+    "description": "Reads the properties of an existing datum target."
+},
   "READ_DIM_ANNOTATION": {
       "prefix": "READ_DIM_ANNOTATION",
       "body": [
