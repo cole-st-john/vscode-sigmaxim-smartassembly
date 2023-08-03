@@ -417,6 +417,41 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 		});
 	});
+
+
+	// process_for_snippet
+	let processSelectionForSnippet = vscode.commands.registerCommand('sigmaxim-support.processSelectionForSnippet', () => {
+
+		const activeEditor = vscode.window.activeTextEditor;
+		if (!activeEditor) {
+			vscode.window.showInformationMessage('No active editor found.');
+			return;
+		}
+	
+		const selection = activeEditor.selection;
+		const selectedText = activeEditor.document.getText(selection);
+	
+		if (!selectedText) {
+			vscode.window.showInformationMessage('No text selected.');
+			return;
+		}
+	
+		const processedLines = selectedText
+			.replace(/\\/g, '\\\\')
+			.replace(/\t/g, '\\t')
+			.replace(/"/g, '\\"')
+			.split('\n')
+			.map(line => `"${line.trim()}"`)
+			.join(',\n');
+
+		const processedText = `${processedLines}`;
+		
+		vscode.workspace.openTextDocument({ content: processedText })
+			.then(doc => {
+				vscode.window.showTextDocument(doc, vscode.ViewColumn.Beside);
+			});
+		
+	});
 		
 
 
@@ -429,6 +464,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(removeSelectedEmptyLines);
 	context.subscriptions.push(backupCurrentFile);
 	context.subscriptions.push(moveEditorToOtherSide);
+	context.subscriptions.push(processSelectionForSnippet);
 
 }
 

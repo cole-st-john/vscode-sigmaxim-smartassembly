@@ -322,6 +322,32 @@ function activate(context) {
             });
         });
     });
+    // process_for_snippet
+    let processSelectionForSnippet = vscode.commands.registerCommand('sigmaxim-support.processSelectionForSnippet', () => {
+        const activeEditor = vscode.window.activeTextEditor;
+        if (!activeEditor) {
+            vscode.window.showInformationMessage('No active editor found.');
+            return;
+        }
+        const selection = activeEditor.selection;
+        const selectedText = activeEditor.document.getText(selection);
+        if (!selectedText) {
+            vscode.window.showInformationMessage('No text selected.');
+            return;
+        }
+        const processedLines = selectedText
+            .replace(/\\/g, '\\\\')
+            .replace(/\t/g, '\\t')
+            .replace(/"/g, '\\"')
+            .split('\n')
+            .map(line => `"${line.trim()}"`)
+            .join(',\n');
+        const processedText = `${processedLines}`;
+        vscode.workspace.openTextDocument({ content: processedText })
+            .then(doc => {
+            vscode.window.showTextDocument(doc, vscode.ViewColumn.Beside);
+        });
+    });
     context.subscriptions.push(saHelp);
     context.subscriptions.push(saPrintVariable);
     context.subscriptions.push(selListReorganization);
@@ -331,6 +357,7 @@ function activate(context) {
     context.subscriptions.push(removeSelectedEmptyLines);
     context.subscriptions.push(backupCurrentFile);
     context.subscriptions.push(moveEditorToOtherSide);
+    context.subscriptions.push(processSelectionForSnippet);
 }
 exports.activate = activate;
 // This method is called when your extension is deactivated
