@@ -1882,6 +1882,7 @@
       ],
       "description": "Sets the file descriptor to a specific line."
   },
+
   "FILE_WRITE": {
       "prefix": "FILE_WRITE",
       "body": [
@@ -19485,5 +19486,27 @@
   },
   "END_DEBUG": {
       "description": "Terminates the debug mode started with ."
-  }
+  },
+
+  "FILE_HANDLE_VALID_SNIPPET": {
+    "prefix": "FILEVALIDF",
+    "body": [
+        "! -----------------------------------------------------------------------------------------------------",
+        "!   TEST WHETHER SOMETHING IS A FILE HANDLE AND WHETHER STILL OPEN",
+        "! -----------------------------------------------------------------------------------------------------",
+        "DECLARE_VARIABLE BOOL file_handle_check FALSE",
+        "DECLARE_VARIABLE BOOL open_file_handle_check FALSE",
+        "GET_VARIABLE_TYPE  input_variable var_type",
+        "IF var_type == \"FILE\"",
+        "\tfile_handle_check = TRUE",
+        "\tIF FILE_VALID input_variable",
+        "\t\topen_file_handle_check = TRUE",
+        "\tEND_IF \t\t",
+        "END_IF"
+    ],
+    "description": "Checks whether a variable is a file handle and whether it is open/valid and can be written to."
 }
+
+
+}
+

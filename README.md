@@ -30,9 +30,9 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-Current: Minor release adding new productivity command towards snippets creation, as well as some snippets.
+Current: Minor release adding new productivity command towards complex project debugging, as well as cleaning up chm file opening (kills previously open).
 
-### 1.0.3
+### 1.0.4
 
 Sigmaxim "Rules Perfect" automation project support.
 

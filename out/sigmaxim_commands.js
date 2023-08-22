@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
 // The module 'vscode' contains the VS Code extensibility API
@@ -44,6 +53,8 @@ function activate(context) {
         // console.log('sending text');
         const terminal = vscode.window.createTerminal();
         // terminal.sendText("C:/Users/info/OneDrive/1.ddc/3.%20SIGMAXIM/HELP_LINK/AdminGuide.chm::/CMD_"+text+".htm");
+        terminal.sendText("taskkill /IM hh.exe ");
+        terminal.sendText('\r');
         terminal.sendText("start hh.exe " + saChmPath + "::/CMD_" + text + ".htm");
         terminal.sendText('\r');
         vscode.window.showInformationMessage('SA Admin Guide for: ' + text + ' opened.');
@@ -301,7 +312,7 @@ function activate(context) {
             return;
         }
     });
-    // Move to other side
+    // Move to other side / PANE
     let moveEditorToOtherSide = vscode.commands.registerCommand('sigmaxim-support.moveEditorToOtherSide', () => {
         const activeEditor = vscode.window.activeTextEditor;
         if (!activeEditor) {
@@ -348,6 +359,72 @@ function activate(context) {
             vscode.window.showTextDocument(doc, vscode.ViewColumn.Beside);
         });
     });
+    // highlight code that has been run
+    let highlightDecorationType;
+    const highlightRunCodeBasedOnLogFile = vscode.commands.registerCommand('sigmaxim-support.highlightRunCodeBasedOnLogFile', () => __awaiter(this, void 0, void 0, function* () {
+        const activeEditor = vscode.window.activeTextEditor;
+        if (!activeEditor) {
+            vscode.window.showErrorMessage("No active editor.");
+            return;
+        }
+        const activeFileName = activeEditor.document.fileName;
+        const activeBaseName = path.basename(activeFileName);
+        console.log('active base name:', activeBaseName);
+        try {
+            const logFileContents = yield vscode.window.showInputBox({
+                prompt: 'Paste the log file contents',
+                placeHolder: 'Paste the log file contents here...'
+            });
+            if (!logFileContents) {
+                vscode.window.showErrorMessage("Log file contents are required.");
+                return;
+            }
+            const lines = logFileContents.split(' ');
+            console.log("lines", lines);
+            const programLogMap = {};
+            lines.forEach(line => {
+                const [programWithTab, lineNumbersStr] = line.split(':');
+                // const [programName, tabSuffix] = programWithTab.split('.'); // Split program name and .tab suffix
+                const lineNumbers = lineNumbersStr.split(',').map(numStr => parseInt(numStr));
+                // if (programName && lineNumbers.length > 0 && programWithTab === activeBaseName) {
+                if (lineNumbers.length > 0 && programWithTab === activeBaseName) {
+                    // console.log("made it here-adding items");
+                    programLogMap[programWithTab] = lineNumbers;
+                }
+            });
+            // console.log('programLogMap:', programLogMap);
+            // console.log('keys in programLogMap:', Object.keys(programLogMap));
+            const lineNumbersToHighlight = programLogMap[activeBaseName] || [];
+            // console.log('lineNumbersToHighlight:', lineNumbersToHighlight);
+            // const decorationRanges = lineNumbersToHighlight.map(lineNumber => new vscode.Range(lineNumber - 1, 0, lineNumber - 1, 0));
+            // console.log('decorationRanges:', decorationRanges);
+            const decorationRanges = [];
+            for (const lineNumber of lineNumbersToHighlight) {
+                const start = new vscode.Position(lineNumber - 1, 0); // Adjust line number
+                const end = new vscode.Position(lineNumber, 0); // Adjust line number
+                const range = new vscode.Range(start, end);
+                decorationRanges.push(range);
+            }
+            // console.log('decorationRanges:', decorationRanges);
+            decorationRanges.forEach(range => {
+                // console.log(`Start: (${range.start.line + 1}, ${range.start.character}), End: (${range.end.line + 1}, ${range.end.character})`);
+            });
+            if (highlightDecorationType) {
+                // console.log('highlightDecorationType true');
+                // highlightDecorationType.dispose(); // Dispose of the previous decoration type
+            }
+            highlightDecorationType = vscode.window.createTextEditorDecorationType({
+                backgroundColor: 'rgba(255, 0, 0, 0.2)' // Highlight color
+            });
+            if (highlightDecorationType) {
+                // console.log('highlightdeco:', highlightDecorationType);
+                activeEditor.setDecorations(highlightDecorationType, decorationRanges);
+            }
+        }
+        catch (error) {
+            vscode.window.showErrorMessage("Error parsing log file contents: " + error);
+        }
+    }));
     context.subscriptions.push(saHelp);
     context.subscriptions.push(saPrintVariable);
     context.subscriptions.push(selListReorganization);
@@ -358,6 +435,7 @@ function activate(context) {
     context.subscriptions.push(backupCurrentFile);
     context.subscriptions.push(moveEditorToOtherSide);
     context.subscriptions.push(processSelectionForSnippet);
+    context.subscriptions.push(highlightRunCodeBasedOnLogFile);
 }
 exports.activate = activate;
 // This method is called when your extension is deactivated

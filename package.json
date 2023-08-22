@@ -2,7 +2,7 @@
 	"name": "sigmaxim-support",
 	"displayName": "Sigmaxim Automation Support for PTC Creo Parametric",
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly, and including .tab files).",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"publisher": "Cole-St-John",
 	"homepage": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
@@ -13,39 +13,35 @@
 	"engines": {
 		"vscode": "^1.52.0"
 	},
-	
 	"activationEvents": [],
 	"icon": "images/smartassembly.png",
 	"main": "./out/sigmaxim_commands.js",
 	"contributes": {
-
 		"configuration": {
 			"title": "Configuration Settings for Sigmaxim Extension",
 			"properties": {
-			  "sigmaxim-support.saChmPath": {
-				"type": "string",
-				"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/HELP_LINK/AdminGuide.chm",
-				"description":  "SA Help CHM - Full Path"
-			  }	, 
-			  "sigmaxim-support.sdsChmPath": {
-				"type": "string",
-				"default": "E:/FILES/SIGMAXIM/SmartDesignServer9000/docu/usascii/SmartDesignServer/SmartDesignServer.chm",
-				"description":  "SDS Help CHM - Full Path"
-			  }	 , 
-			  "sigmaxim-support.saLibraryTestingFolderPath": {
-				"type": "string",
-				"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/Library/Component_engine/TEST",
-				"description":  "SA Library - Path to a Folder Dedicated to Quick Testing of Applications"
-			  }	,
-			  "sigmaxim-support.saLibraryRootPath": {
-				"type": "string",
-				"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/Library/Component_engine",
-				"description":  "SA Library - Path to Root Library Path (containing Component_Engine folder)"
-			  }				
-		}},
-
-		
-
+				"sigmaxim-support.saChmPath": {
+					"type": "string",
+					"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/HELP_LINK/AdminGuide.chm",
+					"description": "SA Help CHM - Full Path"
+				},
+				"sigmaxim-support.sdsChmPath": {
+					"type": "string",
+					"default": "E:/FILES/SIGMAXIM/SmartDesignServer9000/docu/usascii/SmartDesignServer/SmartDesignServer.chm",
+					"description": "SDS Help CHM - Full Path"
+				},
+				"sigmaxim-support.saLibraryTestingFolderPath": {
+					"type": "string",
+					"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/Library/Component_engine/TEST",
+					"description": "SA Library - Path to a Folder Dedicated to Quick Testing of Applications"
+				},
+				"sigmaxim-support.saLibraryRootPath": {
+					"type": "string",
+					"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/Library/Component_engine",
+					"description": "SA Library - Path to Root Library Path (containing Component_Engine folder)"
+				}
+			}
+		},
 		"languages": [
 			{
 				"id": "tab",
@@ -99,7 +95,8 @@
 					"config.pro"
 				],
 				"extensions": [
-					".pro", ".sup"
+					".pro",
+					".sup"
 				],
 				"configuration": "./creo_pro/creo_pro_language_configuration.json"
 			},
@@ -233,15 +230,17 @@
 				"command": "sigmaxim-support.backupCurrentFile",
 				"title": "Productivity: Backup the Current File (.bak)"
 			},
-
 			{
 				"command": "sigmaxim-support.moveEditorToOtherSide",
 				"title": "Productivity: Moving editor to other side (other group) - Toggle right or left"
 			},
-
 			{
 				"command": "sigmaxim-support.processSelectionForSnippet",
 				"title": "Productivity: Process selected text into format to insert manually into extension snippets."
+			},
+			{
+				"command": "sigmaxim-support.highlightRunCodeBasedOnLogFile",
+				"title": "Productivity: Visualization of code run (based on processed trail file for info in form: program_name.tab,line_number\n.  Tip: use DEBUG_TAB_PERFORMANCE 0 in your SA Config."
 			}
 		],
 		"keybindings": [
@@ -252,7 +251,7 @@
 			{
 				"command": "sigmaxim-support.selListReorganization",
 				"key": "shift+alt+S"
-			},	
+			},
 			{
 				"command": "sigmaxim-support.printVariable",
 				"key": "shift+alt+P"
@@ -260,27 +259,31 @@
 			{
 				"command": "sigmaxim-support.quickPackaging",
 				"key": "ctrl+shift+alt+S"
-			},	
+			},
 			{
 				"command": "sigmaxim-support.localSelList",
 				"key": "shift+alt+T"
-			},	
+			},
 			{
 				"command": "sigmaxim-support.removeAllEmptyLines",
 				"key": "ctrl+alt+E"
-			},	
+			},
 			{
 				"command": "sigmaxim-support.removeSelectedEmptyLines",
 				"key": "shift+alt+E"
-			},		
+			},
 			{
 				"command": "sigmaxim-support.backupCurrentFile",
 				"key": "Shift+Alt+B"
-			},		
+			},
 			{
 				"command": "sigmaxim-support.processSelectionForSnippet",
 				"key": "ctrl+shift+S"
-			}		
+			},
+			{
+				"command": "sigmaxim-support.highlightRunCodeBasedOnLogFile",
+				"key": "ctrl+Alt+V"
+			}
 		],
 		"themes": [
 			{
@@ -302,10 +305,8 @@
 			"DotJoshJohnson.xml",
 			"ZainChen.json",
 			"outofsync42.select-compare-tabs"
-		  ]
-
+		]
 	},
-
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
