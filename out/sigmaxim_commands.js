@@ -387,14 +387,14 @@ function activate(context) {
                 // const [programName, tabSuffix] = programWithTab.split('.'); // Split program name and .tab suffix
                 const lineNumbers = lineNumbersStr.split(',').map(numStr => parseInt(numStr));
                 // if (programName && lineNumbers.length > 0 && programWithTab === activeBaseName) {
-                if (lineNumbers.length > 0 && programWithTab === activeBaseName) {
+                if (lineNumbers.length > 0 && programWithTab.toLowerCase() === activeBaseName.toLowerCase()) {
                     // console.log("made it here-adding items");
-                    programLogMap[programWithTab] = lineNumbers;
+                    programLogMap[programWithTab.toLowerCase()] = lineNumbers;
                 }
             });
             // console.log('programLogMap:', programLogMap);
             // console.log('keys in programLogMap:', Object.keys(programLogMap));
-            const lineNumbersToHighlight = programLogMap[activeBaseName] || [];
+            const lineNumbersToHighlight = programLogMap[activeBaseName.toLowerCase()] || [];
             // console.log('lineNumbersToHighlight:', lineNumbersToHighlight);
             // const decorationRanges = lineNumbersToHighlight.map(lineNumber => new vscode.Range(lineNumber - 1, 0, lineNumber - 1, 0));
             // console.log('decorationRanges:', decorationRanges);
