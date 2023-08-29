@@ -11,7 +11,11 @@
         "body": [
             "ACTIVATE_INSERT_MODE ${1|BEFORE,AFTER|} ${2:input_feature_reference_for_relative_position}"
         ],
-        "description": "Activate insert mode before or after a specific feature."
+        "description": [
+            "Activate insert mode before or after a specific feature.",
+            "",
+            "ACTIVATE_INSERT_MODE order_option refFeature<:in>"
+        ]
     },
     "ACTIVATE_LAYER_STATE": {
         "prefix": "ACTIVATE_LAYER_STATE",

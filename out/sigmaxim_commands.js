@@ -170,6 +170,7 @@ function activate(context) {
         const selListPath = path.join(path.dirname(filePath), 'sel_list.txt');
         console.log(selListPath);
         // 3. Create sel_list.txt if it doesn't exist
+        // TODO: MAKE CASE INSENSITIVE?
         if (!fs.existsSync(selListPath)) {
             fs.writeFileSync(selListPath, '');
         }
@@ -195,9 +196,9 @@ function activate(context) {
             console.log('subfilepath', subfilepath);
             console.log('directory', isDirectory);
             // Add all the tab file names to a list
-            if (!isDirectory && file.endsWith('.tab')) {
+            if (!isDirectory && file.toUpperCase().endsWith('.TAB')) {
                 console.log('tab:', file);
-                allFiles.push(file);
+                allFiles.push(file.toUpperCase()); // PUT UPPER CASE ITEMS IN LIST
             }
             console.log('makes it here');
             if (isDirectory) {
@@ -210,10 +211,10 @@ function activate(context) {
                     const subsubFilePath = path.join(subfilepath, subFile);
                     const isSubDirectory = fs.statSync(subsubFilePath).isDirectory();
                     console.log('sub dir:', isSubDirectory);
-                    if (!isSubDirectory && subFile.endsWith('.tab')) {
+                    if (!isSubDirectory && subFile.toUpperCase().endsWith('.TAB') && !subFile.includes(' ')) {
                         console.log('subfile:', subFile);
                         console.log('file:', file);
-                        allSubDir.push(file);
+                        allSubDir.push(file.toUpperCase());
                         break innerloop;
                     }
                 }

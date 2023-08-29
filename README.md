@@ -30,7 +30,7 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-Current: Minor release adding improvement to new productivity command towards complex project debugging.
+Current: Minor release adding improvement to new productivity command towards complex project debugging, as well as some bug fixes to the `local sel list ` command.
 
 ### 1.0.5
 
