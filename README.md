@@ -30,9 +30,9 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-Current: Minor release adding improvement to new productivity command towards complex project debugging, as well as some bug fixes to the `local sel list ` command.
+Current: Eliminated autoclosing for quotes.  Improved support of function syntax autocompletion to SA DATECODE 2023-08-24-01.
 
-### 1.0.5
+### 1.0.6
 
 Sigmaxim "Rules Perfect" automation project support.
 
