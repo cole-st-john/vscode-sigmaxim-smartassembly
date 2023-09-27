@@ -24,6 +24,9 @@ function activate(context) {
     // Define the configuration settings that you want to retrieve
     const configuration = vscode.workspace.getConfiguration('sigmaxim-support');
     // console.log(configuration);
+    // TODO: ADD SUPPORT FOR DIFF FILE TYPES - DEPENDING ON FILETYPE CONTEXT
+    const saAdminGuideChmPath = configuration.get('saAdminGuideChmPath');
+    const saUserGuideChmPath = configuration.get('saUserGuideChmPath');
     const saChmPath = configuration.get('saChmPath');
     // THE CHM COMMAND HERE
     let saHelp = vscode.commands.registerCommand('sigmaxim-support.saHelp', () => {
@@ -55,7 +58,7 @@ function activate(context) {
         // terminal.sendText("C:/Users/info/OneDrive/1.ddc/3.%20SIGMAXIM/HELP_LINK/AdminGuide.chm::/CMD_"+text+".htm");
         terminal.sendText("taskkill /IM hh.exe ");
         terminal.sendText('\r');
-        terminal.sendText("start hh.exe " + saChmPath + "::/CMD_" + text + ".htm");
+        terminal.sendText("start hh.exe " + saAdminGuideChmPath + "::/CMD_" + text + ".htm");
         terminal.sendText('\r');
         vscode.window.showInformationMessage('SA Admin Guide for: ' + text + ' opened.');
     });

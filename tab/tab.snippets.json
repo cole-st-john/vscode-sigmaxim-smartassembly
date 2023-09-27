@@ -440,14 +440,14 @@
     "CHECKOUT_OBJECT": {
         "prefix": "CHECKOUT_OBJECT",
         "body": [
-            "CHECKOUT_OBJECT ${1| ,CASE_SENSITIVE,VERSION|} ${1/(CASE_SENSITIVE)|(VERSION)/${1:+BOOL_argument}${2:+\"version\"}/} ${2:input_BOOL_to_download} ${3:input_STRING_checkout_object_name}"
+            "CHECKOUT_OBJECT ${1| ,CASE_SENSITIVE,VERSION|} ${1/(CASE_SENSITIVE)|(VERSION)/${1:+BOOL_argument}${2:+\"version\"}/} ${2|TRUE,FALSE|} ${3:input_STRING_checkout_object_name}"
         ],
         "description": "To check an object from Intralink or check out / download it from PDMLink."
     },
     "CHECKOUT_OBJECTS": {
         "prefix": "CHECKOUT_OBJECTS",
         "body": [
-            "CHECKOUT_OBJECTS ${1| ,CASE_SENSITIVE,VERSION|} ${1/(CASE_SENSITIVE)|(VERSION)/${1:+BOOL_argument}${2:+\"version\"}/} ${2:input_BOOL_to_download} ${3:input_array_of_checkout_objects_names}"
+            "CHECKOUT_OBJECTS ${1| ,CASE_SENSITIVE,VERSION|} ${1/(CASE_SENSITIVE)|(VERSION)/${1:+BOOL_argument}${2:+\"version\"}/} ${2|TRUE,FALSE|} ${3:input_array_of_checkout_objects_names}"
         ],
         "description": "To check-out multiple objects from Intralink or check out / download them from PDMLink."
     },
@@ -1322,21 +1322,21 @@
     "DESIGNATE_ATTRIBUTE": {
         "prefix": "DESIGNATE_ATTRIBUTE",
         "body": [
-            "DESIGNATE_ATTRIBUTE ${1:input_attribute_ref} ${2:input_BOOL_designate}"
+            "DESIGNATE_ATTRIBUTE ${1:input_attribute_ref} ${2|TRUE,FALSE|}"
         ],
         "description": "Designates a dimension, geometric tolerance surface or surface finish symbol."
     },
     "DESIGNATE_FEAT_PARAM": {
         "prefix": "DESIGNATE_FEAT_PARAM",
         "body": [
-            "DESIGNATE_FEAT_PARAM ${1:input_feat_ref} ${2:input_STRING_param_name} ${3:input_BOOL_designate}"
+            "DESIGNATE_FEAT_PARAM ${1:input_feat_ref} ${2:input_STRING_param_name} ${3|TRUE,FALSE|}"
         ],
         "description": "Designates feature or component feature parameters."
     },
     "DESIGNATE_MDL_PARAM": {
         "prefix": "DESIGNATE_MDL_PARAM",
         "body": [
-            "DESIGNATE_MDL_PARAM ${1:input_mdl_ref} ${2:input_STRING_param_name} ${3:input_BOOL_designate}"
+            "DESIGNATE_MDL_PARAM ${1:input_mdl_ref} ${2:input_STRING_param_name} ${3|TRUE,FALSE|}"
         ],
         "description": "Designates model parameters."
     },
@@ -1364,28 +1364,28 @@
     "DISPLAY_ANNOTATIONS": {
         "prefix": "DISPLAY_ANNOTATIONS",
         "body": [
-            "DISPLAY_ANNOTATIONS ${1:input_BOOL_annotation_display_state}"
+            "DISPLAY_ANNOTATIONS ${1|TRUE,FALSE|}"
         ],
         "description": "Toggles the display of annotations on or off."
     },
     "DISPLAY_COMB_VIEWS": {
         "prefix": "DISPLAY_COMB_VIEWS",
         "body": [
-            "DISPLAY_COMB_VIEWS ${1:input_BOOL_comb_view_display}"
+            "DISPLAY_COMB_VIEWS ${1|TRUE,FALSE|}"
         ],
         "description": "Toggles the display of combined views on or off."
     },
     "DISPLAY_DATUM": {
         "prefix": "DISPLAY_DATUM",
         "body": [
-            "DISPLAY_DATUM ${1|PLANES,PLANE_TAGS,CSYS,CSYS_TAGS,AXES,AXIS_TAGS,POINTS,POINT_TAGS,SPIN_CENTER|} ${2:input_BOOL_datum_display}"
+            "DISPLAY_DATUM ${1|PLANES,PLANE_TAGS,CSYS,CSYS_TAGS,AXES,AXIS_TAGS,POINTS,POINT_TAGS,SPIN_CENTER|} ${2|TRUE,FALSE|}"
         ],
         "description": "Toggles the display of datum planes, coordinate systems, axes, points and their tags on or off."
     },
     "DISPLAY_XSEC": {
         "prefix": "DISPLAY_XSEC",
         "body": [
-            "DISPLAY_XSEC ${1:input_xsec_ref_or_name} ${2:input_BOOL_xsec_display}"
+            "DISPLAY_XSEC ${1:input_xsec_ref_or_name} ${2|TRUE,FALSE|}"
         ],
         "description": "Sets the visibility status of a cross section of the current model."
     },
@@ -1399,56 +1399,56 @@
     "ENABLE_CONT_REF_CHECKING_MODE": {
         "prefix": "ENABLE_CONT_REF_CHECKING_MODE",
         "body": [
-            "ENABLE_CONT_REF_CHECKING_MODE ${1:input_BOOL}"
+            "ENABLE_CONT_REF_CHECKING_MODE ${1|TRUE,FALSE|}"
         ],
         "description": "Determines if a continuous checking for the validity of all references should take place after each traversed line of the program file. Especially if many models are in session, this could have effect on the performance. The default setting is determined by the configuration option ."
     },
     "ENABLE_DATA_CAPTURE_MODE": {
         "prefix": "ENABLE_DATA_CAPTURE_MODE",
         "body": [
-            "ENABLE_DATA_CAPTURE_MODE ${1:input_BOOL}"
+            "ENABLE_DATA_CAPTURE_MODE ${1|TRUE,FALSE|}"
         ],
         "description": "Determines if Creo Elements/Pro parameters for modification should be created or not. By default these parameters are created. In case of disabling this mode, modification and access to existing components is disabled. In return processing time is faster."
     },
     "ENABLE_ERROR_LOG": {
         "prefix": "ENABLE_ERROR_LOG",
         "body": [
-            "ENABLE_ERROR_LOG ${1:input_BOOL} ${2:input_STRING_filepath}"
+            "ENABLE_ERROR_LOG ${1|TRUE,FALSE|} ${2:input_STRING_filepath}"
         ],
         "description": "ENABLE_ERROR_LOG"
     },
     "ENABLE_LOG_MESSAGE": {
         "prefix": "ENABLE_LOG_MESSAGE",
         "body": [
-            "ENABLE_LOG_MESSAGE ${1:input_BOOL}"
+            "ENABLE_LOG_MESSAGE ${1|TRUE,FALSE|}"
         ],
         "description": "Enables or disables the message logging mode."
     },
     "ENABLE_PRINT_MESSAGE": {
         "prefix": "ENABLE_PRINT_MESSAGE",
         "body": [
-            "ENABLE_PRINT_MESSAGE ${1:input_BOOL}"
+            "ENABLE_PRINT_MESSAGE ${1|TRUE,FALSE|}"
         ],
         "description": "Enables or disables the output of the command."
     },
     "ENABLE_RESOLVE_MODE": {
         "prefix": "ENABLE_RESOLVE_MODE",
         "body": [
-            "ENABLE_RESOLVE_MODE ${1:input_BOOL}"
+            "ENABLE_RESOLVE_MODE ${1|TRUE,FALSE|}"
         ],
         "description": "Determines if Creo should show up the resolved mode (panic window) in case of regeneration problems. This command overwrites the option for the execution of the tab file."
     },
     "ENABLE_RESTORE_SIMPREPS": {
         "prefix": "ENABLE_RESTORE_SIMPREPS",
         "body": [
-            "ENABLE_RESTORE_SIMPREPS ${1:input_BOOL}"
+            "ENABLE_RESTORE_SIMPREPS ${1|TRUE,FALSE|}"
         ],
         "description": "Determines if after each processed code line the simplified representations of the solid models in session should be restored. This is useful especially when switching to drawing with simplified representations. The default setting is determined by the configuration option RESTORE_SIMPREPS."
     },
     "ENABLE_SAVE_DRAWINGS": {
         "prefix": "ENABLE_SAVE_DRAWINGS",
         "body": [
-            "ENABLE_SAVE_DRAWINGS ${1:input_BOOL}"
+            "ENABLE_SAVE_DRAWINGS ${1|TRUE,FALSE|}"
         ],
         "description": "Determines if drawings should be saved after the execution of a tab file. This command overwrites the option for the execution of the tab file."
     },
@@ -1567,14 +1567,14 @@
     "EXCEL_DISPLAY_ALERTS": {
         "prefix": "EXCEL_DISPLAY_ALERTS",
         "body": [
-            "EXCEL_DISPLAY_ALERTS ${1:input_BOOL_excel_alerts}"
+            "EXCEL_DISPLAY_ALERTS ${1|TRUE,FALSE|}"
         ],
         "description": "Enables or disables Excel alerts. By default the alters are disabled."
     },
     "EXCEL_ENABLE_MACROS": {
         "prefix": "EXCEL_ENABLE_MACROS",
         "body": [
-            "EXCEL_ENABLE_MACROS ${1:input_BOOL_enable_macro}"
+            "EXCEL_ENABLE_MACROS ${1|TRUE,FALSE|}"
         ],
         "description": "Enables or disables Excel alerts. By default the alters are disabled."
     },
@@ -1763,14 +1763,14 @@
     "EXPLODE_DRW_VIEW": {
         "prefix": "EXPLODE_DRW_VIEW",
         "body": [
-            "EXPLODE_DRW_VIEW ${1:input_drawing_view_ref} ${2:input_BOOL_to_display_explode}"
+            "EXPLODE_DRW_VIEW ${1:input_drawing_view_ref} ${2|TRUE,FALSE|}"
         ],
         "description": "Activates or deactivates the default explosion state in a drawing view. This function requires Pro/ENGINEER Wildfire 5 / Creo Elements/Pro 5 or above."
     },
     "EXPLODE_MDL": {
         "prefix": "EXPLODE_MDL",
         "body": [
-            "EXPLODE_MDL ${1:input_mdl_ref} ${2:input_BOOL_to_explode}"
+            "EXPLODE_MDL ${1:input_mdl_ref} ${2|TRUE,FALSE|}"
         ],
         "description": "Explodes or Un-explodes an assembly."
     },
@@ -2176,7 +2176,7 @@
     "GET_COLOR": {
         "prefix": "GET_COLOR",
         "body": [
-            "GET_COLOR ${1:input_reference} ${2| ,USE_COMPONENT_COLOR,USE_COLOR_OWNER|} ${2/(USE_COMPONENT_COLOR)|(USE_COLOR_OWNER)/${1:+BOOL_value}${2:+owner_ref}/} ${3:output_DOUBLE_red} ${4:output_DOUBLE_green} ${5:output_DOUBLE_blue}" 
+            "GET_COLOR ${1:input_reference} ${2| ,USE_COMPONENT_COLOR,USE_COLOR_OWNER|} ${2/(USE_COMPONENT_COLOR)|(USE_COLOR_OWNER)/${1:+BOOL_value}${2:+owner_ref}/} ${3:output_DOUBLE_red} ${4:output_DOUBLE_green} ${5:output_DOUBLE_blue}"
         ],
         "description": "Gets rgb color of assembly, part, feature, curve or surface as of red, green and blue between 0 and 255."
     },
@@ -5914,7 +5914,7 @@
     "RETURN": {
         "prefix": "RETURN",
         "body": [
-            "RETURN ${1:input_BOOL_value}"
+            "RETURN ${1|TRUE,FALSE|}"
         ],
         "description": "Returns from the program file with the specified value. This is currently only used for the notification MDL_RENAME_PRE and MDL_SAVE_PRE to avoid renaming or saving of a model."
     },
@@ -6481,7 +6481,7 @@
     "SET_COMB_VIEW_ANNOTATION_VISIBILITY": {
         "prefix": "SET_COMB_VIEW_ANNOTATION_VISIBILITY",
         "body": [
-            "SET_COMB_VIEW_ANNOTATION_VISIBILITY ${1:input_model} ${2:\"input_STRING_combined_view\"} ${3:input_refAnnotation_or_arrayAnnotations} ${4:input_BOOL_visibility}"
+            "SET_COMB_VIEW_ANNOTATION_VISIBILITY ${1:input_model} ${2:\"input_STRING_combined_view\"} ${3:input_refAnnotation_or_arrayAnnotations} ${4|TRUE,FALSE|}"
         ],
         "description": "Sets the visibility state of annotations in a combined view. This command requires Creo Parametric 1.0 or above."
     },
@@ -6509,7 +6509,7 @@
     "SET_COMP_PLACED": {
         "prefix": "SET_COMP_PLACED",
         "body": [
-            "SET_COMP_PLACED ${1:input_model} ${2:input_BOOL_placed}"
+            "SET_COMP_PLACED ${1:input_model} ${2|TRUE,FALSE|}"
         ],
         "description": "Sets the placement state of a component. Unplaced component are usually created via ."
     },
@@ -6607,7 +6607,7 @@
     "SET_DIM_DISPLAY_ROUNDED": {
         "prefix": "SET_DIM_DISPLAY_ROUNDED",
         "body": [
-            "SET_DIM_DISPLAY_ROUNDED ${1:input_refDim} ${2:input_BOOL_dispRounded}"
+            "SET_DIM_DISPLAY_ROUNDED ${1:input_refDim} ${2|TRUE,FALSE|}"
         ],
         "description": "Set the information if the dimension should be displayed as a rounded value. This function requires Pro/ENGINEER Wildfire 5 / Creo Elements/Pro 5 or above."
     },
@@ -6621,7 +6621,7 @@
     "SET_DIM_FRACTIONAL": {
         "prefix": "SET_DIM_FRACTIONAL",
         "body": [
-            "SET_DIM_FRACTIONAL ${1:input_refDim} ${2:input_BOOL_formatFractional}"
+            "SET_DIM_FRACTIONAL ${1:input_refDim} ${2|TRUE,FALSE|}"
         ],
         "description": "Determines if a "
     },
@@ -6817,7 +6817,7 @@
     "SET_DRW_SYMBOL_GROUP_SHOWN": {
         "prefix": "SET_DRW_SYMBOL_GROUP_SHOWN",
         "body": [
-            "SET_DRW_SYMBOL_GROUP_SHOWN ${1:input_refSymbol} ${2:\"input_STRING_name\"} ${3:input_BOOL_visible}"
+            "SET_DRW_SYMBOL_GROUP_SHOWN ${1:input_refSymbol} ${2:\"input_STRING_name\"} ${3|TRUE,FALSE|}"
         ],
         "description": "Sets a symbol group visible or not visible."
     },
@@ -6929,14 +6929,14 @@
     "SET_DRW_VIEW_PARTIAL_AREA": {
         "prefix": "SET_DRW_VIEW_PARTIAL_AREA",
         "body": [
-            "SET_DRW_VIEW_PARTIAL_AREA ${1:input_BOOL_showBoundary} ${2:input_refDrwView} ${3:input_refPnt} ${4:input_refCurve}"
+            "SET_DRW_VIEW_PARTIAL_AREA ${1|TRUE,FALSE|} ${2:input_refDrwView} ${3:input_refPnt} ${4:input_refCurve}"
         ],
         "description": "Sets a partial area in an existing drawing view. This function requires Pro/ENGINEER Wildfire 5 / Creo Elements/Pro 5 or above."
     },
     "SET_DRW_VIEW_QUILT_HLR": {
         "prefix": "SET_DRW_VIEW_QUILT_HLR",
         "body": [
-            "SET_DRW_VIEW_QUILT_HLR ${1:input_refDrwView} ${2:input_BOOL_quilt_hidden_line_removal}"
+            "SET_DRW_VIEW_QUILT_HLR ${1:input_refDrwView} ${2|TRUE,FALSE|}"
         ],
         "description": "Sets the hidden line removal option for quilts on a drawing view."
     },
@@ -6950,7 +6950,7 @@
     "SET_DRW_VIEW_SKELETON_DISPLAY": {
         "prefix": "SET_DRW_VIEW_SKELETON_DISPLAY",
         "body": [
-            "SET_DRW_VIEW_SKELETON_DISPLAY ${1:input_refDrwView} ${2:input_BOOL_displaySkeleton}"
+            "SET_DRW_VIEW_SKELETON_DISPLAY ${1:input_refDrwView} ${2|TRUE,FALSE|}"
         ],
         "description": "Sets the skeleton model display option for a drawing view"
     },
@@ -7356,14 +7356,14 @@
     "SET_RELATIONS_UNIT_SENSITIVE": {
         "prefix": "SET_RELATIONS_UNIT_SENSITIVE",
         "body": [
-            "SET_RELATIONS_UNIT_SENSITIVITY ${1:input_model} ${2| ,INITIAL,POST_REGEN,OWNER_TYPE|} ${2/(OWNER_TYPE)/${1:+\"MODEL COMPONENT ANY\"}/} ${3:input_BOOL_sensitivity} "
+            "SET_RELATIONS_UNIT_SENSITIVITY ${1:input_model} ${2| ,INITIAL,POST_REGEN,OWNER_TYPE|} ${2/(OWNER_TYPE)/${1:+\"MODEL COMPONENT ANY\"}/} ${3|TRUE,FALSE|} "
         ],
         "description": "Sets the sensitivity state of the model relations. This command requires Creo 2.0 M110 or above."
     },
     "SET_RETURN_VALUE": {
         "prefix": "SET_RETURN_VALUE",
         "body": [
-            "SET_RETURN_VALUE ${1:input_BOOL_value}"
+            "SET_RETURN_VALUE ${1|TRUE,FALSE|}"
         ],
         "description": "Sets the return value for a program file. This is currently only used for the notifications to prevent the feature or model related operations."
     },
@@ -7398,7 +7398,7 @@
     "SET_SYMBOL_GROUP_SHOWN": {
         "prefix": "SET_SYMBOL_GROUP_SHOWN",
         "body": [
-            "SET_SYMBOL_GROUP_SHOWN ${1:input_refSymbol} ${2:\"input_STRING_name\"} ${3:input_BOOL_visible}"
+            "SET_SYMBOL_GROUP_SHOWN ${1:input_refSymbol} ${2:\"input_STRING_name\"} ${3|TRUE,FALSE|}"
         ],
         "description": "Sets a symbol group visible or not visible."
     },
@@ -7503,7 +7503,7 @@
     "SHOW_DRW_FORMAT": {
         "prefix": "SHOW_DRW_FORMAT",
         "body": [
-            "SHOW_DRW_FORMAT ${1:input_refDrawing} ${2:input_INT_sheet} ${3:input_BOOL_showformat}"
+            "SHOW_DRW_FORMAT ${1:input_refDrawing} ${2:input_INT_sheet} ${3|TRUE,FALSE|}"
         ],
         "description": "Shows or hides the format of a drawing sheet. This command is only available for Creo 2.0 and above."
     },
@@ -7580,7 +7580,7 @@
     "SMARTUPDATE_EXEC": {
         "prefix": "SMARTUPDATE_EXEC",
         "body": [
-            "SMARTUPDATE_EXEC ${1:input_model} ${2:\"input_STRING_config_path\"} ${3:\"input_STRING_log_path\"} ${4:input_BOOL_check_only} ${5:input_BOOL_show_dialog}"
+            "SMARTUPDATE_EXEC ${1:input_model} ${2:\"input_STRING_config_path\"} ${3:\"input_STRING_log_path\"} ${4|TRUE,FALSE|} ${5|TRUE,FALSE|}"
         ],
         "description": "Executes SMARTUpdate for a specified model with a specified configuration. SMARTUpdate must be active in the Creo session in order to run this command. It requires the SMARTUpdate version 8.0 M010 or newer."
     },
@@ -18800,7 +18800,6 @@
             "! ANNOUNCE END OF PROGRAM",
             "ENABLE_PRINT_MESSAGE TRUE",
             "GET_TAB_NAME tab_name",
-            "SPLIT_STRING tab_name tab_name SPLIT_CHAR \".\"",
             "PRINT \"% PROGRAM COMPLETE-----------------------------------\" mkupper(tab_name) "
         ],
         "description": "progc "
@@ -18820,7 +18819,6 @@
             "CLEAR_MESSAGE_AREA",
             "ENABLE_PRINT_MESSAGE TRUE",
             "GET_TAB_NAME tab_name",
-            "SPLIT_STRING tab_name tab_name SPLIT_CHAR \".\"",
             "PRINT \"% PROGRAM STARTING-----------------------------------\" mkupper(tab_name) "
         ],
         "description": "progs "

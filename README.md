@@ -30,9 +30,9 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-Current: Eliminated autoclosing for quotes.  Improved support of function syntax autocompletion to SA DATECODE 2023-08-24-01.
+Current: Improved SA snippets (added options).
 
-### 1.0.6
+### 1.0.7
 
 Sigmaxim "Rules Perfect" automation project support.
 

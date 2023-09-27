@@ -2,7 +2,7 @@
 	"name": "sigmaxim-support",
 	"displayName": "Sigmaxim Automation Support for PTC Creo Parametric",
 	"description": "Adds comprehensive support for creating and managing PTC Creo Automations with Sigmaxim Rules-Perfect products (e.g. SmartAssembly, and including .tab files).",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"publisher": "Cole-St-John",
 	"homepage": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
 	"repository": "https://github.com/Cole-St-John/vscode-sigmaxim-smartassembly",
@@ -20,10 +20,15 @@
 		"configuration": {
 			"title": "Configuration Settings for Sigmaxim Extension",
 			"properties": {
-				"sigmaxim-support.saChmPath": {
+				"sigmaxim-support.saAdminGuideChmPath": {
 					"type": "string",
 					"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/HELP_LINK/AdminGuide.chm",
-					"description": "SA Help CHM - Full Path"
+					"description": "SA Admin Guide CHM - Full Path"
+				},
+				"sigmaxim-support.saUserGuideChmPath": {
+					"type": "string",
+					"default": "C:/Users/info/OneDrive/1_ddc/SIGMAXIM/HELP_LINK/UserGuide.chm",
+					"description": "SA User Guide CHM - Full Path"
 				},
 				"sigmaxim-support.sdsChmPath": {
 					"type": "string",
