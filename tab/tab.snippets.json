@@ -2005,6 +2005,13 @@
         ],
         "description": "Retrieves all elements of an annotation feature."
     },
+    "GET_ANNOTATION_ENVELOPE": {
+        "prefix": "GET_ANNOTATION_ENVELOPE",
+        "body": [
+            "GET_ANNOTATION_ENVELOPE ${1:input_reference_origin} ${2:input_annotation_ref} ${3:output_envelope_struct}"
+        ],
+        "description": "Calculates the envelope of a dimension, note, symbol, geometric tolerance or surface finish annotation. This function requires Creo Parametric 4.0 M190,  6.0.5.0, 7.0.1.0 or above."
+    },
     "GET_ANNOTATION_LEADER_REF": {
         "prefix": "GET_ANNOTATION_LEADER_REF",
         "body": [
@@ -3208,6 +3215,13 @@
             "GET_FEATURE_NUMBER ${1:input_reference_feature} ${2:output_parameter_number}"
         ],
         "description": "Retrieves the feature number as shown in the model tree."
+    },
+    "GET_FEATURE_SKETCH_DIMS_WITH_REFS": {
+        "prefix": "GET_FEATURE_SKETCH_DIMS_WITH_REFS",
+        "body": [
+            "GET_FEATURE_SKETCH_DIMS_WITH_REFS ${1:input_reference_feature} ${2:output_array_sketch_refs}"
+        ],
+        "description": "Retrieves dimension reference information from sketched features which are supported by Creo Toolkit."
     },
     "GET_FEATURE_STATE": {
         "prefix": "GET_FEATURE_STATE",
@@ -5389,7 +5403,7 @@
     "PRINT": {
         "prefix": "PRINT",
         "body": [
-            "PRINT ${1| ,MESSAGE_SYMBOL|} ${1/(MESSAGE_SYMBOL)/${1:+\"symbol\"}/} ${2:\"input_STRING_format\"} ${3| ,argument|}"
+            "PRINT ${1| ,MESSAGE_SYMBOL|} ${2| ,WARNING,GENERAL,INFO,PROMPT,CRITICAL,ERROR|} ${3:input_STRING_format}"
         ],
         "description": "Output of text messages in the Creo Elements/Pro message area."
     },
@@ -19470,5 +19484,166 @@
             "END_IF"
         ],
         "description": "Checks whether a variable is a file handle and whether it is open/valid and can be written to."
+    },
+    "DATUM_TARGET_OPTION": {
+        "prefix": "DATUM_TARGET_OPTION",
+        "body": [
+            "DATUM_TARGET_OPTION $1"
+        ],
+        "description": "DATUM TARGET STRUCT"
+    },
+    "DIMENSION_REFERENCES": {
+        "prefix": "DIMENSION_REFERENCES",
+        "body": [
+            "DIMENSION_REFERENCES $1"
+        ],
+        "description": "DIMENSION_REFERENCES OPTION"
+    },
+    "ENCODE_URL": {
+        "prefix": "ENCODE_URL",
+        "body": [
+            "ENCODE_URL $1"
+        ],
+        "description": "ENCODE_URL OPTION"
+    },
+    "FOLLOW_REDIRECT": {
+        "prefix": "FOLLOW_REDIRECT",
+        "body": [
+            "FOLLOW_REDIRECT  $1"
+        ],
+        "description": "FOLLOW_REDIRECT OPTION"
+    },
+    "INCLUDE_DRAWING": {
+        "prefix": "INCLUDE_DRAWING",
+        "body": [
+            "INCLUDE_DRAWING  $1"
+        ],
+        "description": "INCLUDE_DRAWING OPTION"
+    },
+    "INCLUDE_LINE": {
+        "prefix": "INCLUDE_LINE",
+        "body": [
+            "INCLUDE_LINE  $1"
+        ],
+        "description": "INCLUDE_LINE OPTION"
+    },
+    "INCLUDE_PATH": {
+        "prefix": "INCLUDE_PATH",
+        "body": [
+            "INCLUDE_PATH  $1"
+        ],
+        "description": "INCLUDE_PATH OPTION"
+    },
+    "INCLUDE_PREFIX": {
+        "prefix": "INCLUDE_PREFIX",
+        "body": [
+            "INCLUDE_PREFIX  $1"
+        ],
+        "description": "INCLUDE_PREFIX OPTION"
+    },
+    "INCLUDE_SUFFIX": {
+        "prefix": "INCLUDE_SUFFIX",
+        "body": [
+            "INCLUDE_SUFFIX  $1"
+        ],
+        "description": "INCLUDE_SUFFIX OPTION"
+    },
+    "INSERT_AS_SINGLE_COMP": {
+        "prefix": "INSERT_AS_SINGLE_COMP",
+        "body": [
+            "INSERT_AS_SINGLE_COMP  $1"
+        ],
+        "description": "INSERT_AS_SINGLE_COMP OPTION"
+    },
+    "IS_FAMITEM_VALUE_GENERIC": {
+        "prefix": "IS_FAMITEM_VALUE_GENERIC",
+        "body": [
+            "IS_FAMITEM_VALUE_GENERIC  $1"
+        ],
+        "description": "IS_FAMITEM_VALUE_GENERIC LOGIC STATEMENT"
+    },
+    "SCALE_UV": {
+        "prefix": "SCALE_UV",
+        "body": [
+            "SCALE_UV  $1"
+        ],
+        "description": "SCALE_UV OPTION"
+    },
+    "BODY": {
+        "prefix": "BODY",
+        "body": [
+            "BODY  $1"
+        ],
+        "description": "BODY OPTION"
+    },
+    "COLLECTION_DATA": {
+        "prefix": "COLLECTION_DATA",
+        "body": [
+            "COLLECTION_DATA  $1"
+        ],
+        "description": "COLLECTION_DATA STRUCT"
+    },
+    "CRV_COLLECTION_INSTR": {
+        "prefix": "CRV_COLLECTION_INSTR",
+        "body": [
+            "CRV_COLLECTION_INSTR  $1"
+        ],
+        "description": "CRV_COLLECTION_INSTR STRUCT"
+    },
+    "SRF_COLLECTION_INSTR": {
+        "prefix": "SRF_COLLECTION_INSTR",
+        "body": [
+            "SRF_COLLECTION_INSTR  $1"
+        ],
+        "description": "SRF_COLLECTION_INSTR STRUCT"
+    },
+    "SRF_COLLECTION_REF": {
+        "prefix": "SRF_COLLECTION_REF",
+        "body": [
+            "SRF_COLLECTION_REF  $1"
+        ],
+        "description": "SRF_COLLECTION_REF STRUCT"
+    },
+    "equal": {
+        "prefix": "equal",
+        "body": [
+            "equal(${1:value1},${2:value2},${3:digits})"
+        ],
+        "description": "equal math expression"
+    },
+    "greater": {
+        "prefix": "greater",
+        "body": [
+            "greater(${1:value1},${2:value2},${3:digits})"
+        ],
+        "description": "greater math expression"
+    },
+    "greaterorequal": {
+        "prefix": "greaterorequal",
+        "body": [
+            "greaterorequal(${1:value1},${2:value2},${3:digits})"
+        ],
+        "description": "greaterorequal math expression"
+    },
+    "less": {
+        "prefix": "less",
+        "body": [
+            "less(${1:value1},${2:value2},${3:digits})"
+        ],
+        "description": "less math expression"
+    },
+    "lessorequal": {
+        "prefix": "lessorequal",
+        "body": [
+            "lessorequal(${1:value1},${2:value2},${3:digits})"
+        ],
+        "description": "lessorequal math expression"
+    },
+    "SET_DRF_CSYS_ORIENTATION": {
+        "prefix": "SET_DRF_CSYS_ORIENTATION",
+        "body": [
+            "SET_DRF_CSYS_ORIENTATION ${1:input_drf_reference} ${2:input_orientation_matrix}"
+        ],
+        "description": "Sets the orientation of the coordinate system which is related to the datum reference frame."
     }
 }

@@ -30,9 +30,9 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-Current: Improved SA snippets (added options).
+Current: Updated Autocompletion and Highlighting to SA 9.0.2 / 2023-10-04-01.
 
-### 1.0.7
+### 1.0.8
 
 Sigmaxim "Rules Perfect" automation project support.
 
