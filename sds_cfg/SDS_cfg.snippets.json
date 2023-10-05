@@ -1,39 +1,308 @@
 {
-	
-"ADD_JOB_DIR": {"prefix":"ADD_JOB_DIR","body": ["ADD_JOB_DIR ${1:|TEXT_FILE,TEXT_LINE|} ${2:tab_file} ${3:watch_directory} ${4:|xml,txt|} ${4:| ,BACKUP path,TIMEOUT 1200, PRIORITY 15|}"],"description": ["ADD_JOB_DIR\nAdds directories which are observed for files in order to use them as job description. After the information was retrieved, the file will be removed automatically."]},
-"ADD_MULTI_JOB_DIR": {"prefix":"ADD_MULTI_JOB_DIR","body": ["ADD_MULTI_JOB_DIR ${1:|TEXT_FILE,TEXT_LINE|} PROG ${2:tab_file} ${3:tab_file} ${4:watch_directory} ${5:|xml,txt|} ${6:| ,BACKUP path,TIMEOUT 1200, PRIORITY 15|}"],"description": ["ADD_MULTI_JOB_DIR\nSimilar to the ADD_JOB_DIR option, but multiple program files can be triggered in one job."]},
-"CLEANUP_PROE_CACHE_EXPIRATION": {"prefix":"CLEANUP_PROE_CACHE_EXPIRATION","body": ["CLEANUP_PROE_CACHE_EXPIRATION ${1:|0,900|}"],"description": ["CLEANUP_PROE_CACHE_EXPIRATION\nIn case PROE_CACHE_DIR is used, for each Creo Parametric session a new unique folder will be created. To make sure these folders will be erased after the session, CLEANUP_PROE_CACHE_EXPIRATION allows to define the expiration period in seconds after which a cache directory from a previous session will be eliminated.\n0 — this mechanism is disabled. *\nAny other value — Defines the expiration period in seconds. This period is 900 seconds as minimum."]},
-"DELETE_FAILED_JOBS": {"prefix":"DELETE_FAILED_JOBS","body": ["DELETE_FAILED_JOBS ${1:|YES,NO|}"],"description": ["DELETE_FAILED_JOBS\nYES—delete failed jobs from the database.\nNO—keeps the information about failed jobs in the database.*"]},
-"DELETE_PROCESSED_JOBS": {"prefix":"DELETE_PROCESSED_JOBS","body": ["DELETE_PROCESSED_JOBS ${1:|YES,NO|}"],"description": ["DELETE_PROCESSED_JOBS\nYES—delete processed jobs from the database.*\nNO—keeps the information about processed jobs in the database."]},
-"ENABLE_IPV4": {"prefix":"ENABLE_IPV4","body": ["ENABLE_IPV4 ${1:|YES,NO|}"],"description": ["ENABLE_IPV4\nYES—The IPv4 internet protocol will be used for communication.*\nNO—The IPv4 internet protocol will not be use for communication.\nNote: The IPv4 and the IPv6 protocol can be used in parallel."]},
-"ENABLE_IPV6": {"prefix":"ENABLE_IPV6","body": ["ENABLE_IPV6 ${1:|YES,NO|}"],"description": ["ENABLE_IPV6\nYES—The IPv6 internet protocol will be used for communication.*\nNO—The IPv6 internet protocol will not be use for communication.\nNote: The IPv4 and the IPv6 protocol can be used in parallel."]},
-"ERASEALL_AFTER_JOB": {"prefix":"ERASEALL_AFTER_JOB","body": ["ERASEALL_AFTER_JOB ${1:|YES,NO|}"],"description": ["ERASEALL_AFTER_JOB\nYES—erases all models from session after the job was processed.*\nNO—keep the models in session after the job was processed."]},
-"ERASEALL_BEFORE_JOB": {"prefix":"ERASEALL_BEFORE_JOB","body": ["ERASEALL_BEFORE_JOB ${1:|YES,NO|}"],"description": ["ERASEALL_BEFORE_JOB\nYES—erases all models from session prior to process the next jobs.\nNO—keep the models in session prior to process the next job.*"]},
-"FAILURE_RETRIES": {"prefix":"FAILURE_RETRIES","body": ["FAILURE_RETRIES ${1:|0,3|}"],"description": ["FAILURE_RETRIES\nNumber of attempts before a job will be considered to ba failed. Default is 2. Use 0 to avoid any retries."]},
-"LOG_JOB_DETAILS": {"prefix":"LOG_JOB_DETAILS","body": ["LOG_JOB_DETAILS ${1:|YES,NO,SDS,JP,JPL,SA,COM|}"],"description": ["LOG_JOB_DETAILS\nYES—writes the jobs details to the log file.\nNO—does not writ the job details to the log file.*"]},
-"LOG_TRAIL": {"prefix":"LOG_TRAIL","body": ["LOG_TRAIL ${1:|YES,NO|}"],"description": ["LOG_TRAIL\nTrail information allows to log specific processes code lines to the log file.\nSDS—writes trail information from the SmartDesignServer \nJP—writes trail information from the SmartAssemblyJobProcessor\nJPL—writes trail information from the jpLauncher.\nSA—writes trail information from the SmartAssembly worker.\nCOM—writes trail information from the network communication between the processes.\nYES—writes all kind of trail information.\nNO—does not write trail information at all.*\nNote: multiple settings could be used.\nExample:\nLOG_TRAIL SDS SA"]},
-"MASTER_SERVER": {"prefix":"MASTER_SERVER","body": ["MASTER_SERVER  ${1:port@server.com}"],"description": ["MASTER_SERVER\nConfigures one or many master servers from which jobs are retrieved in case no local job is running or waiting.\nAn entry consists on port and server name separated by the at sign '@'. Multiple entries are separated by a semicolon.\nExample:\nMASTER_SERVER 6500@sdsserver\nMASTER_SERVER 6500@sdsserver1;6500@sdsserver2"]},
-"NETWORK_TIMEOUT": {"prefix":"NETWORK_TIMEOUT","body": ["NETWORK_TIMEOUT ${1:|YES,NO|}"],"description": ["NETWORK_TIMEOUT\nTime out in seconds for the internal network based communication between the components of the SmartDesignServer.\nDefault is 30. 10 seconds is the minimal value."]},
-"PROCESS_JOBS": {"prefix":"PROCESS_JOBS","body": ["PROCESS_JOBS ${1:|YES,NO|}"],"description": ["PROCESS_JOBS\nYES—processes received jobs.*\nNO—only stores received jobs to the database. They could be processed later on."]},
-"PROE_CACHE_DIR": {"prefix":"PROE_CACHE_DIR","body": ["PROE_CACHE_DIR ${1:path_to_sds_cache}"],"description": ["PROE_CACHE_DIR\nDirectory in which the cache will be created via setting the environment variable PTC_WF_ROOT. If this is specified, a sub directory with a unique date/name is also created. So for each new session the cache will be empty.\nIf this option is not configured or left empty, the standard cache directory is used."]},
-"PROE_START_CMD": {"prefix":"PROE_START_CMD","body": ["PROE_START_CMD ${1:|PATH_TO_EXE,PATH_TO_BAT|}"],"description": ["PROE_START_CMD\nFull path to the Creo Parametric start script."]},
-"PROE_START_DIR": {"prefix":"PROE_START_DIR","body": ["PROE_START_DIR ${1:directory_to_start_in}"],"description": ["PROE_START_DIR\nDirectory in which Creo Parametric should start."]},
-"PULL_JOBS": {"prefix":"PULL_JOBS","body": ["PULL_JOBS ${1:|YES,NO|}"],"description": ["PULL_JOBS\nYES—In case master servers are configured and no local job is running or waiting, jobs from the configured master servers are pulled.*\nNO—No jobs are pulled from the master servers"]},
-"PURGE_DELETED_JOBS": {"prefix":"PURGE_DELETED_JOBS","body": ["PURGE_DELETED_JOBS ${1:|YES,NO|}"],"description": ["PURGE_DELETED_JOBS\nDeleted jobs are marked to flag their state, but they still exists in the database.\nYES—purge all jobs which are marked as deleted from the database.\nNO—keep jobs which are marked as deleted in the database."]},
-"PUSH_JOBS": {"prefix":"PUSH_JOBS","body": ["PUSH_JOBS ${1:|YES,NO|}"],"description": ["PUSH_JOBS\nYES—In case master servers are configured and jobs from them have been processed, the state will be stored back to the database of the master server.*\nNO—States of processed from master servers are not stored back to the master server database."]},
-"SDS_ACCOUNT": {"prefix":"SDS_ACCOUNT","body": ["SDS_ACCOUNT SDS_ACCOUNT"],"description": ["SDS_ACCOUNT\nIf not empty this key will be used to determine login and password information for the SmartDesignServer process from the password database. This option is usually used when running the SmartDesignServer as a service. By default this option is empty."]},
-"SERVER_CERTIFICATE_KEY": {"prefix":"SERVER_CERTIFICATE_KEY","body": ["SERVER_CERTIFICATE_KEY ${1:something.key}"],"description": ["SERVER_CERTIFICATE_KEY\nKey of server certificate. In case only a file name is specified this is expected in <SmartDesignServer>\\configuration\\certificates\\<cert_file>.\nAs default sds.key is applied.\nExample:\nSERVER_CERTIFICATE_FILE sds.key\nNote: This option will only be processed for enabled SSL connections."]},
-"SERVER_CERTIFICATION_FILE": {"prefix":"SERVER_CERTIFICATION_FILE","body": ["SERVER_CERTIFICATION_FILE ${1:something.cer}"],"description": ["SERVER_CERTIFICATION_FILE\nFile of server certificate. In case only a file name is specified this is expected in <SmartDesignServer>\\configuration\\certificates\\<cert_file>.\nAs default sds.cer it applied.\nExample:\nSERVER_CERTIFICATE_FILE sds.cer\nNote: This option will only be processed for enabled SSL connections."]},
-"SERVER_PORT": {"prefix":"SERVER_PORT","body": ["SERVER_PORT ${1:6500}"],"description": ["SERVER_PORT\nCommunication port of the server. Default is 6500."]},
-"SERVICE_GRAPHICS_MODE": {"prefix":"SERVICE_GRAPHICS_MODE","body": ["SERVICE_GRAPHICS_MODE ${1:|NO_GRAPHICS,ALTERNATE_USER,ACCOUNT_USER|}"],"description": ["SERVICE_GRAPHICS_MODE\nConfigures the display mode in case the SmartDesignServer runs as a service.\nACCOUNT_USER—In case the user which is defined by SDS_ACCOUNT is logged in at the host, the Creo session will be visible at the screen. Otherwise Creo runs in non display mode.\nNO_GRAPHICS—The Creo session will always run in no display mode. *\nALTERNATE_USER—The user currently logged in will start the Creo session for SDS_ACCOUNT and run Creo in display mode."]},
-"SHUTDOWN_CYCLE": {"prefix":"SHUTDOWN_CYCLE","body": ["SHUTDOWN_CYCLE ${1:|0,5|}"],"description": ["SHUTDOWN_CYCLE\nJob cycle after which Creo Parametric will be restarted. 0 means it will not be restarted automatically."]},
-"STARTUP_TEMP_MDL": {"prefix":"STARTUP_TEMP_MDL","body": ["STARTUP_TEMP_MDL ${1:|YES,NO|}"],"description": ["STARTUP_TEMP_MDL\nIn some cases Creo Parametric seems not to work properly if no previous model was on the screen. In case no model is on the screen, this option supplies the functionality to create a temporary model, activate it and remove it.\nYES— a temporary model is created, activated and removed\nNO— no temporary model is created. *"]},
-"STARTUP_TIMEOUT": {"prefix":"STARTUP_TIMEOUT","body": ["STARTUP_TIMEOUT ${1:|30,120|}"],"description": ["STARTUP_TIMEOUT\nTime out in seconds for the startup of Creo Parametric and the component engine. In case the timeout is exceeded, the attempt to run the job is failed.\nDefault is 120. 30 seconds is the minimal value."]},
-"TASK_KILL": {"prefix":"TASK_KILL","body": ["TASK_KILL ${1:|xtop.exe,nmsd.exe,creoagent.exe|}"],"description": ["TASK_KILL\nName of the task which should be terminated in case Creo Parametric is shut down. Several TASK_KILL lines could appear."]},
-"USE_CACHE_TEMPLATE": {"prefix":"USE_CACHE_TEMPLATE","body": ["USE_CACHE_TEMPLATE ${1:|YES,NO|}"],"description": ["USE_CACHE_TEMPLATE\nIn case the PROE_CACHE_DIR is used, a template could be copied which is located in <SmartDesignServer>\\configuration\\cache_template.\nYES—the template will be copied.\nNO—the template will not be copied.*"]},
-"USE_SSL": {"prefix":"USE_SSL","body": ["USE_SSL ${1:|YES,NO|}"],"description": ["USE_SSL\nConfigures if the network communication between SmartDesignServer and APIs should be based on SSL.\nYES—The network communication is based on HTTPS.\nNO—The network communication is based on HTTP. *"]},
-"VERBOSE": {"prefix":"VERBOSE","body": ["VERBOSE ${1:|YES,NO|}"],"description": ["VERBOSE\nYES—writes information about all running processes to the log file.\nNO—does not write the information about all running processes to the log file.*"]},
-"VERIFY_CERTIFICATE": {"prefix":"VERIFY_CERTIFICATE","body": ["VERIFY_CERTIFICATE ${1:|YES,NO|}"],"description": ["VERIFY_CERTIFICATE\nConfigures if the SSL certificate should be verified.\nYES—The SSL certificate will be verified. *\nNO—The SSL certificate will not be verified. This should only be used for testing purpose.\nNote: This option will only be processed for enabled SSL connections. "]}
-
-
+	"ADD_JOB_DIR": {
+		"body": [
+			"ADD_JOB_DIR ${1:|TEXT_FILE,TEXT_LINE|} ${2:tab_file} ${3:watch_directory} ${4:|xml,txt|} ${4:| ,BACKUP path,TIMEOUT 1200, PRIORITY 15|}"
+		],
+		"description": [
+			"ADD_JOB_DIR\nAdds directories which are observed for files in order to use them as job description. After the information was retrieved, the file will be removed automatically."
+		],
+		"prefix": "ADD_JOB_DIR"
+	},
+	"ADD_MULTI_JOB_DIR": {
+		"body": [
+			"ADD_MULTI_JOB_DIR ${1:|TEXT_FILE,TEXT_LINE|} PROG ${2:tab_file} ${3:tab_file} ${4:watch_directory} ${5:|xml,txt|} ${6:| ,BACKUP path,TIMEOUT 1200, PRIORITY 15|}"
+		],
+		"description": [
+			"ADD_MULTI_JOB_DIR\nSimilar to the ADD_JOB_DIR option, but multiple program files can be triggered in one job."
+		],
+		"prefix": "ADD_MULTI_JOB_DIR"
+	},
+	"CLEANUP_PROE_CACHE_EXPIRATION": {
+		"body": [
+			"CLEANUP_PROE_CACHE_EXPIRATION ${1:|0,900|}"
+		],
+		"description": [
+			"CLEANUP_PROE_CACHE_EXPIRATION\nIn case PROE_CACHE_DIR is used, for each Creo Parametric session a new unique folder will be created. To make sure these folders will be erased after the session, CLEANUP_PROE_CACHE_EXPIRATION allows to define the expiration period in seconds after which a cache directory from a previous session will be eliminated.\n0 — this mechanism is disabled. *\nAny other value — Defines the expiration period in seconds. This period is 900 seconds as minimum."
+		],
+		"prefix": "CLEANUP_PROE_CACHE_EXPIRATION"
+	},
+	"DELETE_FAILED_JOBS": {
+		"body": [
+			"DELETE_FAILED_JOBS ${1:|YES,NO|}"
+		],
+		"description": [
+			"DELETE_FAILED_JOBS\nYES—delete failed jobs from the database.\nNO—keeps the information about failed jobs in the database.*"
+		],
+		"prefix": "DELETE_FAILED_JOBS"
+	},
+	"DELETE_PROCESSED_JOBS": {
+		"body": [
+			"DELETE_PROCESSED_JOBS ${1:|YES,NO|}"
+		],
+		"description": [
+			"DELETE_PROCESSED_JOBS\nYES—delete processed jobs from the database.*\nNO—keeps the information about processed jobs in the database."
+		],
+		"prefix": "DELETE_PROCESSED_JOBS"
+	},
+	"ENABLE_IPV4": {
+		"body": [
+			"ENABLE_IPV4 ${1:|YES,NO|}"
+		],
+		"description": [
+			"ENABLE_IPV4\nYES—The IPv4 internet protocol will be used for communication.*\nNO—The IPv4 internet protocol will not be use for communication.\nNote: The IPv4 and the IPv6 protocol can be used in parallel."
+		],
+		"prefix": "ENABLE_IPV4"
+	},
+	"ENABLE_IPV6": {
+		"body": [
+			"ENABLE_IPV6 ${1:|YES,NO|}"
+		],
+		"description": [
+			"ENABLE_IPV6\nYES—The IPv6 internet protocol will be used for communication.*\nNO—The IPv6 internet protocol will not be use for communication.\nNote: The IPv4 and the IPv6 protocol can be used in parallel."
+		],
+		"prefix": "ENABLE_IPV6"
+	},
+	"ERASEALL_AFTER_JOB": {
+		"body": [
+			"ERASEALL_AFTER_JOB ${1:|YES,NO|}"
+		],
+		"description": [
+			"ERASEALL_AFTER_JOB\nYES—erases all models from session after the job was processed.*\nNO—keep the models in session after the job was processed."
+		],
+		"prefix": "ERASEALL_AFTER_JOB"
+	},
+	"ERASEALL_BEFORE_JOB": {
+		"body": [
+			"ERASEALL_BEFORE_JOB ${1:|YES,NO|}"
+		],
+		"description": [
+			"ERASEALL_BEFORE_JOB\nYES—erases all models from session prior to process the next jobs.\nNO—keep the models in session prior to process the next job.*"
+		],
+		"prefix": "ERASEALL_BEFORE_JOB"
+	},
+	"FAILURE_RETRIES": {
+		"body": [
+			"FAILURE_RETRIES ${1:|0,3|}"
+		],
+		"description": [
+			"FAILURE_RETRIES\nNumber of attempts before a job will be considered to ba failed. Default is 2. Use 0 to avoid any retries."
+		],
+		"prefix": "FAILURE_RETRIES"
+	},
+	"LOG_JOB_DETAILS": {
+		"body": [
+			"LOG_JOB_DETAILS ${1:|YES,NO,SDS,JP,JPL,SA,COM|}"
+		],
+		"description": [
+			"LOG_JOB_DETAILS\nYES—writes the jobs details to the log file.\nNO—does not writ the job details to the log file.*"
+		],
+		"prefix": "LOG_JOB_DETAILS"
+	},
+	"LOG_TRAIL": {
+		"body": [
+			"LOG_TRAIL ${1:|YES,NO|}"
+		],
+		"description": [
+			"LOG_TRAIL\nTrail information allows to log specific processes code lines to the log file.\nSDS—writes trail information from the SmartDesignServer \nJP—writes trail information from the SmartAssemblyJobProcessor\nJPL—writes trail information from the jpLauncher.\nSA—writes trail information from the SmartAssembly worker.\nCOM—writes trail information from the network communication between the processes.\nYES—writes all kind of trail information.\nNO—does not write trail information at all.*\nNote: multiple settings could be used.\nExample:\nLOG_TRAIL SDS SA"
+		],
+		"prefix": "LOG_TRAIL"
+	},
+	"MASTER_SERVER": {
+		"body": [
+			"MASTER_SERVER  ${1:port@server.com}"
+		],
+		"description": [
+			"MASTER_SERVER\nConfigures one or many master servers from which jobs are retrieved in case no local job is running or waiting.\nAn entry consists on port and server name separated by the at sign '@'. Multiple entries are separated by a semicolon.\nExample:\nMASTER_SERVER 6500@sdsserver\nMASTER_SERVER 6500@sdsserver1;6500@sdsserver2"
+		],
+		"prefix": "MASTER_SERVER"
+	},
+	"NETWORK_TIMEOUT": {
+		"body": [
+			"NETWORK_TIMEOUT ${1:|YES,NO|}"
+		],
+		"description": [
+			"NETWORK_TIMEOUT\nTime out in seconds for the internal network based communication between the components of the SmartDesignServer.\nDefault is 30. 10 seconds is the minimal value."
+		],
+		"prefix": "NETWORK_TIMEOUT"
+	},
+	"PROCESS_JOBS": {
+		"body": [
+			"PROCESS_JOBS ${1:|YES,NO|}"
+		],
+		"description": [
+			"PROCESS_JOBS\nYES—processes received jobs.*\nNO—only stores received jobs to the database. They could be processed later on."
+		],
+		"prefix": "PROCESS_JOBS"
+	},
+	"PROE_CACHE_DIR": {
+		"body": [
+			"PROE_CACHE_DIR ${1:path_to_sds_cache}"
+		],
+		"description": [
+			"PROE_CACHE_DIR\nDirectory in which the cache will be created via setting the environment variable PTC_WF_ROOT. If this is specified, a sub directory with a unique date/name is also created. So for each new session the cache will be empty.\nIf this option is not configured or left empty, the standard cache directory is used."
+		],
+		"prefix": "PROE_CACHE_DIR"
+	},
+	"PROE_START_CMD": {
+		"body": [
+			"PROE_START_CMD ${1:|PATH_TO_EXE,PATH_TO_BAT|}"
+		],
+		"description": [
+			"PROE_START_CMD\nFull path to the Creo Parametric start script."
+		],
+		"prefix": "PROE_START_CMD"
+	},
+	"PROE_START_DIR": {
+		"body": [
+			"PROE_START_DIR ${1:directory_to_start_in}"
+		],
+		"description": [
+			"PROE_START_DIR\nDirectory in which Creo Parametric should start."
+		],
+		"prefix": "PROE_START_DIR"
+	},
+	"PULL_JOBS": {
+		"body": [
+			"PULL_JOBS ${1:|YES,NO|}"
+		],
+		"description": [
+			"PULL_JOBS\nYES—In case master servers are configured and no local job is running or waiting, jobs from the configured master servers are pulled.*\nNO—No jobs are pulled from the master servers"
+		],
+		"prefix": "PULL_JOBS"
+	},
+	"PURGE_DELETED_JOBS": {
+		"body": [
+			"PURGE_DELETED_JOBS ${1:|YES,NO|}"
+		],
+		"description": [
+			"PURGE_DELETED_JOBS\nDeleted jobs are marked to flag their state, but they still exists in the database.\nYES—purge all jobs which are marked as deleted from the database.\nNO—keep jobs which are marked as deleted in the database."
+		],
+		"prefix": "PURGE_DELETED_JOBS"
+	},
+	"PUSH_JOBS": {
+		"body": [
+			"PUSH_JOBS ${1:|YES,NO|}"
+		],
+		"description": [
+			"PUSH_JOBS\nYES—In case master servers are configured and jobs from them have been processed, the state will be stored back to the database of the master server.*\nNO—States of processed from master servers are not stored back to the master server database."
+		],
+		"prefix": "PUSH_JOBS"
+	},
+	"SDS_ACCOUNT": {
+		"body": [
+			"SDS_ACCOUNT SDS_ACCOUNT"
+		],
+		"description": [
+			"SDS_ACCOUNT\nIf not empty this key will be used to determine login and password information for the SmartDesignServer process from the password database. This option is usually used when running the SmartDesignServer as a service. By default this option is empty."
+		],
+		"prefix": "SDS_ACCOUNT"
+	},
+	"SERVER_CERTIFICATE_KEY": {
+		"body": [
+			"SERVER_CERTIFICATE_KEY ${1:something.key}"
+		],
+		"description": [
+			"SERVER_CERTIFICATE_KEY\nKey of server certificate. In case only a file name is specified this is expected in <SmartDesignServer>\\configuration\\certificates\\<cert_file>.\nAs default sds.key is applied.\nExample:\nSERVER_CERTIFICATE_FILE sds.key\nNote: This option will only be processed for enabled SSL connections."
+		],
+		"prefix": "SERVER_CERTIFICATE_KEY"
+	},
+	"SERVER_CERTIFICATION_FILE": {
+		"body": [
+			"SERVER_CERTIFICATION_FILE ${1:something.cer}"
+		],
+		"description": [
+			"SERVER_CERTIFICATION_FILE\nFile of server certificate. In case only a file name is specified this is expected in <SmartDesignServer>\\configuration\\certificates\\<cert_file>.\nAs default sds.cer it applied.\nExample:\nSERVER_CERTIFICATE_FILE sds.cer\nNote: This option will only be processed for enabled SSL connections."
+		],
+		"prefix": "SERVER_CERTIFICATION_FILE"
+	},
+	"SERVER_PORT": {
+		"body": [
+			"SERVER_PORT ${1:6500}"
+		],
+		"description": [
+			"SERVER_PORT\nCommunication port of the server. Default is 6500."
+		],
+		"prefix": "SERVER_PORT"
+	},
+	"SERVICE_GRAPHICS_MODE": {
+		"body": [
+			"SERVICE_GRAPHICS_MODE ${1:|NO_GRAPHICS,ALTERNATE_USER,ACCOUNT_USER|}"
+		],
+		"description": [
+			"SERVICE_GRAPHICS_MODE\nConfigures the display mode in case the SmartDesignServer runs as a service.\nACCOUNT_USER—In case the user which is defined by SDS_ACCOUNT is logged in at the host, the Creo session will be visible at the screen. Otherwise Creo runs in non display mode.\nNO_GRAPHICS—The Creo session will always run in no display mode. *\nALTERNATE_USER—The user currently logged in will start the Creo session for SDS_ACCOUNT and run Creo in display mode."
+		],
+		"prefix": "SERVICE_GRAPHICS_MODE"
+	},
+	"SHUTDOWN_CYCLE": {
+		"body": [
+			"SHUTDOWN_CYCLE ${1:|0,5|}"
+		],
+		"description": [
+			"SHUTDOWN_CYCLE\nJob cycle after which Creo Parametric will be restarted. 0 means it will not be restarted automatically."
+		],
+		"prefix": "SHUTDOWN_CYCLE"
+	},
+	"STARTUP_TEMP_MDL": {
+		"body": [
+			"STARTUP_TEMP_MDL ${1:|YES,NO|}"
+		],
+		"description": [
+			"STARTUP_TEMP_MDL\nIn some cases Creo Parametric seems not to work properly if no previous model was on the screen. In case no model is on the screen, this option supplies the functionality to create a temporary model, activate it and remove it.\nYES— a temporary model is created, activated and removed\nNO— no temporary model is created. *"
+		],
+		"prefix": "STARTUP_TEMP_MDL"
+	},
+	"STARTUP_TIMEOUT": {
+		"body": [
+			"STARTUP_TIMEOUT ${1:|30,120|}"
+		],
+		"description": [
+			"STARTUP_TIMEOUT\nTime out in seconds for the startup of Creo Parametric and the component engine. In case the timeout is exceeded, the attempt to run the job is failed.\nDefault is 120. 30 seconds is the minimal value."
+		],
+		"prefix": "STARTUP_TIMEOUT"
+	},
+	"TASK_KILL": {
+		"body": [
+			"TASK_KILL ${1:|xtop.exe,nmsd.exe,creoagent.exe|}"
+		],
+		"description": [
+			"TASK_KILL\nName of the task which should be terminated in case Creo Parametric is shut down. Several TASK_KILL lines could appear."
+		],
+		"prefix": "TASK_KILL"
+	},
+	"USE_CACHE_TEMPLATE": {
+		"body": [
+			"USE_CACHE_TEMPLATE ${1:|YES,NO|}"
+		],
+		"description": [
+			"USE_CACHE_TEMPLATE\nIn case the PROE_CACHE_DIR is used, a template could be copied which is located in <SmartDesignServer>\\configuration\\cache_template.\nYES—the template will be copied.\nNO—the template will not be copied.*"
+		],
+		"prefix": "USE_CACHE_TEMPLATE"
+	},
+	"USE_SSL": {
+		"body": [
+			"USE_SSL ${1:|YES,NO|}"
+		],
+		"description": [
+			"USE_SSL\nConfigures if the network communication between SmartDesignServer and APIs should be based on SSL.\nYES—The network communication is based on HTTPS.\nNO—The network communication is based on HTTP. *"
+		],
+		"prefix": "USE_SSL"
+	},
+	"VERBOSE": {
+		"body": [
+			"VERBOSE ${1:|YES,NO|}"
+		],
+		"description": [
+			"VERBOSE\nYES—writes information about all running processes to the log file.\nNO—does not write the information about all running processes to the log file.*"
+		],
+		"prefix": "VERBOSE"
+	},
+	"VERIFY_CERTIFICATE": {
+		"body": [
+			"VERIFY_CERTIFICATE ${1:|YES,NO|}"
+		],
+		"description": [
+			"VERIFY_CERTIFICATE\nConfigures if the SSL certificate should be verified.\nYES—The SSL certificate will be verified. *\nNO—The SSL certificate will not be verified. This should only be used for testing purpose.\nNote: This option will only be processed for enabled SSL connections. "
+		],
+		"prefix": "VERIFY_CERTIFICATE"
+	}
 }

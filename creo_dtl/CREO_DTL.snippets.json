@@ -1,79 +1,520 @@
 {
-
-"PARTNAMES_SEPARATOR": {"prefix":"PARTNAMES_SEPARATOR","body": ["PARTNAMES_SEPARATOR ${1:SYMBOL}"],"description":"PARTNAMES_SEPARATOR\n<any symbol>—uses symbol as part name separator.\n\nDefaults to _ *"},
-"PARTNAMES_USE_SEPARATOR": {"prefix":"PARTNAMES_USE_SEPARATOR","body": ["PARTNAMES_USE_SEPARATOR ${1|BOTH,LEADING,TRAILING,NONE|} "],"description":"PARTNAMES_USE_SEPARATOR\nBOTH— Uses part name separator after project short and before each consecutive number. *\n\nLEADING—Uses part name separator after project short.\n\nTRAILING—Uses part name separator before each consecutive number.\n\nNONE—Does not use a part name separator."},
-"PARTNAMES_SCHEME": {"prefix":"PARTNAMES_SCHEME","body": ["PARTNAMES_SCHEME ${1:SCHEME*#$-} "],"description":"PARTNAMES_SCHEME\nUse this option to define the naming convention how library models with project prefix and consecutive number are created. In case this option is used, the PARTNAMES_SEPARATOR and PARTNAMES_USE_SEPARATOR are meaningless.\n\nThe name template consists of the following elements:\n\n#—as placeholder for the project short cut.\n\n*—as placeholder for the consecutive number. Multiple asterisks define the minimum of digits.\n\n*[value—to define a starting number for the consecutive number other than zero.\n\n$—as placeholder for the core name.\n\nExample: #-$-***[1"},
-"PARTNAMES_USE_NEXT_NAME": {"prefix":"PARTNAMES_USE_NEXT_NAME","body": ["PARTNAMES_USE_NEXT_NAME ${1|YES,NO|}"],"description":"PARTNAMES_USE_NEXT_NAME\nYES— Model names are defined by their default name (e.g. asm0001). Since Pro/ENGINEER Wildfire 5 M070 the auto numbering of PDMLink is used automatically.\n\nNO—Model names are created by project prefix and a consecutive number. *"},
-"SAVE_DRAWINGS": {"prefix":"SAVE_DRAWINGS","body": ["SAVE_DRAWINGS ${1|YES,NO|}"],"description":"SAVE_DRAWINGS\nYES—Drawings retrieved while assembling a component or while a project is created are saved automatically.\n\nNO—Drawings are not saved automatically. *"},
-"SAVE_CURRENT_MDL_DRAWINGS": {"prefix":"SAVE_CURRENT_MDL_DRAWINGS","body": ["SAVE_CURRENT_MDL_DRAWINGS ${1|YES,NO|}"],"description":"SAVE_CURRENT_MDL_DRAWINGS\nThis option provides the same functionality as SAVE_DRAWINGS restricted to drawing which are using the current model on the screen or one of its child models.\n\nYES—Drawings retrieved while assembling a component or while a project is created are saved automatically if they are using the current model on the screen or a child model of it.\n\nNO—Drawing are not saved automatically. *"},
-"SAVE_MFGS": {"prefix":"SAVE_MFGS","body": ["SAVE_MFGS ${1|YES,NO|}"],"description":"SAVE_MFGS\nYES—MFGs retrieved while assembling a component or while a project is created are saved automatically.\n\nNO—MFGs are not saved automatically. *"},
-"SAVE_PROJECT": {"prefix":"SAVE_PROJECT","body": ["SAVE_PROJECT ${1|YES,NO|}"],"description":"SAVE_PROJECT\nYES—Projects are saved automatically.\n\nNO—Projects are not saved automatically. *"},
-"SAVE_DEPENDS": {"prefix":"SAVE_DEPENDS","body": ["SAVE_DEPENDS ${1|YES,NO|}"],"description":"SAVE_DEPENDS\nYES—Components configured in dependency description block are saved automatically.\n\nNO—Components configured in dependency description block are not saved automatically. *"},
-"ASK_FOR_SUBASSEMBLIES": {"prefix":"ASK_FOR_SUBASSEMBLIES","body": ["ASK_FOR_SUBASSEMBLIES ${1|YES,NO|}"],"description":"ASK_FOR_SUBASSEMBLIES\nYES—User has to specify the target assembly / model  each time a component is assembled.\n\nNO—Current model is expected as target. *"},
-"THREAD_DIAMETER_SYMBOL": {"prefix":"THREAD_DIAMETER_SYMBOL","body": ["THREAD_DIAMETER_SYMBOL ${1:ANY_SYMBOL}"],"description":"THREAD_DIAMETER_SYMBOL\n<any symbol>—Places symbol in front of a diameter name after UDF is created.\n\nDefaults to no symbol. *"},
-"TOL_TYPE": {"prefix":"TOL_TYPE","body": ["TOL_TYPE ${1|TOL_DEFAULT,TOL_LIMITS,TOL_PLUS_MINUS,TOL_PLUS_MINUS_SYM,TOL_PLUS_MINUS_SYM_SUPERSCRIPT|}"],"description":"TOL_TYPE\nTOL_DEFAULT—Displays tolerance of library templates without change.*\n\nTOL_NOMINAL—Displays dimensions as nominal values without tolerances.\n\nTOL_LIMITS—Displays dimensions with upper and lower limits.\n\nTOL_PLUS_MINUS—Displays dimensions with plus and minus tolerances.\n\nTOL_PLUS_MINUS_SYM—Displays dimensions with a single value for plus and minus tolerance.\n\nTOL_PLUS_MINUS_SYM_SUPERSCRIPT—Displays symmetric tolerances in a superscript line."},
-"UDF_TOL_ALL_DIMS": {"prefix":"UDF_TOL_ALL_DIMS","body": [" ${1|YES,NO|}"],"description":"UDF_TOL_ALL_DIMS\nYES—Applies the tolerance types to all dimensions of the UDF.\n\nNO—Applies the tolerance types only to the driving dimension of the UDF."},
-"SHOW_DECIMAL_PLACES": {"prefix":"SHOW_DECIMAL_PLACES","body": ["SHOW_DECIMAL_PLACES ${1:NUMBER_DECIMALS}"],"description":"SHOW_DECIMAL_PLACES\n<integer>—Number of decimal places shown in the graphical user interface.\n\nDefaults to -1 (default number of decimal places in Pro/E will be shown).*"},
-"DECIMAL_PLACES": {"prefix":"DECIMAL_PLACES","body": ["DECIMAL_PLACES ${1:NUMBER_DECIMALS}"],"description":"DECIMAL_PLACES\nIf specified non angular dimensions from library components will be adjusted to this value. Specific components could be excluded by applying a Pro/ENGINEER parameter BUW_NO_DEC_PLACES.\n\n<integer>—Number of decimal places for library components.\n\nDefaults to -1 (dimensions from library components are not adjusted).*"},
-"UDF_DECIMAL_PLACES": {"prefix":"UDF_DECIMAL_PLACES","body": ["UDF_DECIMAL_PLACES ${1:NUMBER_DECIMALS}"],"description":"UDF_DECIMAL_PLACES\nIf specified non angular dimensions of applied UDFs will be adjusted to this value. \n\n<integer>—Number of decimal places for UDFs.\n\nDefaults to -1 (DECIMAL_PLACES is used for this. If also DECIMAL_PLACES is not defined, dimensions of applied UDFs will not be adjusted).*"},
-"COMPENGINE_SET_MASTER_DISP": {"prefix":"COMPENGINE_SET_MASTER_DISP","body": ["COMPENGINE_SET_MASTER_DISP ${1|YES,NO|}"],"description":"COMPENGINE_SET_MASTER_DISP\nYES—Shows all layers while processing a component.\n\nNO—Does not change layer state while processing a component.*"},
-"COMPENGINE_ASK_ON_DELETE": {"prefix":"COMPENGINE_ASK_ON_DELETE","body": [" COMPENGINE_ASK_ON_DELETE ${1|YES,NO|}"],"description":"COMPENGINE_ASK_ON_DELETE\nYES—Requests user confirmation before deleting a component.\n\nNO—Deletes component without confirmation.*"},
-"COMPENGINE_ASSEMBLE_AGAIN_LOOP": {"prefix":"COMPENGINE_ASSEMBLE_AGAIN_LOOP","body": [" COMPENGINE_ASSEMBLE_AGAIN_LOOP ${1|YES,NO|}"],"description":"COMPENGINE_ASSEMBLE_AGAIN_LOOP\nYES—After creating or copying existing components the user is prompt if more components should be assembled.*\n\nNO—Just create or copy one component and stop afterwards."},
-"COMPENGINE_MODIFY_DEL_FAILED": {"prefix":"COMPENGINE_MODIFY_DEL_FAILED","body": [" COMPENGINE_MODIFY_DEL_FAILED ${1|YES,NO|}"],"description":"COMPENGINE_MODIFY_DEL_FAILED\nYES—After creating or copying existing components the user is prompt if more components should be assembled.*\n\nNO—Just create or copy one component and stop afterwards."},
-"COMPENGINE_ERASE_ON_DELETE": {"prefix":"COMPENGINE_ERASE_ON_DELETE","body": [" COMPENGINE_ERASE_ON_DELETE ${1|YES,NO|}"],"description":"COMPENGINE_ERASE_ON_DELETE\nConfigures what happens to model which are removed interactively by Remove Component.\n\nYES—the removed models and associated drawings will be removed from session.\n\nNO—the removed models associated drawings will stay in session."},
-"COMPENGINE_ERASE_ON_ERROR": {"prefix":"COMPENGINE_ERASE_ON_ERROR","body": [" COMPENGINE_ERASE_ON_ERROR ${1|YES,NO|}"],"description":"COMPENGINE_ERASE_ON_ERROR\nYES—Solid models and drawings will be erased in case of an error. This does not affect assembled models or models in Intralink. *\n\nNO—Solid models and drawings are not erased in case the program fails."},
-"COMPENGINE_FORCE_PROJECT_SHORT": {"prefix":"COMPENGINE_FORCE_PROJECT_SHORT","body": [" COMPENGINE_FORCE_PROJECT_SHORT ${1|YES,NO|}"],"description":"COMPENGINE_FORCE_PROJECT_SHORT\nYES—Components are always named with project short cut and consecutive number, even for asm and part programs and when MDL_NAME is used in the table section.\n\nNO—Components are named in the usual way.*"},
-"COMPENGINE_ALLOW_LIBRARY_WORKDIR": {"prefix":"COMPENGINE_ALLOW_LIBRARY_WORKDIR","body": ["COMPENGINE_ALLOW_LIBRARY_WORKDIR ${1|YES,NO|}"],"description":"COMPENGINE_ALLOW_LIBRARY_WORKDIR\nNote: It is recommended not to use the option to avoid accidentally data loss\n\nBy default SmartAssembly does not execute tab files in case the working directory is set in <LIBRARY_PATH>\\component_engine. This is a security mechanism to avoid data loss. For part_copy and asm_copy programs template files are backed up and removed from the working directory. In case this is identical to the template path, the templates would get lost.\n\nYES—Disables the security mechanism.\n\nNO—Enables the security mechanism. *"},
-"COMPENGINE_MENU_PRIORITY": {"prefix":"COMPENGINE_MENU_PRIORITY","body": ["COMPENGINE_MENU_PRIORITY ${1|NORMAL,HIGH|}"],"description":"COMPENGINE_MENU_PRIORITY\nNote:The menu priority has some influence on the behaviour of Pro/ENGINEER. In some situations Pro/ENGINEER crashes after processing batch tab files with ERASE_MDL /  ERASE_NOT_DISPLAYED commands. Setting the menu priority to HIGH can solve this issue in some situations.\n\nChanges of the menu priority are only effective after restarting SmartAssembly. \n\nNORMAL—Normal menu priority.*\n\nHIGH—High menu priority for better stability in batch scripts."},
-"COMPENGINE_USE_CACHE": {"prefix":"COMPENGINE_USE_CACHE","body": [" COMPENGINE_USE_CACHE ${1|YES,NO|}"],"description":"COMPENGINE_USE_CACHE\nThe dialog to choose a tab file is buffered via a cache to reduce file access. In case the library is stored on hard disk the cache will automatically determine if a file was modified and re-read it if required. This is not possible if the library is stored in PDMLink and therefor the cache can be disabled.\n\nYES—The cache is used.*\n\nNO—The cache is disabled."},
-"COMPENGINE_POST_PROCESSING_ON_EXIT": {"prefix":"COMPENGINE_POST_PROCESSING_ON_EXIT","body": [" COMPENGINE_POST_PROCESSING_ON_EXIT ${1|YES,NO|}"],"description":"COMPENGINE_POST_PROCESSING_ON_EXIT\nIn SmartAssembly dlls prior to 2010-05-12-01 the EXIT command disabled the post processing after the program was executed. Therefor in case of modification the cleanup mechanism for unused UDFs and components was not processed. Setting this configuration option to NO will bring back the old behaviour.\n\nYES—Internal post processing also occurs in case of an EXIT command.*\n\nNO—Internal post processing is disabled in case of an EXIT command.\n\nNote: The post processing can also be disabled directly in the tab file by using the option NO_POST_PROCESSING for the EXIT command.\n\n "},
-"COMPENGINE_ACTIVATE_WINDOW": {"prefix":"COMPENGINE_ACTIVATE_WINDOW","body": ["COMPENGINE_ACTIVATE_WINDOW  ${1|YES,NO|}"],"description":"COMPENGINE_ACTIVATE_WINDOW\nAfter processing a tab files SmartAssembly automatically activates the current window. This could be avoided by this option.\n\nYES—Activates the current window after the tab file is processed.*\n\nNO—Does not activate this window."},
-"COMPENGINE_MULTIPLE_WINDOWS": {"prefix":"COMPENGINE_MULTIPLE_WINDOWS","body": [" COMPENGINE_MULTIPLE_WINDOWS ${1|YES,NO|}"],"description":"COMPENGINE_MULTIPLE_WINDOWS\nSmartAssembly switches the model in the main window for several commands. This option allows to modify this behavior in a way that multiple windows are opened.\n\nYES — Multiple windows are used.*\n\nNO — Only the main window is used."},
-"COMPENGINE_RESTORE_MDL": {"prefix":"COMPENGINE_RESTORE_MDL","body": ["COMPENGINE_RESTORE_MDL  ${1|YES,NO|}"],"description":"COMPENGINE_RESTORE_MDL\nAfter processing a tab file SmartAssembly automatically restores the main model. This could be avoided by this option.\n\nYES—Restores main model after the tab file is processed.*\n\nNO—Does not restore the main model."},
-"COMPENGINE_RESTORE_WINDOWS": {"prefix":"COMPENGINE_RESTORE_WINDOWS","body": [" COMPENGINE_RESTORE_WINDOWS ${1|YES,NO|}"],"description":"COMPENGINE_RESTORE_WINDOWS\nIn some situations SmartAssembly closes windows to switch to other models. This option can be used to restore previously shown windows.\n\nYES—Restores windows after the tab file is processed.\n\nNO—Does not restore the windows.*"},
-"COMPENGINE_MSGBOX_LOCATION": {"prefix":"COMPENGINE_MSGBOX_LOCATION","body": ["COMPENGINE_MSGBOX_LOCATION ${1|TOP_LEFT,TOP_CENTER,TOP_RIGHT,CENTER_LEFT,CENTER,CENTER_RIGHT,BOTTOM_LEFT,BOTTOM_CENTER,BOTTOM_RIGHT|}"],"description":"COMPENGINE_MSGBOX_LOCATION\nDefines where the commands MESSAGE_BOX, MESSAGE_BOX_EX and PROCESSING_BOX_START place their dialog on the screen. The following placement options are available:\n\nTOP_LEFT—defines the upper left corner of the screen.\n\nTOP_CENTER—defines the horizontal center position on the upper edge of the screen.\n\nTOP_RIGHT—defines the upper right corner of the screen.\n\nCENTER_LEFT—defines the vertical center on the left side of the screen.\n\nCENTER—defines the center position of the screen.\n\nCENTER_RIGHT—defines the vertical center of the right side of the screen.\n\nBOTTOM_LEFT—defines the lower left corner of the screen.\n\nBOTTOM_CENTER—defines horizontal center position on the lower edge of the screen.\n\nBOTTOM_RIGHT—defines the lower right corner of the screen."},
-"CONSIDER_MIXED_UNITS": {"prefix":"CONSIDER_MIXED_UNITS","body": [" CONSIDER_MIXED_UNITS ${1|YES,NO|}"],"description":"CONSIDER_MIXED_UNITS\nYES—UDF dimensions are converted from the expected length unit to the target length unit. The expected unit is derived from the unit of the library part or assembly. For udf and drw tab files SYSTEM_UNIT is used.\n\nNO—UDFs are created with the dimensions as they are provided.*"},
-"SYSTEM_UNIT": {"prefix":"SYSTEM_UNIT","body": ["SYSTEM_UNIT ${1|mm,inch,undefined|}"],"description":"SYSTEM_UNIT\nThis option is only effective if CONSIDER_MIXED_UNITS is set to YES.\n\nmm—metric units are expected for UDF tab files.\n\ninch—inch units are expected for UDF tab files.\n\nundefined—the current model on the screen determines the expected unit. In case no current model is available the Pro/ENGINEER configuration option pro_unit_length resp. pro_unit_sys is used. If non of this applies metric will be assumed."},
-"USE_SEARCH_PATHS": {"prefix":"USE_SEARCH_PATHS","body": [" USE_SEARCH_PATHS ${1|YES,NO|}"],"description":"USE_SEARCH_PATHS\nThis option configures if search paths should be used for library components. This option also considers catalog files from PRO_LIBRARY_DIR.\n\nYES—Search path is used for library components.*\n\nNO—Search path is not be used for library components."},
-"BACKUP_SEARCH_PATH_MDLS": {"prefix":"BACKUP_SEARCH_PATH_MDLS","body": [" BACKUP_SEARCH_PATH_MDLS ${1|YES,NO|}"],"description":"BACKUP_SEARCH_PATH_MDLS\nThis option configures if models retrieved from search path or from a PRO_LIBRARY_DIR catalog should be saved to the current working directory.\n\nYES—Search these models to the working directory.*\n\nNO—Do not search these models to the working directory."},
-"CONT_REF_CHECKING_MODE": {"prefix":"CONT_REF_CHECKING_MODE","body": ["CONT_REF_CHECKING_MODE  ${1|YES,NO|}"],"description":"CONT_REF_CHECKING_MODE\nThis option configures if a continuous checking for the validity of all references should take place after each traversed line of the program file. Especially if many models are in session, this could have effect on the performance.\n\nYES—After each processed lines the references are checked.*\n\nNO—The references are only checked after processing commands which remove models or features. \n\nThe command ENABLE_CONT_REF_CHECKING_MODE can switch the setting while a program is executed."},
-"RESTORE_SIMPREPS": {"prefix":"RESTORE_SIMPREPS","body": [" RESTORE_SIMPREPS ${1|YES,NO|}"],"description":"RESTORE_SIMPREPS\nThis option configures if simplified representations of solid models are restored after each processed code line. This is useful especially when switching to drawing with simplified representations.\n\nYES—After each processed code line, the simplified representations are restored.\n\nNO—Simplified representations are not restored automatically.*\n\nThe command ENABLE_RESTORE_SIMPREPS can switch the setting while a program is executed."},
-"RESOLVE_MODE": {"prefix":"RESOLVE_MODE","body": [" RESOLVE_MODE ${1|YES,NO|}"],"description":"RESOLVE_MODE\nThis option configures what happens for regeneration errors in Wildfire 5.0 and above.\n\nYES—Pro/ENGINEER / Creo shows the resolve window for regeneration errors.*\n\nNO—Pro/ENGINEER / Creo does not show the resolve window on regeneration errors.\n\nNote: This option does not alter the Creo configuration option regen_failure_handling."},
-"AUTOMATIC_PARAM_UPDATE": {"prefix":"AUTOMATIC_PARAM_UPDATE","body": ["AUTOMATIC_PARAM_UPDATE  ${1|YES,NO|}"],"description":"AUTOMATIC_PARAM_UPDATE\nThis option configured if Associated parameters / dimensions of a model are updated automatically after the graphical user interface has been committed.\n\nYES—The parameters / dimensions are updated automatically.\n\nNO—The parameters / dimensions are not updated automatically. A SET_MDL_PARAM has be used for this purpose."},
-"RAY_RADIUS": {"prefix":"RAY_RADIUS","body": [" RAY_RADIUS ${1:RAY_RADIUS}"],"description":"RAY_RADIUS\nFor ray tracing functionality like the command CALC_RAY_INTERSECTION the ray radius 0.001 is used by default. This option can overwrite the ray radius.\n\nDefaults to 0.001."},
-"STARTUP_TEMP_MDL": {"prefix":"STARTUP_TEMP_MDL","body": [" STARTUP_TEMP_MDL ${1|YES,NO|}"],"description":"STARTUP_TEMP_MDL\nIn some cases Creo Parametric seems not to work properly if no previous model was on the screen. In case no model is on the screen, this option supplies the functionality to create a temporary model, activate it and remove it.\n\nYES— a temporary model is created, activated and removed\n\nNO— no temporary model is created. *\n\nNote: This option is not effective in case SmartAssembly runs in a SmartDesignServer environment. Use the configuration option of SmartDesignServer in this case."},
-"NOTIFICATION": {"prefix":"NOTIFICATION","body": ["NOTIFICATION ${1|FEATURE_CREATE_PRE,FEATURE_CREATE_POST,FEATURE_DELETE_PRE,FEATURE_DELETE_POST,FEATURE_REDEFINE_PRE,FEATURE_REDEFINE_POST,FEATURE_REGEN_PRE,FEATURE_REGEN_POST,MDL_CREATE_PRE,MDL_CREATE_POST,MDL_RETRIEVE_POST,MDL_RETRIEVE_POST_ALL,MDL_SAVE_PRE,MDL_SAVE_POST,MDL_RENAME_PRE,SOLID_REGEN_PRE,SOLID_REGEN_POST|}"],"description":"NOTIFICATION","For different events in Creo Parametric it is possible to react on the event with a tab file program.","","You can configure multiple notifications by the following syntax:","","NOTIFICATION type tab_file","","The supported types are:","","FEATURE_CREATE_PRE — the notification that the user explicitly starts to create a new feature.",""FEATURE_CREATE_POST — the notification that the user explicitly has created a new feature."\n"\nFEATURE_DELETE_PRE — the notification that the user explicitly starts to delete a feature"\n"\nFEATURE_DELETE_POST — the notification that the user explicitly has removed a feature."\n"\nFEATURE_REDEFINE_PRE — the notification that the user explicitly starts to redefine a feature."\n"\nFEATURE_REDEFINE_POST — the notification that the user explicitly has redefined a feature."\n"\nFEATURE_REGEN_PRE —  the notification that the user explicitly started to regenerate a feature."\n\nFEATURE_REGEN_POST — the notification that the user explicitly has regenerated a feature.\n\nMDL_CREATE_PRE — the notification that the user explicitly started to create a new model.\n\nMDL_CREATE_POST — the notification that the user explicitly has created a new model.\n\nMDL_RETRIEVE_POST — the notification that the user explicitly has opened a model.\n\nMDL_RETRIEVE_POST_ALL — the notification for any dependent model on the one the user explicitly has opened.\n\nMDL_SAVE_PRE — the notification that the user clicked the save button.\n\nMDL_SAVE_POST — the notification that the user explicitly saved the current model.\n\nMDL_RENAME_PRE — the notification that the user clicked on the rename button.\n\nSOLID_REGEN_PRE — the notification that the user clicked on the regenerate button and the model is going to regenerate.\n\nSOLID_REGEN_POST — the notification that the user clicked on the regenerate button and the model was regenerated.\n\nThe THIS variable is set to the affected model. COMP_FEAT is set for FEATURE_CREATE_PRE, FEATURE_CREATE_POST, FEATURE_DELETE_PRE, FEATURE_DELETE_POST, FEATURE_REDEFINE_PRE, FEATURE_REDEFINE_POST, FEATURE_REGEN_PRE and FEATURE_REGEN_POST."},
-"BRACKET_FUNCTION": {"prefix":"BRACKET_FUNCTION","body": ["BRACKET_FUNCTION  ${1:command}  ${2|BEFORE,AFTER|} ${3:tab_file}"],"description":"BRACKET_FUNCTION\nCreo Parametric provides the functionality to define functions which are called before or after a Creo command. This command could be retrieved from the trail file.\n\nFor example, the command to save a model is ProCmdModelSave which can be found in the trail file by the following line:\n\n~ Command `ProCmdModelSave`\n\nYou can configure bracket function by the following syntax:\n\nBRACKET_FUNCTION command BEFORE | AFTER tab_file\n\nBracket functions of type BEFORE can stop the execution of the Creo command by returning FALSE.\n\nNote: Bracket function provide a similar functionality like NOTIFICATION, but they lack of providing information about the affected object."},
-"AUTHENTICATE": {"prefix":"AUTHENTICATE","body": ["AUTHENTICATE  ${1:key} "],"description":"AUTHENTICATE\nThe supplied keys will be looked up in the password database. If found, SmartAssembly tries to login. This option will only work for Pro/ENGINEER Wildfire 3.0 and later."},
-"USE_PDM_COMPONENTS": {"prefix":"USE_PDM_COMPONENTS","body": ["USE_PDM_COMPONENTS  ${1|YES,NO|}"],"description":"USE_PDM_COMPONENTS\nYES—Library elements are expected to be stored to PDM system\n\nNO—Library elements are retrieved from library.*"},
-"LIBRARY_PATH": {"prefix":"LIBRARY_PATH","body": ["LIBRARY_PATH  ${1:path}"],"description":"LIBRARY_PATH\nThe library path contains the component_engine and the parts sub-directories. By default it is located in <SmartAssembly>\\library.\n\nIn case a zip file in PDMLink is specified (e.g. wtpub://buw/Produkte/SmartAssembly/SmartAssembly_library.zip) the library is considered to be located in %APPDATA%\\B&W\\SmartAssembly and can be downloaded to this location."},
-"PARTS_PATH": {"prefix":"PARTS_PATH","body": ["PARTS_PATH  ${1:path}"],"description":"PARTS_PATH\nThe parts path contains the system wide used UDFs as well as the project template directory. By default it is located in <LIBRARY_PATH>\\parts."},
-"TEMPLATE_PATH": {"prefix":"TEMPLATE_PATH","body": ["TEMPLATE_PATH  ${1:path}"],"description":"TEMPLATE_PATH\nThe template path either addresses a directory or a Creo Elements/Pro model which will be used as default template. By default <PARTS_PATH>\\project\\default\\default.asm is used."},
-"DOCUMENT_PATH": {"prefix":"DOCUMENT_PATH","body": ["DOCUMENT_PATH  ${1:path}"],"description":"DOCUMENT_PATH\nDocumentation is usually stored in <SmartAssembly>\\docu. In case it should be located in another directory, it needs to be specified."},
-"SYNC_GUI_DYNAMIC": {"prefix":"SYNC_GUI_DYNAMIC","body": ["SYNC_GUI_DYNAMIC ${1|YES,NO|}"],"description":"SYNC_GUI_DYNAMIC\nDetermines if the graphical user interface will be launched dynamically to allow rotating of the model, access to layers, showing datum elements etc.\n\nYES — uses dynamic synchronization mechanism.*\n\nNO — uses old SmartAssembly 5.0 synchronization mechanism."},
-"SHOW_SYNC_GUI": {"prefix":"SHOW_SYNC_GUI","body": [" SHOW_SYNC_GUI ${1|YES,NO|}"],"description":"SHOW_SYNC_GUI\nDetermines if the Creo dialog which is used for the SYNC_GUI_DYNAMIC setting will be shown on the windows.\n\nYES — shows the Creo dialog.\n\nNO — does not show the Creo dialog. *"},
-"ENABLE_HTML_CONFIG_PING": {"prefix":"ENABLE_HTML_CONFIG_PING","body": [" ENABLE_HTML_CONFIG_PING ${1|YES,NO|}"],"description":"ENABLE_HTML_CONFIG_PING\nBy using the CONFIG_HTML command, the browser web page sends periodically heartbeat messages to SmartAssembly. This option determines if SmartAssembly will cancel the CONFIG_HTML command in case it does not receive these messages in a period of 5 seconds.\n\nYES — the CONFIG_HTML command will be canceled in case of no heartbeats. *\n\nNO — the CONFIG_HTML command will not be canceled.\n\nIt is strongly recommended to enable SHOW_SYNC_GUI when ENABLE_CONFIG_HTML_PING is disabled. This provides the mechanism to cancel the command in case the web page was closed. Otherwise the system will hang without the ability to cancel the command."},
-"USE_MODAL_DIALOG": {"prefix":"USE_MODAL_DIALOG","body": [" USE_MODAL_DIALOG ${1|YES,NO|}"],"description":"USE_MODAL_DIALOG\nDetermines if the dialog which is used to choose the program file is blocking Creo (which means it is a modal dialog) or not. Setting this option seems to avoid random crashes in combinations with a 3D Mouse.\n\nYES — blocks Creo Parametric.\n\nNO — does not block Creo Parametric.*"},
-"USE_UDF_LOCAL_COPY": {"prefix":"USE_UDF_LOCAL_COPY","body": [" USE_UDF_LOCAL_COPY ${1|YES,NO|}"],"description":"USE_UDF_LOCAL_COPY\nDetermines if a UDF .gph file is copied to the working directory prior to place it. This option is only useful until Pro/ENGINEER Wildfire 3. By this time the working directory had to be changed to the UDF folder. Since Pro/ENGINEER Wildfire 4 there is no reason to activate this option.\n\nAfter the UDF was inserted, the .gph file will be deleted.\n\nYES — Copies the .gph file to the working directory.\n\nNO — Does not copy the .gph file to the working directory. *"},
-"SHOW_BROKEN_TABFILE": {"prefix":"SHOW_BROKEN_TABFILE","body": ["SHOW_BROKEN_TABFILE ${1|BROKEN,NORMAL,HIDE|}"],"description":"SHOW_BROKEN_TABFILE\nDetermines how missing tab files which are declared in the sel_list.txt should be shown.\n\nBROKEN — show them with red cross on top. *\n\nNORMAL — show them as if they would exist\n\nHIDE — hide them from the dialog."},
-"SHOW_ENCRYPTED_TABFILE": {"prefix":"SHOW_ENCRYPTED_TABFILE","body": [" SHOW_ENCRYPTED_TABFILE ${1|YES,NO|}"],"description":"SHOW_ENCRYPTED_TABFILE\nDetermines if encrypted tab files should be visualized by an overlay image.\n\nYES — encrypted tab files will be visualized by an overlay image. *\n\nNO — encrypted tab files will not be visualized by an overlay image."},
-"SHOW_PROCESSING_BOX": {"prefix":"SHOW_PROCESSING_BOX","body": [" SHOW_PROCESSING_BOX ${1|YES,NO|}"],"description":"SHOW_PROCESSING_BOX\nDetermines if a processing dialog is shown while a tab file is running.\n\nYES — The processing dialog box is shown.\n\nNO — The processing dialog box is not shown. *"},
-"IMAGE_GRAPHICS": {"prefix":"IMAGE_GRAPHICS","body": ["IMAGE_GRAPHICS ${1|GUI,GDIPLUS|}"],"description":"IMAGE_GRAPHICS\nSet the environment for images.\n\nGUI — Is limited to gif images. *\n\nGDIPLUS — uses the GdiPlus libraries coming with Windows XP and above. It allows to use gif, png, bmp, jpeg and tif images. Problems have been reported about slow performance and even crashes, therefor it is at the moment not advised to use this setting."},
-"DEBUG_AUTO_REORDER": {"prefix":"DEBUG_AUTO_REORDER","body": [" DEBUG_AUTO_REORDER ${1|YES,NO|}"],"description":"DEBUG_AUTO_REORDER\nFeatures flagged by the BUW_AUTO_REORDER parameter are reordered on regeneration and saving. The automatic reorder can be logged in the trail file by this configuration option.\n\nYES — writes the reorder attempts to the trail file.\n\nNO — the reorder attempts are not written to the trail file. *"},
-"DEBUG_TAB_PERFORMANCE": {"prefix":"DEBUG_TAB_PERFORMANCE","body": ["DEBUG_TAB_PERFORMANCE ${1:number_seconds}"],"description":"DEBUG_TAB_PERFORMANCE\nCommands of the tab file which require at least the specified processing time will be logged to the trail file with the prefix (DEBUG_TAB_PERFORMANCE).\n\n<double> — Number of seconds for the threshold.\n\nvalue < 0 — Trail output is disabled.\n\nvalue = 0 — All commands are logged\n\nvalue > 0 — Only commands whose processing time exceeds the value will be logged.\n\nDefaults to -1."},
-"DEBUG_TAB_MEMORY_USAGE": {"prefix":"DEBUG_TAB_MEMORY_USAGE","body": ["DEBUG_TAB_MEMORY_USAGE ${1:number_seconds}"],"description":"DEBUG_TAB_MEMORY_USAGE\nCommands of the tab file which cause at least the specified difference in memory usage will be logged to the trail file with the prefix (DEBUG_TAB_MEMORY_USAGE).\n\n<double> — memory usage in Kilobytes for the threshold.\n\nvalue < 0 — Trail output is disabled.\n\nvalue = 0 — All commands are logged\n\nvalue > 0 — Only commands whose difference in memory usage exceeds the value will be logged.\n\nDefaults to -1."},
-"DEBUG_TAB_VARIABLE": {"prefix":"DEBUG_TAB_VARIABLE","body": ["DEBUG_TAB_VARIABLE ${1:variable_name}"],"description":"DEBUG_TAB_VARIABLE"\nAllows to log the content of a variable to the trail file with the prefix (DEBUG_TAB_VARIABLE) after a line in the tab file was processed.\n\nYou can configure multiple variables to be logged by the following syntax:\n\nDEBUG_TAB_VARIABLE \"variable_name\\n},
-"DEBUG_TAB_FILE": {"prefix":"DEBUG_TAB_FILE","body": ["DEBUG_TAB_FILE ${1:tab_file_to_watch}  ${2:line_from} ${3:line_to} ${4:tab_file_to_execute} "],"description":"DEBUG_TAB_FILE"\nAllows to run specific tab files for debug purpose, after each processed command by the following syntax:\n\nDEBUG_TAB_FILE tab_file_to_watch line_from line_to tab_file_to_execute\n\ntab_file_to_watch — name and location of the tab file which should be observed on processing. Wildcards could be used.\n\nline_from — line from which the observing should start. Use a negative number to start from the first line.\n\nline_to — line for which the observing should end. Use a negative number to observe up to the very last line.\n\ntab_file_to_execute — tab file which should be used for debugging.\n\nExample:\n\nDEBUG_TAB_FILE \"folder\\test.tab\" 35 -1 \"folder\\debug_tab_file.tab\\n},
-"DEBUG_SINGLE_STEP": {"prefix":"DEBUG_SINGLE_STEP","body": ["DEBUG_SINGLE_STEP ${1:tab_file}  ${2:line_from} ${3:line_to} ${4:timeout} "],"description":"DEBUG_SINGLE_STEP\nEnables a single step mode for a defined location in a tab file by the following syntax:\n\ntab_file — name and location of the tab file for which the single step mode should be activated.\n\nline_from — line from which the single step mode should start. Use a negative number to start from the first line.\n\nline_to — line for which the single step mode should end. Use a negative number to end on the very last line.\n\ntimeout — a timeout value after which the next program step should occur. Use 0 to disable automatic processing.\n\nExample:\n\nDEBUG_SINGLE_STEP \folder\\sample.tab\ 100 -1 0"},
-"DEBUG_TRAIL_ERROR": {"prefix":"DEBUG_TRAIL_ERROR","body": [" DEBUG_TRAIL_ERROR ${1|YES,NO|}"],"description":"DEBUG_TRAIL_ERROR\nAllows to write extended error information of Pro/TOOLKIT functions to the trail file. Most of the error function are not referring to an application error, but to a normal internal error condition.\n\nYES — writes for any Pro/TOOLKIT function which returns an error value an output to the trail file which starts with (BUW_TRAIL_ERROR).*\n\nNO — does not write error output to the trail file."},
-"DEBUG_TRAIL_NO_ERROR": {"prefix":"DEBUG_TRAIL_NO_ERROR","body": ["DEBUG_TRAIL_NO_ERROR  ${1|YES,NO|}"],"description":"DEBUG_TRAIL_NO_ERROR\nAllows to write extended error information of Pro/TOOLKIT functions to the trail file. Most of the error function are not referring to an application error, but to a normal internal error condition.\n\nYES — writes for any Pro/TOOLKIT function which returns a no error value an output to the trail file which starts with (BUW_TRAIL_NO_ERROR).\n\nNO — does not write error output to the trail file.*"},
-"DEBUG_TRAIL_TIME": {"prefix":"DEBUG_TRAIL_TIME","body": ["DEBUG_TRAIL_TIME  ${1|YES,NO|}"],"description":"DEBUG_TRAIL_TIME\nAdds date and time information to the DEBUG_TRAIL_ERROR and DEBUG_NO_TRAIL_ERROR output.\n\nYES—adds the date and time information.\n\nNO—does not add the date and time information.*"},
-"WRITE_LOG_FILE": {"prefix":"WRITE_LOG_FILE","body": [" WRITE_LOG_FILE ${1|YES,NO|}"],"description":"WRITE_LOG_FILE\nDetermine if a log file with the error messages output should be written to the same location where the trail files are stored. Name of the log file is SmartAssembly60_<date>-<time>.log.\n\nYES — the log file will be written in case of errors.\n\nNO — no log file will be created. *"},
-"ERROR_FILE": {"prefix":"ERROR_FILE","body": ["ERROR_FILE ${1:path_to_error_file}"],"description":"ERROR_FILE\nName and location of the error file. The error file will be created or updated in case an error occurs. The content is empty, but the time is the time of the last occurred error.\n\nThe error file is remove when SmartAssembly is started again. It can be used to figure out if an error in the current or in the last SmartAssembly session occurred."},
-"ENABLE_AUTO_REORDER": {"prefix":"ENABLE_AUTO_REORDER","body": [" ENABLE_AUTO_REORDER ${1|YES,NO|}"],"description":"ENABLE_AUTO_REORDER\nAllows to enable or disable the automatic reordering functionality for features which have been set by the SET_AUTO_REORDER command.\n\nYES—enables the auto reordering functionality. *\n\nNO—disables the auto reordering functionality."},
-"CONVERT_KEYTAB_COMMA": {"prefix":"CONVERT_KEYTAB_COMMA","body": [" CONVERT_KEYTAB_COMMA ${1|YES,NO|}"],"description":"CONVERT_KEYTAB_COMMA\nFor German language users to convert the comma on the key tab to a period.\n\nYES—converts the key tab comma.\n\nNO—does not convert the key tab comma. *"},
-"CLOSE_AUTO_TRACEBACK": {"prefix":"CLOSE_AUTO_TRACEBACK","body": [" CLOSE_AUTO_TRACEBACK ${1|YES,NO|}"],"description":"CLOSE_AUTO_TRACEBACK\nTo observer if the auto-traceback window appears and terminates Creo in this situation. This is useful in an SmartDesignServer environment to avoid that at job is not failing..\n\nYES—enables the auto-traceback window observation..\n\nNO—disables the auto-traceback window observation. *"},
-"IN_WINDCHILL_SESSION": {"prefix":"IN_WINDCHILL_SESSION","body": [" IN_WINDCHILL_SESSION ${1|YES,NO|}"],"description": "IN_WINDCHILL_SESSION"}
+	"ASK_FOR_SUBASSEMBLIES": {
+		"body": [
+			"ASK_FOR_SUBASSEMBLIES ${1|YES,NO|}"
+		],
+		"description": "ASK_FOR_SUBASSEMBLIES\nYES—User has to specify the target assembly / model  each time a component is assembled.\n\nNO—Current model is expected as target. *",
+		"prefix": "ASK_FOR_SUBASSEMBLIES"
+	},
+	"AUTHENTICATE": {
+		"body": [
+			"AUTHENTICATE  ${1:key} "
+		],
+		"description": "AUTHENTICATE\nThe supplied keys will be looked up in the password database. If found, SmartAssembly tries to login. This option will only work for Pro/ENGINEER Wildfire 3.0 and later.",
+		"prefix": "AUTHENTICATE"
+	},
+	"AUTOMATIC_PARAM_UPDATE": {
+		"body": [
+			"AUTOMATIC_PARAM_UPDATE  ${1|YES,NO|}"
+		],
+		"description": "AUTOMATIC_PARAM_UPDATE\nThis option configured if Associated parameters / dimensions of a model are updated automatically after the graphical user interface has been committed.\n\nYES—The parameters / dimensions are updated automatically.\n\nNO—The parameters / dimensions are not updated automatically. A SET_MDL_PARAM has be used for this purpose.",
+		"prefix": "AUTOMATIC_PARAM_UPDATE"
+	},
+	"BACKUP_SEARCH_PATH_MDLS": {
+		"body": [
+			" BACKUP_SEARCH_PATH_MDLS ${1|YES,NO|}"
+		],
+		"description": "BACKUP_SEARCH_PATH_MDLS\nThis option configures if models retrieved from search path or from a PRO_LIBRARY_DIR catalog should be saved to the current working directory.\n\nYES—Search these models to the working directory.*\n\nNO—Do not search these models to the working directory.",
+		"prefix": "BACKUP_SEARCH_PATH_MDLS"
+	},
+	"BRACKET_FUNCTION": {
+		"body": [
+			"BRACKET_FUNCTION  ${1:command}  ${2|BEFORE,AFTER|} ${3:tab_file}"
+		],
+		"description": "BRACKET_FUNCTION\nCreo Parametric provides the functionality to define functions which are called before or after a Creo command. This command could be retrieved from the trail file.\n\nFor example, the command to save a model is ProCmdModelSave which can be found in the trail file by the following line:\n\n~ Command `ProCmdModelSave`\n\nYou can configure bracket function by the following syntax:\n\nBRACKET_FUNCTION command BEFORE | AFTER tab_file\n\nBracket functions of type BEFORE can stop the execution of the Creo command by returning FALSE.\n\nNote: Bracket function provide a similar functionality like NOTIFICATION, but they lack of providing information about the affected object.",
+		"prefix": "BRACKET_FUNCTION"
+	},
+	"CLOSE_AUTO_TRACEBACK": {
+		"body": [
+			" CLOSE_AUTO_TRACEBACK ${1|YES,NO|}"
+		],
+		"description": "CLOSE_AUTO_TRACEBACK\nTo observer if the auto-traceback window appears and terminates Creo in this situation. This is useful in an SmartDesignServer environment to avoid that at job is not failing..\n\nYES—enables the auto-traceback window observation..\n\nNO—disables the auto-traceback window observation. *",
+		"prefix": "CLOSE_AUTO_TRACEBACK"
+	},
+	"COMPENGINE_ACTIVATE_WINDOW": {
+		"body": [
+			"COMPENGINE_ACTIVATE_WINDOW  ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_ACTIVATE_WINDOW\nAfter processing a tab files SmartAssembly automatically activates the current window. This could be avoided by this option.\n\nYES—Activates the current window after the tab file is processed.*\n\nNO—Does not activate this window.",
+		"prefix": "COMPENGINE_ACTIVATE_WINDOW"
+	},
+	"COMPENGINE_ALLOW_LIBRARY_WORKDIR": {
+		"body": [
+			"COMPENGINE_ALLOW_LIBRARY_WORKDIR ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_ALLOW_LIBRARY_WORKDIR\nNote: It is recommended not to use the option to avoid accidentally data loss\n\nBy default SmartAssembly does not execute tab files in case the working directory is set in <LIBRARY_PATH>\\component_engine. This is a security mechanism to avoid data loss. For part_copy and asm_copy programs template files are backed up and removed from the working directory. In case this is identical to the template path, the templates would get lost.\n\nYES—Disables the security mechanism.\n\nNO—Enables the security mechanism. *",
+		"prefix": "COMPENGINE_ALLOW_LIBRARY_WORKDIR"
+	},
+	"COMPENGINE_ASK_ON_DELETE": {
+		"body": [
+			" COMPENGINE_ASK_ON_DELETE ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_ASK_ON_DELETE\nYES—Requests user confirmation before deleting a component.\n\nNO—Deletes component without confirmation.*",
+		"prefix": "COMPENGINE_ASK_ON_DELETE"
+	},
+	"COMPENGINE_ASSEMBLE_AGAIN_LOOP": {
+		"body": [
+			" COMPENGINE_ASSEMBLE_AGAIN_LOOP ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_ASSEMBLE_AGAIN_LOOP\nYES—After creating or copying existing components the user is prompt if more components should be assembled.*\n\nNO—Just create or copy one component and stop afterwards.",
+		"prefix": "COMPENGINE_ASSEMBLE_AGAIN_LOOP"
+	},
+	"COMPENGINE_ERASE_ON_DELETE": {
+		"body": [
+			" COMPENGINE_ERASE_ON_DELETE ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_ERASE_ON_DELETE\nConfigures what happens to model which are removed interactively by Remove Component.\n\nYES—the removed models and associated drawings will be removed from session.\n\nNO—the removed models associated drawings will stay in session.",
+		"prefix": "COMPENGINE_ERASE_ON_DELETE"
+	},
+	"COMPENGINE_ERASE_ON_ERROR": {
+		"body": [
+			" COMPENGINE_ERASE_ON_ERROR ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_ERASE_ON_ERROR\nYES—Solid models and drawings will be erased in case of an error. This does not affect assembled models or models in Intralink. *\n\nNO—Solid models and drawings are not erased in case the program fails.",
+		"prefix": "COMPENGINE_ERASE_ON_ERROR"
+	},
+	"COMPENGINE_FORCE_PROJECT_SHORT": {
+		"body": [
+			" COMPENGINE_FORCE_PROJECT_SHORT ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_FORCE_PROJECT_SHORT\nYES—Components are always named with project short cut and consecutive number, even for asm and part programs and when MDL_NAME is used in the table section.\n\nNO—Components are named in the usual way.*",
+		"prefix": "COMPENGINE_FORCE_PROJECT_SHORT"
+	},
+	"COMPENGINE_MENU_PRIORITY": {
+		"body": [
+			"COMPENGINE_MENU_PRIORITY ${1|NORMAL,HIGH|}"
+		],
+		"description": "COMPENGINE_MENU_PRIORITY\nNote:The menu priority has some influence on the behaviour of Pro/ENGINEER. In some situations Pro/ENGINEER crashes after processing batch tab files with ERASE_MDL /  ERASE_NOT_DISPLAYED commands. Setting the menu priority to HIGH can solve this issue in some situations.\n\nChanges of the menu priority are only effective after restarting SmartAssembly. \n\nNORMAL—Normal menu priority.*\n\nHIGH—High menu priority for better stability in batch scripts.",
+		"prefix": "COMPENGINE_MENU_PRIORITY"
+	},
+	"COMPENGINE_MODIFY_DEL_FAILED": {
+		"body": [
+			" COMPENGINE_MODIFY_DEL_FAILED ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_MODIFY_DEL_FAILED\nYES—After creating or copying existing components the user is prompt if more components should be assembled.*\n\nNO—Just create or copy one component and stop afterwards.",
+		"prefix": "COMPENGINE_MODIFY_DEL_FAILED"
+	},
+	"COMPENGINE_MSGBOX_LOCATION": {
+		"body": [
+			"COMPENGINE_MSGBOX_LOCATION ${1|TOP_LEFT,TOP_CENTER,TOP_RIGHT,CENTER_LEFT,CENTER,CENTER_RIGHT,BOTTOM_LEFT,BOTTOM_CENTER,BOTTOM_RIGHT|}"
+		],
+		"description": "COMPENGINE_MSGBOX_LOCATION\nDefines where the commands MESSAGE_BOX, MESSAGE_BOX_EX and PROCESSING_BOX_START place their dialog on the screen. The following placement options are available:\n\nTOP_LEFT—defines the upper left corner of the screen.\n\nTOP_CENTER—defines the horizontal center position on the upper edge of the screen.\n\nTOP_RIGHT—defines the upper right corner of the screen.\n\nCENTER_LEFT—defines the vertical center on the left side of the screen.\n\nCENTER—defines the center position of the screen.\n\nCENTER_RIGHT—defines the vertical center of the right side of the screen.\n\nBOTTOM_LEFT—defines the lower left corner of the screen.\n\nBOTTOM_CENTER—defines horizontal center position on the lower edge of the screen.\n\nBOTTOM_RIGHT—defines the lower right corner of the screen.",
+		"prefix": "COMPENGINE_MSGBOX_LOCATION"
+	},
+	"COMPENGINE_MULTIPLE_WINDOWS": {
+		"body": [
+			" COMPENGINE_MULTIPLE_WINDOWS ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_MULTIPLE_WINDOWS\nSmartAssembly switches the model in the main window for several commands. This option allows to modify this behavior in a way that multiple windows are opened.\n\nYES — Multiple windows are used.*\n\nNO — Only the main window is used.",
+		"prefix": "COMPENGINE_MULTIPLE_WINDOWS"
+	},
+	"COMPENGINE_POST_PROCESSING_ON_EXIT": {
+		"body": [
+			" COMPENGINE_POST_PROCESSING_ON_EXIT ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_POST_PROCESSING_ON_EXIT\nIn SmartAssembly dlls prior to 2010-05-12-01 the EXIT command disabled the post processing after the program was executed. Therefor in case of modification the cleanup mechanism for unused UDFs and components was not processed. Setting this configuration option to NO will bring back the old behaviour.\n\nYES—Internal post processing also occurs in case of an EXIT command.*\n\nNO—Internal post processing is disabled in case of an EXIT command.\n\nNote: The post processing can also be disabled directly in the tab file by using the option NO_POST_PROCESSING for the EXIT command.\n\n ",
+		"prefix": "COMPENGINE_POST_PROCESSING_ON_EXIT"
+	},
+	"COMPENGINE_RESTORE_MDL": {
+		"body": [
+			"COMPENGINE_RESTORE_MDL  ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_RESTORE_MDL\nAfter processing a tab file SmartAssembly automatically restores the main model. This could be avoided by this option.\n\nYES—Restores main model after the tab file is processed.*\n\nNO—Does not restore the main model.",
+		"prefix": "COMPENGINE_RESTORE_MDL"
+	},
+	"COMPENGINE_RESTORE_WINDOWS": {
+		"body": [
+			" COMPENGINE_RESTORE_WINDOWS ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_RESTORE_WINDOWS\nIn some situations SmartAssembly closes windows to switch to other models. This option can be used to restore previously shown windows.\n\nYES—Restores windows after the tab file is processed.\n\nNO—Does not restore the windows.*",
+		"prefix": "COMPENGINE_RESTORE_WINDOWS"
+	},
+	"COMPENGINE_SET_MASTER_DISP": {
+		"body": [
+			"COMPENGINE_SET_MASTER_DISP ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_SET_MASTER_DISP\nYES—Shows all layers while processing a component.\n\nNO—Does not change layer state while processing a component.*",
+		"prefix": "COMPENGINE_SET_MASTER_DISP"
+	},
+	"COMPENGINE_USE_CACHE": {
+		"body": [
+			" COMPENGINE_USE_CACHE ${1|YES,NO|}"
+		],
+		"description": "COMPENGINE_USE_CACHE\nThe dialog to choose a tab file is buffered via a cache to reduce file access. In case the library is stored on hard disk the cache will automatically determine if a file was modified and re-read it if required. This is not possible if the library is stored in PDMLink and therefor the cache can be disabled.\n\nYES—The cache is used.*\n\nNO—The cache is disabled.",
+		"prefix": "COMPENGINE_USE_CACHE"
+	},
+	"CONSIDER_MIXED_UNITS": {
+		"body": [
+			" CONSIDER_MIXED_UNITS ${1|YES,NO|}"
+		],
+		"description": "CONSIDER_MIXED_UNITS\nYES—UDF dimensions are converted from the expected length unit to the target length unit. The expected unit is derived from the unit of the library part or assembly. For udf and drw tab files SYSTEM_UNIT is used.\n\nNO—UDFs are created with the dimensions as they are provided.*",
+		"prefix": "CONSIDER_MIXED_UNITS"
+	},
+	"CONT_REF_CHECKING_MODE": {
+		"body": [
+			"CONT_REF_CHECKING_MODE  ${1|YES,NO|}"
+		],
+		"description": "CONT_REF_CHECKING_MODE\nThis option configures if a continuous checking for the validity of all references should take place after each traversed line of the program file. Especially if many models are in session, this could have effect on the performance.\n\nYES—After each processed lines the references are checked.*\n\nNO—The references are only checked after processing commands which remove models or features. \n\nThe command ENABLE_CONT_REF_CHECKING_MODE can switch the setting while a program is executed.",
+		"prefix": "CONT_REF_CHECKING_MODE"
+	},
+	"CONVERT_KEYTAB_COMMA": {
+		"body": [
+			" CONVERT_KEYTAB_COMMA ${1|YES,NO|}"
+		],
+		"description": "CONVERT_KEYTAB_COMMA\nFor German language users to convert the comma on the key tab to a period.\n\nYES—converts the key tab comma.\n\nNO—does not convert the key tab comma. *",
+		"prefix": "CONVERT_KEYTAB_COMMA"
+	},
+	"DEBUG_AUTO_REORDER": {
+		"body": [
+			" DEBUG_AUTO_REORDER ${1|YES,NO|}"
+		],
+		"description": "DEBUG_AUTO_REORDER\nFeatures flagged by the BUW_AUTO_REORDER parameter are reordered on regeneration and saving. The automatic reorder can be logged in the trail file by this configuration option.\n\nYES — writes the reorder attempts to the trail file.\n\nNO — the reorder attempts are not written to the trail file. *",
+		"prefix": "DEBUG_AUTO_REORDER"
+	},
+	"DEBUG_SINGLE_STEP": {
+		"body": [
+			"DEBUG_SINGLE_STEP ${1:tab_file}  ${2:line_from} ${3:line_to} ${4:timeout} "
+		],
+		"description": "DEBUG_SINGLE_STEP\nEnables a single step mode for a defined location in a tab file by the following syntax:\n\ntab_file — name and location of the tab file for which the single step mode should be activated.\n\nline_from — line from which the single step mode should start. Use a negative number to start from the first line.\n\nline_to — line for which the single step mode should end. Use a negative number to end on the very last line.\n\ntimeout — a timeout value after which the next program step should occur. Use 0 to disable automatic processing.\n\nExample:\n\nDEBUG_SINGLE_STEP \folder\\sample.tab 100 -1 0",
+		"prefix": "DEBUG_SINGLE_STEP"
+	},
+	"DEBUG_TAB_FILE": {
+		"body": [
+			"DEBUG_TAB_FILE ${1:tab_file_to_watch}  ${2:line_from} ${3:line_to} ${4:tab_file_to_execute} "
+		],
+		"description": "DEBUG_TAB_FILE\nAllows to run specific tab files for debug purpose, after each processed command by the following syntax:\n\nDEBUG_TAB_FILE tab_file_to_watch line_from line_to tab_file_to_execute\n\ntab_file_to_watch — name and location of the tab file which should be observed on processing. Wildcards could be used.\n\nline_from — line from which the observing should start. Use a negative number to start from the first line.\n\nline_to — line for which the observing should end. Use a negative number to observe up to the very last line.\n\ntab_file_to_execute — tab file which should be used for debugging.\n\nExample:\n\nDEBUG_TAB_FILE \"folder\\test.tab\" 35 -1 \"folder\\debug_tab_file.tab",
+		"prefix": "DEBUG_TAB_FILE"
+	},
+	"DEBUG_TAB_MEMORY_USAGE": {
+		"body": [
+			"DEBUG_TAB_MEMORY_USAGE ${1:number_seconds}"
+		],
+		"description": "DEBUG_TAB_MEMORY_USAGE\nCommands of the tab file which cause at least the specified difference in memory usage will be logged to the trail file with the prefix (DEBUG_TAB_MEMORY_USAGE).\n\n<double> — memory usage in Kilobytes for the threshold.\n\nvalue < 0 — Trail output is disabled.\n\nvalue = 0 — All commands are logged\n\nvalue > 0 — Only commands whose difference in memory usage exceeds the value will be logged.\n\nDefaults to -1.",
+		"prefix": "DEBUG_TAB_MEMORY_USAGE"
+	},
+	"DEBUG_TAB_PERFORMANCE": {
+		"body": [
+			"DEBUG_TAB_PERFORMANCE ${1:number_seconds}"
+		],
+		"description": "DEBUG_TAB_PERFORMANCE\nCommands of the tab file which require at least the specified processing time will be logged to the trail file with the prefix (DEBUG_TAB_PERFORMANCE).\n\n<double> — Number of seconds for the threshold.\n\nvalue < 0 — Trail output is disabled.\n\nvalue = 0 — All commands are logged\n\nvalue > 0 — Only commands whose processing time exceeds the value will be logged.\n\nDefaults to -1.",
+		"prefix": "DEBUG_TAB_PERFORMANCE"
+	},
+	"DEBUG_TAB_VARIABLE": {
+		"body": [
+			"DEBUG_TAB_VARIABLE ${1:variable_name}"
+		],
+		"description": "DEBUG_TAB_VARIABLE\nAllows to log the content of a variable to the trail file with the prefix DEBUG_TAB_VARIABLE after a line in the tab file was processed.\n\nYou can configure multiple variables to be logged by the following syntax:\n\nDEBUG_TAB_VARIABLE variable_name",
+		"prefix": "DEBUG_TAB_VARIABLE"
+	},
+	"DEBUG_TRAIL_ERROR": {
+		"body": [
+			" DEBUG_TRAIL_ERROR ${1|YES,NO|}"
+		],
+		"description": "DEBUG_TRAIL_ERROR\nAllows to write extended error information of Pro/TOOLKIT functions to the trail file. Most of the error function are not referring to an application error, but to a normal internal error condition.\n\nYES — writes for any Pro/TOOLKIT function which returns an error value an output to the trail file which starts with (BUW_TRAIL_ERROR).*\n\nNO — does not write error output to the trail file.",
+		"prefix": "DEBUG_TRAIL_ERROR"
+	},
+	"DEBUG_TRAIL_NO_ERROR": {
+		"body": [
+			"DEBUG_TRAIL_NO_ERROR  ${1|YES,NO|}"
+		],
+		"description": "DEBUG_TRAIL_NO_ERROR\nAllows to write extended error information of Pro/TOOLKIT functions to the trail file. Most of the error function are not referring to an application error, but to a normal internal error condition.\n\nYES — writes for any Pro/TOOLKIT function which returns a no error value an output to the trail file which starts with (BUW_TRAIL_NO_ERROR).\n\nNO — does not write error output to the trail file.*",
+		"prefix": "DEBUG_TRAIL_NO_ERROR"
+	},
+	"DEBUG_TRAIL_TIME": {
+		"body": [
+			"DEBUG_TRAIL_TIME  ${1|YES,NO|}"
+		],
+		"description": "DEBUG_TRAIL_TIME\nAdds date and time information to the DEBUG_TRAIL_ERROR and DEBUG_NO_TRAIL_ERROR output.\n\nYES—adds the date and time information.\n\nNO—does not add the date and time information.*",
+		"prefix": "DEBUG_TRAIL_TIME"
+	},
+	"DECIMAL_PLACES": {
+		"body": [
+			"DECIMAL_PLACES ${1:NUMBER_DECIMALS}"
+		],
+		"description": "DECIMAL_PLACES\nIf specified non angular dimensions from library components will be adjusted to this value. Specific components could be excluded by applying a Pro/ENGINEER parameter BUW_NO_DEC_PLACES.\n\n<integer>—Number of decimal places for library components.\n\nDefaults to -1 (dimensions from library components are not adjusted).*",
+		"prefix": "DECIMAL_PLACES"
+	},
+	"DOCUMENT_PATH": {
+		"body": [
+			"DOCUMENT_PATH  ${1:path}"
+		],
+		"description": "DOCUMENT_PATH\nDocumentation is usually stored in <SmartAssembly>\\docu. In case it should be located in another directory, it needs to be specified.",
+		"prefix": "DOCUMENT_PATH"
+	},
+	"ENABLE_AUTO_REORDER": {
+		"body": [
+			" ENABLE_AUTO_REORDER ${1|YES,NO|}"
+		],
+		"description": "ENABLE_AUTO_REORDER\nAllows to enable or disable the automatic reordering functionality for features which have been set by the SET_AUTO_REORDER command.\n\nYES—enables the auto reordering functionality. *\n\nNO—disables the auto reordering functionality.",
+		"prefix": "ENABLE_AUTO_REORDER"
+	},
+	"ENABLE_HTML_CONFIG_PING": {
+		"body": [
+			" ENABLE_HTML_CONFIG_PING ${1|YES,NO|}"
+		],
+		"description": "ENABLE_HTML_CONFIG_PING\nBy using the CONFIG_HTML command, the browser web page sends periodically heartbeat messages to SmartAssembly. This option determines if SmartAssembly will cancel the CONFIG_HTML command in case it does not receive these messages in a period of 5 seconds.\n\nYES — the CONFIG_HTML command will be canceled in case of no heartbeats. *\n\nNO — the CONFIG_HTML command will not be canceled.\n\nIt is strongly recommended to enable SHOW_SYNC_GUI when ENABLE_CONFIG_HTML_PING is disabled. This provides the mechanism to cancel the command in case the web page was closed. Otherwise the system will hang without the ability to cancel the command.",
+		"prefix": "ENABLE_HTML_CONFIG_PING"
+	},
+	"ERROR_FILE": {
+		"body": [
+			"ERROR_FILE ${1:path_to_error_file}"
+		],
+		"description": "ERROR_FILE\nName and location of the error file. The error file will be created or updated in case an error occurs. The content is empty, but the time is the time of the last occurred error.\n\nThe error file is remove when SmartAssembly is started again. It can be used to figure out if an error in the current or in the last SmartAssembly session occurred.",
+		"prefix": "ERROR_FILE"
+	},
+	"IMAGE_GRAPHICS": {
+		"body": [
+			"IMAGE_GRAPHICS ${1|GUI,GDIPLUS|}"
+		],
+		"description": "IMAGE_GRAPHICS\nSet the environment for images.\n\nGUI — Is limited to gif images. *\n\nGDIPLUS — uses the GdiPlus libraries coming with Windows XP and above. It allows to use gif, png, bmp, jpeg and tif images. Problems have been reported about slow performance and even crashes, therefor it is at the moment not advised to use this setting.",
+		"prefix": "IMAGE_GRAPHICS"
+	},
+	"IN_WINDCHILL_SESSION": {
+		"body": [
+			" IN_WINDCHILL_SESSION ${1|YES,NO|}"
+		],
+		"description": "IN_WINDCHILL_SESSION",
+		"prefix": "IN_WINDCHILL_SESSION"
+	},
+	"LIBRARY_PATH": {
+		"body": [
+			"LIBRARY_PATH  ${1:path}"
+		],
+		"description": "LIBRARY_PATH\nThe library path contains the component_engine and the parts sub-directories. By default it is located in <SmartAssembly>\\library.\n\nIn case a zip file in PDMLink is specified (e.g. wtpub://buw/Produkte/SmartAssembly/SmartAssembly_library.zip) the library is considered to be located in %APPDATA%\\B&W\\SmartAssembly and can be downloaded to this location.",
+		"prefix": "LIBRARY_PATH"
+	},
+	"NOTIFICATION": {
+		"body": [
+			"NOTIFICATION ${1|FEATURE_CREATE_PRE,FEATURE_CREATE_POST,FEATURE_DELETE_PRE,FEATURE_DELETE_POST,FEATURE_REDEFINE_PRE,FEATURE_REDEFINE_POST,FEATURE_REGEN_PRE,FEATURE_REGEN_POST,MDL_CREATE_PRE,MDL_CREATE_POST,MDL_RETRIEVE_POST,MDL_RETRIEVE_POST_ALL,MDL_SAVE_PRE,MDL_SAVE_POST,MDL_RENAME_PRE,SOLID_REGEN_PRE,SOLID_REGEN_POST|}"
+		],
+		"description": "NOTIFICATION\nFor different events in Creo Parametric it is possible to react on the event with a tab file program.\n\nYou can configure multiple notifications by the following syntax:\n\nNOTIFICATION type tab_file\nThe supported types are:\nFEATURE_CREATE_PRE — the notification that the user explicitly starts to create a new feature.\nFEATURE_CREATE_POST — the notification that the user explicitly has created a new feature.\n\nFEATURE_DELETE_PRE — the notification that the user explicitly starts to delete a feature\n\nFEATURE_DELETE_POST — the notification that the user explicitly has removed a feature.\n\nFEATURE_REDEFINE_PRE — the notification that the user explicitly starts to redefine a feature.\n\nFEATURE_REDEFINE_POST — the notification that the user explicitly has redefined a feature.\n\nFEATURE_REGEN_PRE —  the notification that the user explicitly started to regenerate a feature.\n\nFEATURE_REGEN_POST — the notification that the user explicitly has regenerated a feature.\n\nMDL_CREATE_PRE — the notification that the user explicitly started to create a new model.\n\nMDL_CREATE_POST — the notification that the user explicitly has created a new model.\n\nMDL_RETRIEVE_POST — the notification that the user explicitly has opened a model.\n\nMDL_RETRIEVE_POST_ALL — the notification for any dependent model on the one the user explicitly has opened.\n\nMDL_SAVE_PRE — the notification that the user clicked the save button.\n\nMDL_SAVE_POST — the notification that the user explicitly saved the current model.\n\nMDL_RENAME_PRE — the notification that the user clicked on the rename button.\n\nSOLID_REGEN_PRE — the notification that the user clicked on the regenerate button and the model is going to regenerate.\n\nSOLID_REGEN_POST — the notification that the user clicked on the regenerate button and the model was regenerated.\n\nThe THIS variable is set to the affected model. COMP_FEAT is set for FEATURE_CREATE_PRE, FEATURE_CREATE_POST, FEATURE_DELETE_PRE, FEATURE_DELETE_POST, FEATURE_REDEFINE_PRE, FEATURE_REDEFINE_POST, FEATURE_REGEN_PRE and FEATURE_REGEN_POST.",
+		"prefix": "NOTIFICATION"
+	},
+	"PARTNAMES_SCHEME": {
+		"body": [
+			"PARTNAMES_SCHEME ${1:SCHEME*#$-} "
+		],
+		"description": "PARTNAMES_SCHEME\nUse this option to define the naming convention how library models with project prefix and consecutive number are created. In case this option is used, the PARTNAMES_SEPARATOR and PARTNAMES_USE_SEPARATOR are meaningless.\n\nThe name template consists of the following elements:\n\n#—as placeholder for the project short cut.\n\n*—as placeholder for the consecutive number. Multiple asterisks define the minimum of digits.\n\n*[value—to define a starting number for the consecutive number other than zero.\n\n$—as placeholder for the core name.\n\nExample: #-$-***[1",
+		"prefix": "PARTNAMES_SCHEME"
+	},
+	"PARTNAMES_SEPARATOR": {
+		"body": [
+			"PARTNAMES_SEPARATOR ${1:SYMBOL}"
+		],
+		"description": "PARTNAMES_SEPARATOR\n<any symbol>—uses symbol as part name separator.\n\nDefaults to _ *",
+		"prefix": "PARTNAMES_SEPARATOR"
+	},
+	"PARTNAMES_USE_NEXT_NAME": {
+		"body": [
+			"PARTNAMES_USE_NEXT_NAME ${1|YES,NO|}"
+		],
+		"description": "PARTNAMES_USE_NEXT_NAME\nYES— Model names are defined by their default name (e.g. asm0001). Since Pro/ENGINEER Wildfire 5 M070 the auto numbering of PDMLink is used automatically.\n\nNO—Model names are created by project prefix and a consecutive number. *",
+		"prefix": "PARTNAMES_USE_NEXT_NAME"
+	},
+	"PARTNAMES_USE_SEPARATOR": {
+		"body": [
+			"PARTNAMES_USE_SEPARATOR ${1|BOTH,LEADING,TRAILING,NONE|} "
+		],
+		"description": "PARTNAMES_USE_SEPARATOR\nBOTH— Uses part name separator after project short and before each consecutive number. *\n\nLEADING—Uses part name separator after project short.\n\nTRAILING—Uses part name separator before each consecutive number.\n\nNONE—Does not use a part name separator.",
+		"prefix": "PARTNAMES_USE_SEPARATOR"
+	},
+	"PARTS_PATH": {
+		"body": [
+			"PARTS_PATH  ${1:path}"
+		],
+		"description": "PARTS_PATH\nThe parts path contains the system wide used UDFs as well as the project template directory. By default it is located in <LIBRARY_PATH>\\parts.",
+		"prefix": "PARTS_PATH"
+	},
+	"RAY_RADIUS": {
+		"body": [
+			" RAY_RADIUS ${1:RAY_RADIUS}"
+		],
+		"description": "RAY_RADIUS\nFor ray tracing functionality like the command CALC_RAY_INTERSECTION the ray radius 0.001 is used by default. This option can overwrite the ray radius.\n\nDefaults to 0.001.",
+		"prefix": "RAY_RADIUS"
+	},
+	"RESOLVE_MODE": {
+		"body": [
+			" RESOLVE_MODE ${1|YES,NO|}"
+		],
+		"description": "RESOLVE_MODE\nThis option configures what happens for regeneration errors in Wildfire 5.0 and above.\n\nYES—Pro/ENGINEER / Creo shows the resolve window for regeneration errors.*\n\nNO—Pro/ENGINEER / Creo does not show the resolve window on regeneration errors.\n\nNote: This option does not alter the Creo configuration option regen_failure_handling.",
+		"prefix": "RESOLVE_MODE"
+	},
+	"RESTORE_SIMPREPS": {
+		"body": [
+			" RESTORE_SIMPREPS ${1|YES,NO|}"
+		],
+		"description": "RESTORE_SIMPREPS\nThis option configures if simplified representations of solid models are restored after each processed code line. This is useful especially when switching to drawing with simplified representations.\n\nYES—After each processed code line, the simplified representations are restored.\n\nNO—Simplified representations are not restored automatically.*\n\nThe command ENABLE_RESTORE_SIMPREPS can switch the setting while a program is executed.",
+		"prefix": "RESTORE_SIMPREPS"
+	},
+	"SAVE_CURRENT_MDL_DRAWINGS": {
+		"body": [
+			"SAVE_CURRENT_MDL_DRAWINGS ${1|YES,NO|}"
+		],
+		"description": "SAVE_CURRENT_MDL_DRAWINGS\nThis option provides the same functionality as SAVE_DRAWINGS restricted to drawing which are using the current model on the screen or one of its child models.\n\nYES—Drawings retrieved while assembling a component or while a project is created are saved automatically if they are using the current model on the screen or a child model of it.\n\nNO—Drawing are not saved automatically. *",
+		"prefix": "SAVE_CURRENT_MDL_DRAWINGS"
+	},
+	"SAVE_DEPENDS": {
+		"body": [
+			"SAVE_DEPENDS ${1|YES,NO|}"
+		],
+		"description": "SAVE_DEPENDS\nYES—Components configured in dependency description block are saved automatically.\n\nNO—Components configured in dependency description block are not saved automatically. *",
+		"prefix": "SAVE_DEPENDS"
+	},
+	"SAVE_DRAWINGS": {
+		"body": [
+			"SAVE_DRAWINGS ${1|YES,NO|}"
+		],
+		"description": "SAVE_DRAWINGS\nYES—Drawings retrieved while assembling a component or while a project is created are saved automatically.\n\nNO—Drawings are not saved automatically. *",
+		"prefix": "SAVE_DRAWINGS"
+	},
+	"SAVE_MFGS": {
+		"body": [
+			"SAVE_MFGS ${1|YES,NO|}"
+		],
+		"description": "SAVE_MFGS\nYES—MFGs retrieved while assembling a component or while a project is created are saved automatically.\n\nNO—MFGs are not saved automatically. *",
+		"prefix": "SAVE_MFGS"
+	},
+	"SAVE_PROJECT": {
+		"body": [
+			"SAVE_PROJECT ${1|YES,NO|}"
+		],
+		"description": "SAVE_PROJECT\nYES—Projects are saved automatically.\n\nNO—Projects are not saved automatically. *",
+		"prefix": "SAVE_PROJECT"
+	},
+	"SHOW_BROKEN_TABFILE": {
+		"body": [
+			"SHOW_BROKEN_TABFILE ${1|BROKEN,NORMAL,HIDE|}"
+		],
+		"description": "SHOW_BROKEN_TABFILE\nDetermines how missing tab files which are declared in the sel_list.txt should be shown.\n\nBROKEN — show them with red cross on top. *\n\nNORMAL — show them as if they would exist\n\nHIDE — hide them from the dialog.",
+		"prefix": "SHOW_BROKEN_TABFILE"
+	},
+	"SHOW_DECIMAL_PLACES": {
+		"body": [
+			"SHOW_DECIMAL_PLACES ${1:NUMBER_DECIMALS}"
+		],
+		"description": "SHOW_DECIMAL_PLACES\n<integer>—Number of decimal places shown in the graphical user interface.\n\nDefaults to -1 (default number of decimal places in Pro/E will be shown).*",
+		"prefix": "SHOW_DECIMAL_PLACES"
+	},
+	"SHOW_ENCRYPTED_TABFILE": {
+		"body": [
+			" SHOW_ENCRYPTED_TABFILE ${1|YES,NO|}"
+		],
+		"description": "SHOW_ENCRYPTED_TABFILE\nDetermines if encrypted tab files should be visualized by an overlay image.\n\nYES — encrypted tab files will be visualized by an overlay image. *\n\nNO — encrypted tab files will not be visualized by an overlay image.",
+		"prefix": "SHOW_ENCRYPTED_TABFILE"
+	},
+	"SHOW_PROCESSING_BOX": {
+		"body": [
+			" SHOW_PROCESSING_BOX ${1|YES,NO|}"
+		],
+		"description": "SHOW_PROCESSING_BOX\nDetermines if a processing dialog is shown while a tab file is running.\n\nYES — The processing dialog box is shown.\n\nNO — The processing dialog box is not shown. *",
+		"prefix": "SHOW_PROCESSING_BOX"
+	},
+	"SHOW_SYNC_GUI": {
+		"body": [
+			" SHOW_SYNC_GUI ${1|YES,NO|}"
+		],
+		"description": "SHOW_SYNC_GUI\nDetermines if the Creo dialog which is used for the SYNC_GUI_DYNAMIC setting will be shown on the windows.\n\nYES — shows the Creo dialog.\n\nNO — does not show the Creo dialog. *",
+		"prefix": "SHOW_SYNC_GUI"
+	},
+	"STARTUP_TEMP_MDL": {
+		"body": [
+			" STARTUP_TEMP_MDL ${1|YES,NO|}"
+		],
+		"description": "STARTUP_TEMP_MDL\nIn some cases Creo Parametric seems not to work properly if no previous model was on the screen. In case no model is on the screen, this option supplies the functionality to create a temporary model, activate it and remove it.\n\nYES— a temporary model is created, activated and removed\n\nNO— no temporary model is created. *\n\nNote: This option is not effective in case SmartAssembly runs in a SmartDesignServer environment. Use the configuration option of SmartDesignServer in this case.",
+		"prefix": "STARTUP_TEMP_MDL"
+	},
+	"SYNC_GUI_DYNAMIC": {
+		"body": [
+			"SYNC_GUI_DYNAMIC ${1|YES,NO|}"
+		],
+		"description": "SYNC_GUI_DYNAMIC\nDetermines if the graphical user interface will be launched dynamically to allow rotating of the model, access to layers, showing datum elements etc.\n\nYES — uses dynamic synchronization mechanism.*\n\nNO — uses old SmartAssembly 5.0 synchronization mechanism.",
+		"prefix": "SYNC_GUI_DYNAMIC"
+	},
+	"SYSTEM_UNIT": {
+		"body": [
+			"SYSTEM_UNIT ${1|mm,inch,undefined|}"
+		],
+		"description": "SYSTEM_UNIT\nThis option is only effective if CONSIDER_MIXED_UNITS is set to YES.\n\nmm—metric units are expected for UDF tab files.\n\ninch—inch units are expected for UDF tab files.\n\nundefined—the current model on the screen determines the expected unit. In case no current model is available the Pro/ENGINEER configuration option pro_unit_length resp. pro_unit_sys is used. If non of this applies metric will be assumed.",
+		"prefix": "SYSTEM_UNIT"
+	},
+	"TEMPLATE_PATH": {
+		"body": [
+			"TEMPLATE_PATH  ${1:path}"
+		],
+		"description": "TEMPLATE_PATH\nThe template path either addresses a directory or a Creo Elements/Pro model which will be used as default template. By default <PARTS_PATH>\\project\\default\\default.asm is used.",
+		"prefix": "TEMPLATE_PATH"
+	},
+	"THREAD_DIAMETER_SYMBOL": {
+		"body": [
+			"THREAD_DIAMETER_SYMBOL ${1:ANY_SYMBOL}"
+		],
+		"description": "THREAD_DIAMETER_SYMBOL\n<any symbol>—Places symbol in front of a diameter name after UDF is created.\n\nDefaults to no symbol. *",
+		"prefix": "THREAD_DIAMETER_SYMBOL"
+	},
+	"TOL_TYPE": {
+		"body": [
+			"TOL_TYPE ${1|TOL_DEFAULT,TOL_LIMITS,TOL_PLUS_MINUS,TOL_PLUS_MINUS_SYM,TOL_PLUS_MINUS_SYM_SUPERSCRIPT|}"
+		],
+		"description": "TOL_TYPE\nTOL_DEFAULT—Displays tolerance of library templates without change.*\n\nTOL_NOMINAL—Displays dimensions as nominal values without tolerances.\n\nTOL_LIMITS—Displays dimensions with upper and lower limits.\n\nTOL_PLUS_MINUS—Displays dimensions with plus and minus tolerances.\n\nTOL_PLUS_MINUS_SYM—Displays dimensions with a single value for plus and minus tolerance.\n\nTOL_PLUS_MINUS_SYM_SUPERSCRIPT—Displays symmetric tolerances in a superscript line.",
+		"prefix": "TOL_TYPE"
+	},
+	"UDF_DECIMAL_PLACES": {
+		"body": [
+			"UDF_DECIMAL_PLACES ${1:NUMBER_DECIMALS}"
+		],
+		"description": "UDF_DECIMAL_PLACES\nIf specified non angular dimensions of applied UDFs will be adjusted to this value. \n\n<integer>—Number of decimal places for UDFs.\n\nDefaults to -1 (DECIMAL_PLACES is used for this. If also DECIMAL_PLACES is not defined, dimensions of applied UDFs will not be adjusted).*",
+		"prefix": "UDF_DECIMAL_PLACES"
+	},
+	"UDF_TOL_ALL_DIMS": {
+		"body": [
+			" ${1|YES,NO|}"
+		],
+		"description": "UDF_TOL_ALL_DIMS\nYES—Applies the tolerance types to all dimensions of the UDF.\n\nNO—Applies the tolerance types only to the driving dimension of the UDF.",
+		"prefix": "UDF_TOL_ALL_DIMS"
+	},
+	"USE_MODAL_DIALOG": {
+		"body": [
+			" USE_MODAL_DIALOG ${1|YES,NO|}"
+		],
+		"description": "USE_MODAL_DIALOG\nDetermines if the dialog which is used to choose the program file is blocking Creo (which means it is a modal dialog) or not. Setting this option seems to avoid random crashes in combinations with a 3D Mouse.\n\nYES — blocks Creo Parametric.\n\nNO — does not block Creo Parametric.*",
+		"prefix": "USE_MODAL_DIALOG"
+	},
+	"USE_PDM_COMPONENTS": {
+		"body": [
+			"USE_PDM_COMPONENTS  ${1|YES,NO|}"
+		],
+		"description": "USE_PDM_COMPONENTS\nYES—Library elements are expected to be stored to PDM system\n\nNO—Library elements are retrieved from library.*",
+		"prefix": "USE_PDM_COMPONENTS"
+	},
+	"USE_SEARCH_PATHS": {
+		"body": [
+			" USE_SEARCH_PATHS ${1|YES,NO|}"
+		],
+		"description": "USE_SEARCH_PATHS\nThis option configures if search paths should be used for library components. This option also considers catalog files from PRO_LIBRARY_DIR.\n\nYES—Search path is used for library components.*\n\nNO—Search path is not be used for library components.",
+		"prefix": "USE_SEARCH_PATHS"
+	},
+	"USE_UDF_LOCAL_COPY": {
+		"body": [
+			" USE_UDF_LOCAL_COPY ${1|YES,NO|}"
+		],
+		"description": "USE_UDF_LOCAL_COPY\nDetermines if a UDF .gph file is copied to the working directory prior to place it. This option is only useful until Pro/ENGINEER Wildfire 3. By this time the working directory had to be changed to the UDF folder. Since Pro/ENGINEER Wildfire 4 there is no reason to activate this option.\n\nAfter the UDF was inserted, the .gph file will be deleted.\n\nYES — Copies the .gph file to the working directory.\n\nNO — Does not copy the .gph file to the working directory. *",
+		"prefix": "USE_UDF_LOCAL_COPY"
+	},
+	"WRITE_LOG_FILE": {
+		"body": [
+			" WRITE_LOG_FILE ${1|YES,NO|}"
+		],
+		"description": "WRITE_LOG_FILE\nDetermine if a log file with the error messages output should be written to the same location where the trail files are stored. Name of the log file is SmartAssembly60_<date>-<time>.log.\n\nYES — the log file will be written in case of errors.\n\nNO — no log file will be created. *",
+		"prefix": "WRITE_LOG_FILE"
+	}
 }
-
-
