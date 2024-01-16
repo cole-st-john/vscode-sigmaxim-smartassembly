@@ -35,7 +35,7 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-### 1.0.10/11
+### 1.0.10/11/12
 Added snippet and language highlighting support to SA 9.0.2 / 2023-12-21-01.
 
 ### 1.0.9
