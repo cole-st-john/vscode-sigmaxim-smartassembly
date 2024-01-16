@@ -11647,7 +11647,7 @@
     },
     "MESSAGE_BOX": {
         "body": [
-            "MESSAGE_BOX ${1| ,SCREEN_LOCATION,IMAGE|} ${1/(SCREEN_LOCATION)|(IMAGE)/${1:+location_option}${2:+\"image\"}/} ${2:\"input_STRING_text\"}"
+            "MESSAGE_BOX ${2|SCREEN_LOCATION,IMAGE|}${3/(SCREEN_LOCATION)|(IMAGE)/${3:+ location_option}${3:+ image}/} ${1:input_STRING_text}"
         ],
         "description": "Shows a message in a box. The program will halt until the user is pressing the OK button.",
         "prefix": "MESSAGE_BOX"
@@ -19674,5 +19674,19 @@
         ],
         "description": "Zooms to a reference in the current model on the screen.",
         "prefix": "ZOOM_TO_REF"
+    },
+    "__LINE__": {
+        "body": [
+            "__LINE__$1"
+        ],
+        "description": "Argument for print statements  - outputting the name of the program and line of code.",
+        "prefix": "__LINE__"
+    },
+    "MEASURECOPY": {
+        "body": [
+            "MEASURECOPY$1"
+        ],
+        "description": "Option of ASSEMBLE functions.",
+        "prefix": "MEASURECOPY"
     }
 }
