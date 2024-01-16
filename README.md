@@ -22,8 +22,6 @@ Visual Studio Code plugin that adds comprehensive support for creating and manag
 ### Debugging Tools - NEW
 ![Debugging tools - including...highlighting of program lines run.](images/highlighting_lines_run.gif)
 
-![Debugging tools - including...extraction of data structure names (variables, arrays, maps, etc.).](images/data_structure_names.gif)
-
 
 ## Extension Settings
 This extension contributes the following settings to allow easy support of productivity commands:
@@ -35,7 +33,7 @@ This extension contributes the following settings to allow easy support of produ
 
 ## Release Notes
 
-### 1.0.10/11/12
+### 1.0.10/11/12/13
 Added snippet and language highlighting support to SA 9.0.2 / 2023-12-21-01.
 
 ### 1.0.9
