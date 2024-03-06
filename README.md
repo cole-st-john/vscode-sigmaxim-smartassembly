@@ -2,6 +2,11 @@
 
 Visual Studio Code plugin that adds comprehensive support for creating and managing PTC Creo automations with SIGMAXIM Rules-Perfect solutions.
 
+## NO LONGER MAINTAINED
+
+> Following my leaving Sigmaxim Inc. in Feb 2024, and given the proprietary nature of the language, I will no longer be actively maintaining this repo.  Please reach out if you would like help forking it and continuing development. - Cole St John
+
+
 ## Automation with SIGMAXIM SMARTASSEMBLY in CREO Parametric
 ![Automation](images/automation.gif)
 
@@ -32,6 +37,9 @@ This extension contributes the following settings to allow easy support of produ
 * `sigmaxim-support.saLibraryRootPath`: SA Library - Path to Root Library Path (containing Component_Engine folder).
 
 ## Release Notes
+
+### NO LONGER MAINTAINED
+As noted above - this repo is no longer maintained.
 
 ### 1.0.10/11/12/13
 Added snippet and language highlighting support to SA 9.0.2 / 2023-12-21-01.
