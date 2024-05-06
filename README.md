@@ -4,7 +4,7 @@ Visual Studio Code plugin that adds comprehensive support for creating and manag
 
 ## NO LONGER MAINTAINED
 
-> Following my leaving Sigmaxim Inc. in Feb 2024, and given the proprietary nature of the language, I will no longer be actively maintaining this repo.  Please reach out if you would like help forking it and continuing development. - Cole St John
+> Following my leaving Sigmaxim Inc. in Feb 2024, and given the proprietary nature of the language, I will no longer be actively maintaining this repo.  Please reach out if you would like to continue its development. - Cole St John
 
 
 ## Automation with SIGMAXIM SMARTASSEMBLY in CREO Parametric
