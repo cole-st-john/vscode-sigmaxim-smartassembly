@@ -36,10 +36,15 @@ New debugging tools - including...highlighting of program lines run (can be extr
 ![Debugging tools - including...highlighting of program lines run.](images/highlighting_lines_run.gif)
 
 This particular feature relies on a formatted input : 
-``program.tab: line, line, line
-program.tab: line, line, line``
+``
+program.tab: line, line, line
+
+program.tab: line, line, line
+``
+
 that can be produced using the 
-``DEBUG_TAB_PERFORMANCE 0`` option.
+``DEBUG_TAB_PERFORMANCE 0`` 
+option.
 
 
 ## Extension Settings
