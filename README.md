@@ -35,17 +35,15 @@ New debugging tools - including...highlighting of program lines run (can be extr
 
 ![Debugging tools - including...highlighting of program lines run.](images/highlighting_lines_run.gif)
 
-This particular feature relies on a formatted input : 
-``
-program.tab: line, line, line
+This particular feature relies on a formatted input: 
 
-program.tab: line, line, line
-``
+``programA.tab: 1, 3, 4``
 
-that can be produced using the 
-``DEBUG_TAB_PERFORMANCE 0`` 
-option.
+``programB.tab: 5, 7, 10``
 
+This information can be produced by:
+1. Using option  ``DEBUG_TAB_PERFORMANCE 0``
+2. Parsing off the above information from the log file and into the required format.
 
 ## Extension Settings
 This extension contributes the following settings to allow easy support of productivity commands:
